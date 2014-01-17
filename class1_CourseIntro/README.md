@@ -1,4 +1,12 @@
-methods2
+Class 1 : Introduction to class
 ========
+Nicholas Reich
+--------
 
-Course materials for the UMass Biostatistics Methods 2 course, a.k.a. PUBHLTH 690NR: Statistical Modeling and Data Visualization.
+Class agenda
+* wits and wagers confidence interval quiz
+* syllabus go-through
+* walk through the crabs dataset
+* Small group discussions
+  ** how to best collect W&W data
+  ** principles of effective data visualization

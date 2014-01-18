@@ -4,9 +4,9 @@ Class 1 : Introduction to class
 
 
 Class agenda
-* quiz: wits and wagers confidence interval
+* quiz: wits and wagers
 * syllabus go-through
-* lab: visualization walk through of the crabs dataset
+* lab: ggplot2 visualization walk through of the crabs dataset
 * Small group discussions
   ** how to best collect W&W data
   ** principles of effective data visualization

@@ -4,9 +4,15 @@ Class 1 : Introduction to class
 
 
 Class agenda
-* wits and wagers confidence interval quiz
+* quiz: wits and wagers confidence interval
 * syllabus go-through
-* walk through the crabs dataset
+* lab: visualization walk through of the crabs dataset
 * Small group discussions
   ** how to best collect W&W data
   ** principles of effective data visualization
+* Big group discussion/wrap-up
+
+Homework
+* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* Take [CAOS test](https://apps3.cehd.umn.edu/artist/user/scale_select.html)
+* Prepare your own data visualization walk-through with a dataset of your own

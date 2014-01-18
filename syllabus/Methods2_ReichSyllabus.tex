@@ -1,0 +1,205 @@
+\documentclass[10pt]{article}
+\usepackage{geometry}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in} \setlength{\textwidth}{6.4in}
+\geometry{letterpaper, top=1.5cm, bottom=1.5cm, left=2cm}
+\usepackage[colorlinks=true, urlcolor=urlblue]{hyper ref}
+
+\usepackage{color}
+\definecolor{urlblue}{rgb}{0, 0, 0.5} % less intense blue
+
+\renewcommand{\familydefault}{cmss}
+
+
+\newenvironment{packed_list}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+\begin{document}
+\centerline{\bf \large PUBHLTH 690NR (3 credits)} 
+\centerline{\bf \large Biostatistics Methods II: Statistical Modeling and Data Visualization}
+\centerline{\bf Spring 2014 :: T/Th 11:15-12:30  :: Arnold 103 }
+
+\vspace{.25in}
+\noindent {\sc instructor}\\
+\noindent Professor Nicholas G Reich Ph.D. \\
+\noindent 425 Arnold House \\
+\noindent (413) 545-4534 \\
+\noindent nick [at] umass.edu \\
+\noindent on twitter: \href{https://twitter.com/reichlab}{@reichlab}\\
+\noindent Office Hours: TBD \\
+\noindent Teaching assistant: TBD 
+%\noindent Moodle site: \href{https://moodle.umass.edu/course/view.php?id=2905}{TBD}
+
+%\bigskip
+%\noindent {\sc Teaching assistant}:
+%TBD
+
+\bigskip
+\noindent {\sc materials}
+
+\noindent {\em Required Textbook}
+
+Kutner, M., Nachtsheim, C., Neter, J., and Li, W. (2004). \emph{Applied Linear Statistical Models}, \emph{4th Edition}. %ÒMcGraw-Hill/Irwin.
+  
+\noindent {\em Recommended Textbooks}
+
+Hosmer DW and Lemeshow S. (2000). \emph{Applied Logistic Regression}. \emph{2nd Edition}. %Wiley.
+
+Diez, D., Barr, C. and \c{C}etinkaya-Rundel, M. (2012). \emph{OpenIntro Statistics}. \emph{2nd Edition}. \href{http://www.openintro.org/stat/index.php}{free online textbook.}
+
+% Introduction to Statistical Thought by Michael Lavine, Chair of UMass Math/Stat \href{http://www.math.umass.edu/~lavine/Book/book.html}{[free PDF]}
+
+%\bigskip
+%\noindent {\sc Software} (both free downloads):\\
+\noindent {\em Software}
+
+R :: \href{http://www.r-project.org}{r-project.org} (or just Google "r")
+
+RStudio :: \href{http://www.rstudio.org}{rstudio.org}
+
+
+\bigskip
+\noindent {\sc Prerequisites}\\
+Biostatistics Methods 1, or equivalent. Otherwise, permission of instructor required. Working knowledge of basic matrix methods and calculus will be helpful. Familiarity with the R statistical programming language is expected.
+
+
+%\bigskip
+%\noindent {\sc Optional recommended readings:}\\
+%\noindent Visualize This: the FlowingData guide to design, visualization and statistics by Nathan Yau, Wiley (2011)\\
+%\noindent Any of Edward Tufte's four big books \\
+%\noindent Information is Beautiful, David McCandless \\
+%\noindent FlowingData blog \@ flowingdata.com 
+
+
+\bigskip
+\noindent {\sc Course Goals}
+
+ The aim of this course is to provide fundamental statistical concepts and tools relevant to the practice of summarizing, analyzing, and visualizing data. Continuing where Methods 1 (PUBHLTH 590AF) leaves off, this course will build your knowledge of the fundamental principles of biostatistical inference.  The course will focus on linear regression and generalized linear regression models. We will use a variety of examples and exercises from medical and public health research. %{\bf I hope that you come out of this class with a more complete and nuanced understanding of the practice and theory of statistics -- the kind of understanding that can only be gained by rolling up your sleeves and working with real data.}  
+
+
+\bigskip
+\noindent {\sc Learning Goals} {\em (By the end of the course students will be able to...)}
+
+\begin{itemize}
+\item perform advanced programming tasks in R, the language of modern statistical computing,
+%\item reason quantitatively in the presence of probabilistic uncertainty,
+\item independently formulate, fit, and interpret regression models to weigh evidence for/against hypotheses about associations between variables, 
+\item interpret commonly used statistics in public health studies,
+\item diagnose the ``goodness-of-fit'' of a given regression model, both on its own and relative to other regression models,
+\item create powerful data visualizations (using R package ggplot2) that reveal features of data or fitted models,
+\item design and run simulation studies, 
+\item write reproducible statistical analysis reports using knitr.
+%\item write succinct and accurate summaries of data analyses and computational algorithms, and
+%\item design and create a dynamic and visually arresting scientific poster. 
+\end{itemize}
+    
+ \clearpage
+%\bigskip
+\noindent {\sc Expectations} 
+
+%This course will require you to work thoughtfully, carefully, and independently and will require substantial work outside of class time. Because we will be using a more project-driven approach in this course, with assignments that will build upon one another into a final product, it is vital that you do not fall behind. If you feel as though you are falling behind or starting to lose a handle on the content, I expect you to come talk to me either after class or during office hours so that I can help as much as I can to set you back on track. Please do not wait to talk to me if you start to fall behind.\\
+ 
+%Additionally, this is a new course, that I will be developing and tweaking as we go through the semester. I would be very interested to hear your thoughts, constructive criticism and praise about the activities and content of the course. Please let me know (as we go or at the end) what is and is not working for you.
+
+\noindent Things you should expect from me:
+\vskip-5em
+\begin{packed_list}
+\vskip5em
+\item timely feedback on assignments and quizzes
+\item response to emailed questions in $<2$ working days (often sooner)
+\item attention to your questions related to coursework during office hours
+\item instruction in how to write, research, and debug R code
+\end{packed_list}
+
+\noindent Things you should not expect from me:
+\vskip-5em
+\begin{packed_list}
+\vskip5em
+\item time for frequent non-office hour drop-in questions
+\item comments on a research project that is unrelated to your coursework
+\item writing your code for you or {\em extensive} debugging of your code
+%\item a week-by-week breakdown of in-class activities and topics (the course is in development!)
+\end{packed_list}
+
+\bigskip
+\noindent {\sc Types of Assignments and Activities, with Grade Contributions}
+
+\noindent Problem sets and readings (25\%): Throughout the semester, I will assign several chapters of reading in a textbook and some accompanying problems (usually from the textbook). There will be between 3 and 5 problem sets throughout the semester. You will be required to hand in reproducible solutions, i.e. a knitr file that reproduces your answers. \\
+
+\noindent Quizzes (25\%): There will be occasional quizzes, some announced, some unannounced. They will be short (about 10 minutes), in-class quizzes that will test your understanding of material covered in the course up to that time. The quizzes will not be designed to be difficult, as they are largely designed to evaluate participation, engagement with the material, and attendance. Quizzes will take many forms: short answer or multiple choice questions, an in-class survey of results of a take-home lab assignment, etc... I will drop your lowest quiz score when calculating your final grade.  \\
+
+
+\noindent Participation  	($10\%$) :
+You are expected to attend class every day, to participate actively in group work and discussions, and to provide helpful and insightful feedback to fellow students.\\
+%from Aaron Swoboda: I consider course citizenship to be a vital part of your grade. A few of the characteristics of good class citizens are: attending all course meetings, using office hours, asking questions, offering to answer questions, actively listening when others are talking, and posting to online discussion forums, among others. Citizenship is more a function of quality than quantity. Note that the "default" citizenship score is 5 out of 10, which allows students who actively and productively contribute to class to substantially increase their grade. Please note that good citizenship is different from "talking a lot," and it is quite possible to earn a low citizenship score because you fail to let others contribute.
+
+\noindent Labs: We will be doing some hands-on in-class work. Often, there will be some additional work required to finish the labs after class ends. Labs will not be graded in and of themselves, but your understanding of the material covered by the labs will be evaluated often by short presentations and quizzes. \\
+
+\noindent Short presentations ($15\%$): In almost all class periods, there will be several short assignments given by individual students during class. The presentations will each be about 5 minutes long and typically will present results from in-class labs or other brief assignments given the previous class period. Presenters will be chosen randomly from the class roster. These presentations will count towards your participation grade. \\
+
+\noindent Independent Final Project (25\%): A large component of the course will be an independent project which will be presented to and evaluated (in part) by your classmates. A separate handout will provide details. 
+
+
+\bigskip
+\noindent {\sc Course Policies}
+
+Collaboration on homework is expected and encouraged, although you must write up your own assignment. No copying or cutting and pasting. Quizzes must be completed without assistance from your classmates. Your independent projects must be your own work. You may discuss your project with others and even solicit ideas and advice, but at the end of the day, you must complete all the analysis and write-up on your own. Any explicitly borrowed ideas must be cited appropriately.
+
+Late assignments: Completing homework assignments on time will be vital to not falling behind in this course. It is expected that you hand in assignments on time. If an assignment is handed in late, you will receive zero credit for the number of problems that your homework assignment is late. Days late will be rounded rounded up: i.e. if your problem is less than 24 hours late you will receive a zero for one problem. Note that while there may be many problems assigned for a given problem set, it is possible that a few problems will be graded.  
+
+Make-up quizzes: Make-ups will not be allowed. I will drop the lowest quiz score when calculating this portion of your grade. Quizzes may be unannounced.
+
+Attendance is required. Absences (excused or not) will impact your participation grade.
+
+All mobile devices (smart phones, dumb phones, tablets, etc...) must be turned off at the start of class and may not be used during class time.
+  
+  
+  \clearpage
+\bigskip
+\noindent {\sc Formal CEPH Course Competencies}
+\begin{itemize}
+\item   Describe the role biostatistics serves in public health.
+\item Distinguish among the different measurement scales and the implications for selection of statistical methods to be used based on these distinctions.
+\item Describe conceptual frameworks (statistical literacy) in biostatistics
+\item Apply biostatistical methods to the design of studies in public health.
+\item Use computers to appropriately store, manage, manipulate and process data for a research study using modern software.
+\item Apply descriptive techniques commonly used to summarize public health data. 
+\item Describe the basic concepts of probability, random variation and selected, commonly used, probability distributions.
+\item Select and perform the appropriate descriptive and inferential statistical methods in selected basic study design settings.
+\item Describe appropriate methodological alternatives to commonly used statistical methods when assumptions are violated.
+\item Integrate analysis strategies in biostatistics with principles and issues in epidemiology.
+\item Apply basic informatics techniques with vital statistics and public health records in the description of public health characteristics.
+\item Interpret results and critically evaluate basic statistical aspects of public health research and practice reported in the literature.
+\item Assist in the application of statistical theory to applied statistical problems.
+\item Develop a conceptual framework that integrates techniques and methods in biostatistics 
+\item Critically evaluate statistical aspects of public health research reported in the literature
+\item Develop written and oral presentations based on statistical analyses for both public health professionals and educated lay audiences.
+\item Apply statistical methods to solve problems in the health sciences and carry out theoretical research in statistical methodology.
+\end{itemize}
+  
+{\footnotesize 
+  
+\bigskip
+\noindent {\sc Academic Honesty Policy Statement}
+Since the integrity of the academic enterprise of any institution of higher education requires honesty in scholarship and research, academic honesty is required of all students at the University of Massachusetts Amherst.
+
+Academic dishonesty is prohibited in all programs of the University. Academic dishonesty includes but is not limited to: cheating, fabrication, plagiarism, and facilitating dishonesty. Appropriate sanctions may be imposed on any student who has committed an act of academic dishonesty. Instructors should take reasonable steps to address academic misconduct. Any person who has reason to believe that a student has committed academic dishonesty should bring such information to the attention of the appropriate course instructor as soon as possible. Instances of academic dishonesty not related to a specific course should be brought to the attention of the appropriate department Head or Chair. The procedures outlined below are intended to provide an efficient and orderly process by which action may be taken if it appears that academic dishonesty has occurred and by which students may appeal such actions.
+
+Since students are expected to be familiar with this policy and the commonly accepted standards of academic integrity, ignorance of such standards is not normally sufficient evidence of lack of intent.
+For more information about what constitutes academic dishonesty, please see the \href{http://umass.edu/dean_students/codeofconduct/acadhonesty/}{Dean of Students’ website}.
+
+}
+
+{\footnotesize 
+\bigskip
+\noindent {\sc Disability Statement}
+The University of Massachusetts Amherst is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and help create a barrier-free campus. If you are in need of accommodation for a documented disability, register with Disability Services to have an accommodation letter sent to your faculty. It is your responsibility to initiate these services and to communicate with faculty ahead of time to manage accommodations in a timely manner. For more information, consult the \href{http://www.umass.edu/disability/}{Disability Services website}.
+}
+
+\end{document}
+

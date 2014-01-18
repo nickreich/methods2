@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 -concordance.tex
-.log
+*.log
 .gz
 .DS_Store

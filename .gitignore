@@ -5,3 +5,6 @@
 *.log
 *.gz
 .DS_Store
+*.nav
+*.toc
+*.snm

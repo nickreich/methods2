@@ -1,7 +1,7 @@
 .Rproj.user
 .Rhistory
 .RData
--concordance.tex
+*-concordance.tex
 *.log
-.gz
+*.gz
 .DS_Store

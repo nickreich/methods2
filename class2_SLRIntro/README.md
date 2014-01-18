@@ -1,7 +1,7 @@
 Class 2 : Introduction to Regression
 ========
-#### Statistical Modeling and Data Visualization  (PUBHLTH 690NR)
-#### Taught by [Nicholas Reich](http://people.umass.edu/nick), UMass Biostatistics
+**Statistical Modeling and Data Visualization  (PUBHLTH 690NR)**   
+**Taught by [Nicholas Reich](http://people.umass.edu/nick), UMass Biostatistics**
 
 
 Class agenda

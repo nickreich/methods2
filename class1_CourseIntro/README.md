@@ -1,6 +1,7 @@
 Class 1 : Introduction to class
 ========
-#### for Nicholas Reich's Statistical Modeling and Data Visualization course at UMass (PUBHLTH 690NR)
+**Statistical Modeling and Data Visualization  (PUBHLTH 690NR)**   
+**Taught by [Nicholas Reich](http://people.umass.edu/nick), UMass Biostatistics**
 
 
 Class agenda

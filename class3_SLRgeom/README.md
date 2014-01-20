@@ -7,7 +7,7 @@ Class 3 : Geometry of regression and least squares
 Class agenda
 * random presentations: OpenIntro lab 7 "on your own" section
 * mini-lecture: least squares and geometry of regression
-* lab: Open the Mother/Daughter heights dataset. Use plot_ss() function to estimate some regression lines. Rather than using lm() to fit the data, calculate the betas ``by hand'' using R. How many lines of code did it take you? 
+* lab: Open the Mother/Daughter heights dataset. Use plot_ss() function to estimate some regression lines. Rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. How many lines of code did it take you? 
 
 Homework
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)

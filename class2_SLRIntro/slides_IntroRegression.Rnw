@@ -1,5 +1,5 @@
-%% Module 2 beamer/knitr slides
-%% Biostatistics in Practice workshop, January 2014
+%% beamer/knitr slides 
+%% for Statistical Modeling and Data Visualization course @ UMass
 %% Nicholas Reich: nick [at] schoolph.umass.edu
 
 
@@ -184,11 +184,11 @@ A linear regression model is a particular type of parametric regression.
 
 \begin{block}{Typical assumptions for a SLR model}
 \bi
-        \myitem A1: The model: e.g.  $\mathbb E[y_i|x_i] = f(x; \beta) +\epsilon_i= \beta_0 + \beta_1 x_1 + \epsilon_i$
+        \myitem A1: The model: e.g.  $y_i = f(x; \beta) +\epsilon_i= \beta_0 + \beta_1 x_1 + \epsilon_i$
 	\myitem A2: Unbiased errors: $\mathbb E[\epsilon_i|x_i]  = \mathbb E[\epsilon_i] = 0$   
         \myitem A3: Uncorrelated errors: $cov(\epsilon_i, \epsilon_j)=0$ for $i\neq j$.
 	\myitem A4: Constant variance: $ Var[y_i|x_i] = \sigma^2$
-	\myitem A5: Probability distribution: e.g. $\epsilon_i \sim N(0, \sigma^2)$.
+	\myitem A5: Probability distribution: e.g. $\epsilon_i \stackrel{iid}{\sim} N(0, \sigma^2)$.
         \myitem A6: Representative sampling: generalize to population.
 \ei
 \end{block}

@@ -7,6 +7,7 @@ Class 1 : Introduction to class
 Class agenda
 * quiz: wits and wagers
 * syllabus go-through
+* lab in-class computer discussion
 * lab: ggplot2 visualization walk through of the crabs dataset
 * Small group discussions
   ** how to best collect W&W data

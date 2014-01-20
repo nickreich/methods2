@@ -8,7 +8,7 @@ Class agenda
 * random presentations: data visualizations
 * mini-lecture: introduction to regression
 * lab: OpenIntro Lab 7. 
-* exercise: Everyone make a guess at minimal RSS after three tries with the plot_ss(). Take averages in groups.
+* exercise: Everyone make a guess at minimal RSS after three tries with the plot_ss(). Take averages in groups. Compare to minimal RSS based on lm() output.
 
 Homework
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)

@@ -10,7 +10,7 @@
 
 %	The following variables are assumed by the standard preamble:
 %	Global variable containing module name:
-\title{Basic philosophy and overview of regression}
+\title{Overview of regression}
 %	Global variable containing module shortname:
 %		(Currently unused, may be used in future.)
 \newcommand{\ModuleShortname}{introRegression}
@@ -27,6 +27,9 @@
 
 
 \input{../preambles/shortcuts}
+
+\hypersetup{colorlinks,linkcolor=,urlcolor=MainColor}
+
 
 %	******	Document body begins here	**********************
 
@@ -51,6 +54,10 @@
 
 "...to understand as far as possible with the available data how the conditional distribution of the response $y$ varies across subpopulations  determined by the possible values of the predictor or predictors." -- Cook and Weisberg (1999)
 
+\vspace{2em}
+
+Good overview \href{http://en.wikipedia.org/wiki/Regression_analysis}{on Wikipedia}.
+
 \end{frame}
 
 
@@ -64,8 +71,9 @@
 		\myitem Focus on prediction
 		\myitem Focus on description
 	\ei
-	\myitem Regression is an exercise in inferential statistics.
+	\myitem Regression is an exercise in inferential statistics: we are drawing evidence and conclusions from data about ``noisy'' systems.
 \ei
+
 
 \end{frame}
 
@@ -89,7 +97,7 @@ Given some data $y, x_1, x_2, \ldots x_p$, we are interesting finding a likely v
 \bi
 	\myitem Often, but not always, $y$ is continuous. (Called outcome, response, ``dependent variable").
 	\myitem The $x$'s can be continuous, binary, categorical. (Called predictor, covariate, ``independent variable").
-	\myitem We want $E(y | x) = f(x)$; we observe $y = f(x) + \epsilon$.
+	\myitem We want $\mathbb E(y | x) = f(x)$; we observe $y = f(x) + \epsilon$.
 \ei
 
 \end{frame}
@@ -97,13 +105,30 @@ Given some data $y, x_1, x_2, \ldots x_p$, we are interesting finding a likely v
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Example data: heights of mothers and daughters}
+\begin{frame}[fragile]{Example data: heights of mothers and daughters}
  Heights of $n=1375$ mothers in the UK under the age of 65 and one of their adult daughters over the age of 18 (collected and organized during the period 1893--1898 by the famous statistician Karl Pearson)
-\begin{figure}[h]
-    \includegraphics[width=.6\textwidth]{./figures/Fig01.pdf}  
-\end{figure}
+ 
+ 
+<<showHeights, message=FALSE>>=
+require(alr3)
+data(heights)
+head(heights)
+@
 
 \end{frame}
+
+\begin{frame}[fragile]{Example data: heights of mothers and daughters}
+ 
+<<plotHeights, message=FALSE, fig.height=4, tidy=FALSE>>=
+require(ggplot2)
+qplot(Mheight, Dheight, data=heights, col="red", 
+      alpha=.5) + theme(legend.position="none")
+@
+
+\end{frame}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -149,6 +174,24 @@ A linear regression model is a particular type of parametric regression.
 	\myitem Surprisingly flexible
 	\myitem Good approximation in many cases
 \ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{What do we need to assume?}
+
+
+\begin{block}{Typical assumptions for a SLR model}
+\bi
+        \myitem A1: The model: e.g.  $\mathbb E[y_i|x_i] = f(x; \beta) +\epsilon_i= \beta_0 + \beta_1 x_1 + \epsilon_i$
+	\myitem A2: Unbiased errors: $\mathbb E[\epsilon_i|x_i]  = \mathbb E[\epsilon_i] = 0$   
+        \myitem A3: Uncorrelated errors: $cov(\epsilon_i, \epsilon_j)=0$ for $i\neq j$.
+	\myitem A4: Constant variance: $ Var[y_i|x_i] = \sigma^2$
+	\myitem A5: Probability distribution: e.g. $\epsilon_i \sim N(0, \sigma^2)$.
+        \myitem A6: Representative sampling: generalize to population.
+\ei
+\end{block}
 
 \end{frame}
 

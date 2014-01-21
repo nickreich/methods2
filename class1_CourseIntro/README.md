@@ -16,6 +16,7 @@ Class agenda
 
 Homework
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* Create GitHub account, pull course repo into a directory on your machine. For instructions, see [this video](http://www.youtube.com/watch?v=YxZ8J2rqhEM).
+* Read through the syllabus
 * Take [CAOS test](https://apps3.cehd.umn.edu/artist/user/scale_select.html)
 * Prepare your own data visualization walk-through with a dataset of your own
-* Create GitHub account, pull course repo into a directory on your machine. For instructions, see [this video](http://www.youtube.com/watch?v=YxZ8J2rqhEM).

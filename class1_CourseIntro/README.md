@@ -10,8 +10,8 @@ Class agenda
 * lab in-class computer discussion
 * lab: ggplot2 visualization walk through of the crabs dataset
 * Small group discussions
-  ** how to best collect W&W data
-  ** principles of effective data visualization
+  * how to best collect W&W data
+  * principles of effective data visualization
 * Big group discussion/wrap-up
 
 Homework

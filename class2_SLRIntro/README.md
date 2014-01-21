@@ -5,11 +5,11 @@ Class 2 : Introduction to Regression
 
 
 Class agenda
-* random presentations: data visualizations
-* mini-lecture: introduction to regression
-* lab: OpenIntro Lab 7. 
-* exercise: Everyone make a guess at minimal RSS after three tries with the plot_ss(). Take averages in groups. Compare to minimal RSS based on lm() output.
+* mini-lecture: introduction to regression (30 min)
+* introduction to ggplot2 (30 min)
+* small groups: establish criteria for good data visualizations (10 min)
+* big group: consensus criteria
 
 Homework
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
-* Finish OpenIntro Lab 7 for next class
+* Prepare your own data visualization walk-through with a dataset of your own chosen from [these datasets](http://biostat.mc.vanderbilt.edu/wiki/Main/DataSets). An example walk through (of a much simpler/cleaner dataset than what you will be looking at) can be found in the class2 folder with the name lab_ggplot2DataViz.

@@ -8,6 +8,7 @@ Class agenda
 * wits and wagers CI exercise
 * random presentations: BtheB dataset introductions
 * mini-lecture: least squares and geometry of regression
+* lab: Open the Mother/Daughter heights dataset. Use plot_ss() function to estimate some regression lines. Rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. How many lines of code did it take you? 
 * lab: Formulate and fit a reasonable SLR model to BtheB dataset in small groups. Present regressions. Talk about different model formulations and results.
 
 Homework

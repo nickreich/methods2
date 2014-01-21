@@ -1,0 +1,112 @@
+Visualizing distributions
+========================================================
+
+#### for Nicholas Reich's Statistical Modeling and Data Visualization course at UMass (PUBHLTH 690NR)
+
+Being able to quickly and deftly charaterize univariate and bivariate distributions in a dataset is a crucial step towards understanding any dataset. 
+
+We begin by loading the ggplot2 package, a cutting-edge, actively-developed package that helps create pretty graphics, and the MASS package, which has lots of datasets.
+```{r}
+library(ggplot2)
+library(MASS)
+```
+
+Next, we're going to explore a dataset that is pre-loaded in R, the crabs dataset.
+```{r}
+data() ## look at all the datasets available to you
+data(crabs) ## load the crabs dataset
+str(crabs)
+summary(crabs)
+```
+
+Notice that the 'sp' and 'sex' columns in the crabs dataframe are "Factors". A factor is the name of the data type that R uses for categorical variables. Before we dive into analyzing the data, let's learn a little bit about factors.
+```{r factors}
+table(crabs$sex)
+head(crabs$sex)
+levels(crabs$sex)
+nlevels(crabs$sex)
+str(crabs)
+crabs$sex <- relevel(crabs$sex, ref="M") ## make 'Male' the reference level
+str(crabs) # note the numeric values of $sex have changed
+```
+In general, R will read character columns in an imported dataset in as factors. However, on occasion, you will need to create a factor from scratch.  here is such an example:
+```{r defineFactors}
+f <- c("a", "b", "a", "b", "a", "c") ## here is a character vector
+f.fac <- as.factor(f) ## we can make it a factor
+as.numeric(f.fac) ## and then if we convert it to numeric you can see the underlying values
+```
+
+Here are some univariate explorations of the crabs data.
+```{r univariateCrabs, message=FALSE}
+qplot(CW, data=crabs)
+qplot(CW, data=crabs, geom="histogram")
+
+qplot(sp, data=crabs)
+qplot(sp, data=crabs, fill=sex)
+with(crabs, table(sp, sex))
+```
+
+Here is some exploration of continuous by continuous data.
+```{r bivariateCrabs, message=FALSE}
+qplot(CW, RW, data=crabs)
+qplot(CW, RW, data=crabs, geom="point")
+qplot(CW, RW, data=crabs, geom=c("point", "density2d"))
+
+qplot(CW, RW, data=crabs, color=sex)
+qplot(CW, RW, data=crabs, color=sp)
+
+qplot(CW, FL, data=crabs, color=sex)
+qplot(CW, FL, data=crabs, color=sp)
+qplot(CW, FL, data=crabs, color=sp:sex)
+qplot(CW, FL, data=crabs, facets= . ~ sp)
+qplot(CW, FL, data=crabs, facets= . ~ sp, color=sex)
+
+
+qplot(CW, RW, data=crabs)
+qplot(CW, RW, data=crabs, geom=c("point"))
+qplot(CW, RW, data=crabs, geom=c("point", "smooth"))
+qplot(CW, RW, data=crabs, geom=c("point", "smooth"), color=sex)
+qplot(CW, RW, data=crabs, geom=c("point", "smooth", "density2d"), color=sex)
+```
+
+You can also create interactive graphics using the manipulate() function. Note: these interactive graphs will not show up in the printout of code and graphs.
+
+```{r manipulate, eval=FALSE}
+library(manipulate)
+manipulate(qplot(CW, crabs[,x], data=crabs), x=picker("RW", "FL", "CL", "CW", "BD"))
+manipulate(qplot(CW, crabs[,x], data=crabs, color=sex), 
+           x=picker("RW", "FL", "CL", "BD"))
+manipulate(qplot(CW, crabs[,x], data=crabs, color=crabs[,y]), 
+           x=picker("RW", "FL", "CL", "BD"),
+           y=picker("sex", "sp"))
+manipulate(qplot(CW, crabs[,x], data=crabs, color=crabs[,y])+xlim(15, xmax), 
+           x=picker("RW", "FL", "CL", "BD"),
+           y=picker("sex", "sp"),
+           xmax=slider(25, 75))
+```
+
+
+And some categorical by continuous
+```{r crabsFigs, message=FALSE}
+qplot(sex, CW, data=crabs)
+qplot(sex, CW, data=crabs, geom="point")
+qplot(sex, CW, data=crabs, geom="boxplot")
+qplot(sex, CW, data=crabs, geom="boxplot", facets=.~sp)
+qplot(sex, CW, data=crabs, geom="boxplot", facets=sp~.)
+qplot(sex, CW, data=crabs, geom="violin")
+qplot(sex, CW, data=crabs, geom=c("violin", "point"))
+```
+
+
+```{r bigMatrix, message=FALSE}
+require(GGally)
+head(crabs)
+crabs.mat <- crabs[,4:8]
+ggpairs(crabs.mat)
+
+```
+
+
+```{r}
+sessionInfo()
+```

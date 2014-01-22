@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=9" >
 
-<title>Class Schedules</title>
+<title>Class Schedules (Spring 2014)</title>
 
 <style type="text/css">
 body, td {
@@ -142,19 +142,25 @@ hr {
 </head>
 
 <body>
-<h2>Class Schedules</h2>
+<h2>Class Schedules (Spring 2014)</h2>
 
 <p><strong>Statistical Modeling and Data Visualization  (PUBHLTH 690NR)</strong><br/>
 <strong>Taught by <a href="http://people.umass.edu/nick">Nicholas Reich</a>, UMass Biostatistics</strong></p>
 
-<h4><a href="https://github.com/nickreich/methods2/tree/master/class1_CourseIntro">Class 1</a></h4>
+<p><em>Shortcuts to classes</em></p>
+
+<p>January  <a href="#c1">21</a>  <a href="#c2">23</a>  <a href="#c3">28</a>  <a href="#c4">30</a> </p>
+
+<p><a name="c1"/></p>
+
+<h4>Class 1 (Jan 21): Course Introduction</h4>
 
 <p><em>Activities</em></p>
 
 <ul>
 <li>quiz: wits and wagers</li>
 <li>syllabus go-through, GitHub introduction</li>
-<li>lab in-class computer discussion</li>
+<li>in-class computer discussion</li>
 <li>class discussion: look at visualizations </li>
 <li>Small group discussions
 
@@ -174,7 +180,9 @@ hr {
 <li>Take <a href="https://apps3.cehd.umn.edu/artist/user/scale_select.html">CAOS test</a></li>
 </ul>
 
-<h4>Class 2</h4>
+<p><a name="c2"/></p>
+
+<h4>Class 2 (Jan 23): Introduction to Regression</h4>
 
 <p><em>Activies</em></p>
 
@@ -200,6 +208,48 @@ hr {
 <li>Is there a pair of variables that might work well for a Simple Linear Regression? (You don&#39;t necessarily need to run one, but you could.)</li>
 <li>Are there any obvious outliers in the data?</li>
 </ul></li>
+</ul>
+
+<p><a name="c3"/></p>
+
+<h4>Class 3 (Jan 28): Geometry of regression and least squares</h4>
+
+<p><em>Activities</em></p>
+
+<ul>
+<li>random presentations: OpenIntro lab 7 &ldquo;on your own&rdquo; section</li>
+<li>mini-lecture: least squares and geometry of regression</li>
+<li>lab: OpenIntro Lab 7. </li>
+<li>exercise: Everyone make a guess at minimal RSS after three tries with the plot_ss(). Take averages in groups. Compare to minimal RSS based on lm() output.</li>
+</ul>
+
+<p><em>Homework</em></p>
+
+<ul>
+<li>Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)</li>
+<li>Install the HSAUR2 package, read up on and explore the BtheB dataset (hint: &ldquo;?BtheB&#39;&#39;). Be prepared to describe the dataset and answer questions about it in next class. Example questions: What kind of study is this? Is it a randomized clinical trial? How many datapoints are there? What was the central hypothesis of this study? What is the central outcome?&hellip;</li>
+<li>Finish OpenIntro Lab 7 for next class</li>
+</ul>
+
+<p><a name="c4"/></p>
+
+<h4>Class 4 (Jan 30): SLR continued: R<sup>2,</sup> ANOVA, likelihood</h4>
+
+<p><em>Activities</em></p>
+
+<ul>
+<li>wits and wagers CI exercise</li>
+<li>random presentations: BtheB dataset introductions</li>
+<li>mini-lecture: least squares and geometry of regression</li>
+<li>lab: Open the Mother/Daughter heights dataset. Use plot_ss() function to estimate some regression lines. Rather than using lm() to fit the data, calculate the betas and the resulting RSS by hand&#39;&#39; using R. How many lines of code did it take you? </li>
+<li>lab: Formulate and fit a reasonable SLR model to BtheB dataset in small groups. Present regressions. Talk about different model formulations and results.</li>
+</ul>
+
+<p><em>Homework</em></p>
+
+<ul>
+<li>Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)</li>
+<li>Create a &quot;slr()&rdquo; R function that takes x and y vectors and outputs a list with: R&#39;s fitted lm() object and by-hand betas (calculated by likelihood or formulae). </li>
 </ul>
 
 </body>

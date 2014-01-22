@@ -3,8 +3,10 @@ Statistical Modeling and Data Visualization
 
 This repository contains course materials for the UMass Biostatistics Methods 2 course, a.k.a. PUBHLTH 690NR: Statistical Modeling and Data Visualization. It is taught by [Nicholas Reich](http://people.umass.edu/nick), Assistant Professor of Biostatistics at UMass-Amherst.
 
-### Class Schedules
-All class schedules, including homework assignments and class activities, are summarized on [this page](http://rpubs.com/nickreich/methods2).
+### Class Schedules and Materials
+Check out the [detailed class schedules page](http://rpubs.com/nickreich/methods2), this  includes homework assignments and class activities.
+
+Materials (slides, notes, R scripts, etc...) for each class are in the corresponding folder in this repository.
 
 ### Class Logistics 
 

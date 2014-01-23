@@ -8,6 +8,11 @@ Check out the [detailed class schedules page](http://rpubs.com/nickreich/methods
 
 Materials (slides, notes, R scripts, etc...) for each class are in the corresponding folder in this repository.
 
+Links to ggplot2 resources: 
+* [The Cookbook for R](http://www.cookbook-r.com/Graphs/) (I use this site all the time!)
+* [The ggplot2 site](http://ggplot2.org/)
+* [Hadley's ggplot2 book](umass.worldcat.org/title/ggplot2-elegant-graphics-for-data-analysis/oclc/656394958) Pretty sure you can look at this (if not download) for free via UMass Libraries.
+
 ### Class Logistics 
 
 #### Piazza 

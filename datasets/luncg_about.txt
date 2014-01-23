@@ -1,9 +1,0 @@
-About the dataset lungc
-(with acknowledgments to notes from Dr. Bandeen-Roche at JHSPH Biostatistics)
-
-This dataset contains 99 observations on patients who have soought treatment for the relief of respiratory disease symptoms. The dependent variable, Y, is a measure of the severity of the disease. A larger value indicates a more serious condition. The independent variables are:
-X1 = education (highest grade completed)
-X2 = measure of crowding of living quarters (larger values indicate moire crowding)
-X3 = measure of air quality at place of residence (larger number indicates poorer quality)
-X4 = nutritional status (larger number indicates better nutrition)
-X5 = smoking status (1 if smoker, 0 if non-smoker)

@@ -5,7 +5,8 @@ Class Schedules (Spring 2014)
 
 _Shortcuts to classes_
 
-January  [21](#c1)  [23](#c2)  [28](#c3)  [30](#c4) 
+January   [21](#c1)  [23](#c2)  [28](#c3)  [30](#c4) <br>
+February  [4](#c5)  [6](#c6)  [11](#c7)  [13](#c8) [18](#c9)  [20](#c10)  [25](#c11)  [27](#c12)
 
 
 <a name="c1"/>
@@ -48,22 +49,23 @@ _Homework_
 <a name="c3"/>
 #### Class 3 (Jan 28): Geometry of regression and least squares
 _Activities_
-* random presentations: OpenIntro lab 7 "on your own" section
-* mini-lecture: least squares and geometry of regression
-* lab: OpenIntro Lab 7. 
-* exercise: Everyone make a guess at minimal RSS after three tries with the plot_ss(). Take averages in groups. Compare to minimal RSS based on lm() output.
+* homework discussion/questions (5 min)
+* warm-ups (10 min)
+* mini-lecture: least squares and geometry of regression (30 min)
+* lab: OpenIntro Lab 7. (30 min)
+* exercise: Everyone make a guess at minimal RSS after three tries with the plot_ss(). Take averages in groups. Compare to minimal RSS based on summary(lm()) output.
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
-* Install the HSAUR2 package, read up on and explore the BtheB dataset (hint: ``?BtheB''). Be prepared to describe the dataset and answer questions about it in next class. Example questions: What kind of study is this? Is it a randomized clinical trial? How many datapoints are there? What was the central hypothesis of this study? What is the central outcome?...
-* Finish OpenIntro Lab 7 for next class
+* Add one or two simple linear regressions to your dataset write-up. 
+* Finish OpenIntro Lab 7 for next class.
+* Install the HSAUR2 package, read up on and explore the BtheB dataset (hint: ``?BtheB''). Be prepared to describe the dataset and answer questions about it in next class. 
 
 <a name="c4"/>
 #### Class 4 (Jan 30): SLR continued: R^2, ANOVA, likelihood
 _Activities_
+* warm-ups (10 min)
 * wits and wagers CI exercise
-* random presentations: BtheB dataset introductions
-* mini-lecture: least squares and geometry of regression
 * lab: Open the Mother/Daughter heights dataset. Use plot_ss() function to estimate some regression lines. Rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. How many lines of code did it take you? 
 * lab: Formulate and fit a reasonable SLR model to BtheB dataset in small groups. Present regressions. Talk about different model formulations and results.
 
@@ -71,3 +73,59 @@ _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
 * Create a "slr()" R function that takes x and y vectors and outputs a list with: R's fitted lm() object and by-hand betas (calculated by likelihood or formulae). 
 
+<a name="c5"/>
+#### Class 5 (Feb 4): 
+_Activities_
+* wits and wagers CI exercise
+* mini-lecture: conducting simulation studies on regression
+* lab: implementing a simulation study
+
+_Homework_
+* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+
+<a name="c6"/>
+#### Class 6 (Feb 6): 
+_Activities_
+
+_Homework_
+* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+
+<a name="c7"/>
+#### Class 7 (Feb 11): 
+_Activities_
+
+_Homework_
+* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+
+<a name="c8"/>
+#### Class 8 (Feb 13): 
+_Activities_
+
+_Homework_
+* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+
+<a name="c9"/>
+#### Class 9 (Feb 18): 
+_Activities_
+* wits and wagers CI exercise
+
+_Homework_
+
+<a name="c10"/>
+#### Class 10 (Feb 20): 
+_Activities_
+
+_Homework_
+
+<a name="c11"/>
+#### Class 11 (Feb 25): 
+_Activities_
+* wits and wagers CI exercise
+
+_Homework_
+
+<a name="c12"/>
+#### Class 12 (Feb 27): 
+_Activities_
+
+_Homework_

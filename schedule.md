@@ -62,26 +62,26 @@ _Homework_
 * Install the HSAUR2 package, read up on and explore the BtheB dataset (hint: ``?BtheB''). Be prepared to describe the dataset and answer questions about it in next class. 
 
 <a name="c4"/>
-#### Class 4 (Jan 30): SLR continued: R^2, ANOVA, likelihood
+#### Class 4 (Jan 30): Hands-on SLR practice 
 _Activities_
 * warm-ups (10 min)
-* wits and wagers CI exercise
-* lab: Open the Mother/Daughter heights dataset. Use plot_ss() function to estimate some regression lines. Rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. How many lines of code did it take you? 
-* lab: Formulate and fit a reasonable SLR model to BtheB dataset in small groups. Present regressions. Talk about different model formulations and results.
+* small groups: Formulate and fit a reasonable SLR model to BtheB dataset. Use plot_ss() function to estimate some regression lines. 
+* whole class: Present regressions. Talk about different model formulations and results.
+* small groups: For the same model as above, rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. Work in small groups, but write your own code. How many lines of code did it take you? 
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
-* Create a "slr()" R function that takes x and y vectors and outputs a list with: R's fitted lm() object and by-hand betas (calculated by likelihood or formulae). 
+* Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). 
 
 <a name="c5"/>
-#### Class 5 (Feb 4): 
+#### Class 5 (Feb 4): R^2, ANOVA, likelihood
 _Activities_
 * wits and wagers CI exercise
-* mini-lecture: conducting simulation studies on regression
-* lab: implementing a simulation study
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* mini-lecture: conducting simulation studies on regression
+* lab: implementing a simulation study
 
 <a name="c6"/>
 #### Class 6 (Feb 6): 

@@ -59,6 +59,31 @@
 
 \end{frame}
 
+\begin{frame}[fragile]{Which data show a stronger association?}
+<<warmUp, echo=FALSE, message=FALSE, fig.height=5.5>>=
+require(ggplot2)
+n <- 1000
+x <- runif(n)
+s1 <- 1
+s2 <- 4
+yA <- 4 + 5*x + rnorm(n, sd=s1)
+yB <- 4 + 15*x + rnorm(n, sd=s2)
+dat <- data.frame(x=rep(x, times=2), y=c(yA, yB), set=rep(1:2, each=n))
+qplot(x, y, data=dat, facets=.~set, alpha=.5) + geom_smooth(method="lm", se=FALSE, color="red") + theme_bw() + guides(alpha=FALSE)
+@
+\end{frame}
+
+
+%\begin{frame}[fragile]{Warm up regression output}
+
+%<<warmUpOutput, echo=FALSE, fig.height=2>>=
+%qplot(x, y, data=dat, facets=.~set, alpha=.5) + geom_smooth(method="lm", se=FALSE, %color="red") + theme_bw() + guides(alpha=FALSE)
+%summary(lm(yA~x))$coef
+%summary(lm(yB~x))$coef
+%@
+
+%\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Regression modeling}
@@ -163,8 +188,8 @@ x4 <- abs(rnorm(100, mean=2))
 y4 = -2+4*x4 + rnorm(100, 0, x4*2)
 
 ## plot all at once
-dat <- data.frame(x=c(x1, x2, x3, x4), y=c(y1, y2, y3, y4), graph=rep(1:4, each=100))
-qplot(x, y, data=dat) + facet_wrap(~graph, scales="free")
+dat1 <- data.frame(x=c(x1, x2, x3, x4), y=c(y1, y2, y3, y4), graph=rep(1:4, each=100))
+qplot(x, y, data=dat1) + facet_wrap(~graph, scales="free")
 @
 
 \end{frame}

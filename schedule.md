@@ -49,16 +49,16 @@ _Homework_
 <a name="c3"/>
 #### Class 3 (Jan 28): Geometry of regression and least squares
 _Activities_
-* homework discussion/questions (5 min)
+* homework discussion/questions (10 min)
 * warm-ups (10 min)
 * mini-lecture: least squares and geometry of regression (30 min)
-* lab: OpenIntro Lab 7. (30 min)
+* lab: OpenIntro Lab 7. (20 min)
 * exercise: Everyone make a guess at minimal RSS after three tries with the plot_ss(). Take averages in groups. Compare to minimal RSS based on summary(lm()) output.
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
 * Add one or two simple linear regressions to your dataset write-up. 
-* Finish OpenIntro Lab 7 for next class.
+* Finish OpenIntro Lab 7.
 * Install the HSAUR2 package, read up on and explore the BtheB dataset (hint: ``?BtheB''). Be prepared to describe the dataset and answer questions about it in next class. 
 
 <a name="c4"/>

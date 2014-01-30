@@ -65,27 +65,33 @@ _Homework_
 #### Class 4 (Jan 30): Hands-on SLR practice 
 _Activities_
 * warm-ups (10 min)
-* small groups: Formulate and fit a reasonable SLR model to BtheB dataset. Use plot_ss() function to estimate some regression lines. 
-* whole class: Present regressions. Talk about different model formulations and results.
+* introductions (5 min)
+* OpenIntro lab 7 questions (5 min)
+* More dataset descriptions/results, including BtheB (5 min)
+* small groups: Formulate and fit a reasonable SLR model to BtheB dataset. (10 min)
+* whole class: Present regressions. Talk about different model formulations and results. (10 min)
 * small groups: For the same model as above, rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. Work in small groups, but write your own code. How many lines of code did it take you? 
+* writing functions in R
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
 * Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). 
+* Use this new slr() function to refit the SLR models in your dataset writeup. Compare the results and make sure they are returning the same thing. 
 
 <a name="c5"/>
 #### Class 5 (Feb 4): R^2, ANOVA, likelihood
 _Activities_
 * wits and wagers CI exercise
+* lecture: conducting simulation studies on regression
+* lab: implementing a simulation study
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
-* mini-lecture: conducting simulation studies on regression
-* lab: implementing a simulation study
 
 <a name="c6"/>
 #### Class 6 (Feb 6): 
 _Activities_
+* lecture: SLR final concepts
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)

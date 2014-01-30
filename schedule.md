@@ -68,15 +68,17 @@ _Activities_
 * introductions (5 min)
 * OpenIntro lab 7 questions (5 min)
 * More dataset descriptions/results, including BtheB (5 min)
-* small groups: Formulate and fit a reasonable SLR model to BtheB dataset. (10 min)
-* whole class: Present regressions. Talk about different model formulations and results. (10 min)
-* small groups: For the same model as above, rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. Work in small groups, but write your own code. How many lines of code did it take you? 
-* writing functions in R
+* small groups: Formulate and fit a reasonable SLR model to BtheB dataset. (30 min)
+* whole class: Present regressions. Talk about different model formulations and results. (15 min)
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
-* Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). 
-* Use this new slr() function to refit the SLR models in your dataset writeup. Compare the results and make sure they are returning the same thing. 
+* In your small groups, create a write-up for a simple analysis of the BtheB dataset. Each group should create a repository on GitHub for their analysis. The .Rnw or .Rmd file that you use should be in that repository and every member of the group should have at least one commit or push to the repository before the next class. (You should not commit any additional files, like the .aux files from LaTeX compiling, just the files that are needed to comile your analysis.) Here is a minimal list of things that should be included in your write-up. I encourage you to push beyond just this list, however. 
+  * A few sentences of background/context for the BtheB dataset.
+  * A quantitative and/or visual description of what variables you chose to use for your analysis, along with a hypothesis (or two) that you will be testing.
+  * A description of the characteristics of the missing data (including a figure if needed) and a statement and justification as to whether your group is concerned about the missingness having an impact on your analysis.
+  * Results, with interpretation, of output from an SLR model. We haven't discussed yet using binary predictors or X variables, but feel free to include them. The interpretation is very similar. "For a one unit change in X, ..."
+
 
 <a name="c5"/>
 #### Class 5 (Feb 4): R^2, ANOVA, likelihood
@@ -84,9 +86,14 @@ _Activities_
 * wits and wagers CI exercise
 * lecture: conducting simulation studies on regression
 * lab: implementing a simulation study
+* small groups: For the same model as above, rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. Work in small groups, but write your own code. How many lines of code did it take you? 
+* writing functions in R
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). 
+* Use this new slr() function to refit the SLR models in your dataset writeup. Compare the results and make sure they are returning the same thing. 
+* Post your current dataset writeup on Piazza.
 
 <a name="c6"/>
 #### Class 6 (Feb 6): 

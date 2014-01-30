@@ -84,10 +84,10 @@
 \begin{frame}{Some definitions / SLR products}
 
 \bi
-	\myitem {\it Fitted values}: $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i$
-	\myitem {\it Residuals / estimated errors}: $\hat{\epsilon}_i = y_i - \hat{y}_i$
-	\myitem {\it Residual sum of squares}: $\sum_{i = 1}^{n} \hat{\epsilon_i}^2$
-	\myitem {\it Residual variance}: $\hat{\sigma^2} = \frac{RSS}{n-2}$
+	\myitem {\it Fitted values}: $\hat{y}_i := \hat{\beta}_0 + \hat{\beta}_1 x_i$
+	\myitem {\it Residuals / estimated errors}: $\hat{\epsilon}_i := y_i - \hat{y}_i$
+	\myitem {\it Residual sum of squares}: RSS := $\sum_{i = 1}^{n} \hat{\epsilon_i}^2$
+	\myitem {\it Residual variance}: $\hat{\sigma^2} := \frac{RSS}{n-2}$
 	\myitem {\it Degrees of freedom}: $n - 2$
 \ei
 

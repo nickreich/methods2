@@ -78,15 +78,14 @@ _Homework_
   * A quantitative and/or visual description of what variables you chose to use for your analysis, along with a hypothesis (or two) that you will be testing.
   * A description of the characteristics of the missing data (including a figure if needed) and a statement and justification as to whether your group is concerned about the missingness having an impact on your analysis.
   * Results, with interpretation, of output from an SLR model. We haven't discussed yet using binary predictors or X variables, but feel free to include them. The interpretation is very similar. "For a one unit change in X, ..."
-
+* Read [this description](http://nicercode.github.io/guides/functions/) of how to write and use functions in R.
 
 <a name="c5"/>
 #### Class 5 (Feb 4): R^2, ANOVA, likelihood
 _Activities_
-* warm-ups
-* lecture: SLR final concepts
-* writing functions in R
-* small groups: For the same model as above, rather than using lm() to fit the data, calculate the betas and the resulting RSS ``by hand'' using R. Work in small groups, but write your own code. How many lines of code did it take you? 
+* warm-ups (10 min)
+* lecture: SLR final concepts (40 min)
+* writing functions in R (15 min)
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
@@ -97,6 +96,7 @@ _Homework_
 <a name="c6"/>
 #### Class 6 (Feb 6): 
 _Activities_
+* in small groups: compare functions, come up with a consensus "best" functional method for calculating the betas.
 * lecture: conducting simulation studies on regression
 * lab: implementing a simulation study
 

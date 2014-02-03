@@ -188,50 +188,13 @@ ANOVA is based on the fact that $SS_{tot} = SS_{reg}+SS_{res}$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{R example}
-\tiny
-\begin{verbatim}
-> linmod = lm(y~x)
-> linmod
 
-Call:
-lm(formula = y ~ x)
-
-Coefficients:
-(Intercept)            x  
-     2.1123       0.6003  
-
-\end{verbatim}
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]{R example}
-\tiny
-\begin{verbatim}
-> linmod = lm(y~x)
-> summary(linmod)
-
-Call:
-lm(formula = y ~ x)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--1.3882 -0.6804 -0.3060  0.5997  1.6538 
-
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  2.11232    0.25305   8.347 4.42e-09 ***
-x            0.60031    0.05787  10.373 4.27e-11 ***
----
-Signif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1 
-
-Residual standard error: 0.8979 on 28 degrees of freedom
-Multiple R-squared: 0.7935,	Adjusted R-squared: 0.7861 
-F-statistic: 107.6 on 1 and 28 DF,  p-value: 4.266e-11 
-
-\end{verbatim}
+<<linmod, message=FALSE>>=
+require(alr3)
+data(heights)
+linmod <- lm(Dheight~Mheight, data=heights)
+linmod
+@
 
 \end{frame}
 
@@ -240,14 +203,9 @@ F-statistic: 107.6 on 1 and 28 DF,  p-value: 4.266e-11
 
 \begin{frame}[fragile]{R example}
 
-\tiny
-\begin{verbatim}
-> names(linmod)
- [1] "coefficients"  "residuals"     "effects"       "rank"         
- [5] "fitted.values" "assign"        "qr"            "df.residual"  
- [9] "xlevels"       "call"          "terms"         "model"   
-
-\end{verbatim}
+<<linmod2, size='footnotesize'>>=
+summary(linmod)
+@
 
 \end{frame}
 
@@ -256,21 +214,9 @@ F-statistic: 107.6 on 1 and 28 DF,  p-value: 4.266e-11
 
 \begin{frame}[fragile]{R example}
 
-\tiny
-\begin{verbatim}
-> linmod$residuals
-          1           2           3           4           5           6 
--0.65795159  1.09467200  1.04653908  0.58695625  1.47428252  0.44508175 
-          7           8           9          10          11          12 
--1.38817067 -0.68783957 -1.33798474 -0.58862243 -0.73403398 -0.07046559 
-...
-> linmod$fitted.values
-        1         2         3         4         5         6         7         8 
-8.2383435 3.8425638 5.1553944 3.9636613 2.5746592 4.2532308 0.6626529 6.5525729 
-        9        10        11        12        13        14        15        16 
-4.1892281 7.8259228 4.7695845 2.6346779 5.0130986 2.2310004 1.6555433 4.4381019 
-...
-\end{verbatim}
+<<linmod3, size='footnotesize'>>=
+names(linmod)
+@
 
 \end{frame}
 
@@ -279,23 +225,13 @@ F-statistic: 107.6 on 1 and 28 DF,  p-value: 4.266e-11
 
 \begin{frame}[fragile]{R example}
 
-\tiny
-\begin{verbatim}
 
-> names(summary(linmod))
- [1] "call"          "terms"         "residuals"     "coefficients" 
- [5] "aliased"       "sigma"         "df"            "r.squared"    
- [9] "adj.r.squared" "fstatistic"    "cov.unscaled" 
->
-> summary(linmod)$coef
-             Estimate Std. Error   t value     Pr(>|t|)
-(Intercept) 2.1123158  0.2530506  8.347404 4.417462e-09
-x           0.6003053  0.0578741 10.372607 4.265778e-11
->
-> summary(linmod)$r.squared
-[1] 0.7934966
-
-\end{verbatim}
+<<linmod4, size='footnotesize'>>=
+head(linmod$residuals)
+head(resid(linmod))
+head(linmod$fitted.values)
+head(fitted(linmod))
+@
 
 \end{frame}
 
@@ -304,23 +240,23 @@ x           0.6003053  0.0578741 10.372607 4.265778e-11
 
 \begin{frame}[fragile]{R example}
 
-\tiny
-\begin{verbatim}
 
-> anova(linmod)
-Analysis of Variance Table
+<<linmod5, size='footnotesize'>>=
+names(summary(linmod))
+summary(linmod)$coef
+summary(linmod)$r.squared
+@
 
-Response: y
-          Df Sum Sq Mean Sq F value    Pr(>F)    
-x          1 86.744  86.744  107.59 4.266e-11 ***
-Residuals 28 22.575   0.806                      
----
-Signif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1 
->
->
-> 1- 22.575/86.744
+\end{frame}
 
-\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{R example}
+
+<<linmod6, size='footnotesize'>>=
+anova(linmod)
+@
 
 \end{frame}
 
@@ -358,68 +294,17 @@ Recall $\beta_0 = E(y | x = 0)$
 
 \begin{frame}[fragile]{R example}
 
-\tiny
-\begin{verbatim}
+<<linmodCentered, size='scriptsize'>>=
+heights$centeredMheight <- heights$Mheight - mean(heights$Mheight)
+centeredLinmod <- lm(Dheight ~ centeredMheight, data=heights)
+summary(centeredLinmod)
+@
 
-> x.cen = x - mean(x)
-> 
-> linmod.cen = lm(y ~ x.cen)
-> summary(linmod.cen)
-
-Call:
-lm(formula = y ~ x.cen)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--1.3882 -0.6804 -0.3060  0.5997  1.6538 
-
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  4.11183    0.16394   25.08  < 2e-16 ***
-x.cen        0.60031    0.05787   10.37 4.27e-11 ***
----
-Signif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1 
-
-Residual standard error: 0.8979 on 28 degrees of freedom
-Multiple R-squared: 0.7935,	Adjusted R-squared: 0.7861 
-F-statistic: 107.6 on 1 and 28 DF,  p-value: 4.266e-11 
-\end{verbatim}
 
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[fragile]{R example}
-
-\tiny
-\begin{verbatim}
-
-> x2 = x*2
-> 
-> linmod.x2 = lm(y ~ x2)
-> summary(linmod.x2)
-
-Call:
-lm(formula = y ~ x2)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--1.3882 -0.6804 -0.3060  0.5997  1.6538 
-
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  2.11232    0.25305   8.347 4.42e-09 ***
-x2           0.30015    0.02894  10.373 4.27e-11 ***
----
-Signif. codes:  0 ?***? 0.001 ?**? 0.01 ?*? 0.05 ?.? 0.1 ? ? 1 
-
-Residual standard error: 0.8979 on 28 degrees of freedom
-Multiple R-squared: 0.7935,	Adjusted R-squared: 0.7861 
-F-statistic: 107.6 on 1 and 28 DF,  p-value: 4.266e-11 
-\end{verbatim}
-
-\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -502,20 +387,21 @@ Note about the variance of $\beta_1$:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Today's big ideas}
+\begin{frame}{Summary}
 
+\begin{block}{Today's big ideas}
 \bi
-	\myitem Simple linear regression definitions
-	\myitem Properties of least squares estimates
+	\item Simple linear regression definitions
+	\item Properties of least squares estimates
 \ei
+\end{block}
 
-\vspace{.75cm}
-\hrule
-\vspace{.75cm}
-
+\begin{block}{Coming up soon}
 \bi
-	\myitem Suggested reading: Faraway Ch 2.2 - 2.3
+        \item More on MLR 
 \ei
+\end{block}
+
 
 \end{frame}
 

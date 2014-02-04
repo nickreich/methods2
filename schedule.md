@@ -140,5 +140,6 @@ _Homework_
 <a name="c12"/>
 #### Class 12 (Feb 27): 
 _Activities_
+~ Mid-semester course evaluations (25 min)
 
 _Homework_

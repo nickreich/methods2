@@ -91,7 +91,6 @@ _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
 * Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). 
 * Use this new slr() function to refit the SLR models in your dataset writeup. Compare the results and make sure they are returning the same thing. 
-* Post your current dataset writeup on Piazza.
 
 <a name="c6"/>
 #### Class 6 (Feb 6): 

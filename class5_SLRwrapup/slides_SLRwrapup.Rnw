@@ -179,10 +179,11 @@ ANOVA is based on the fact that $SS_{tot} = SS_{reg}+SS_{res}$
 \bi
 	\myitem Both take advantage of sums of squares
 	\myitem Both are defined for more complex models
-	\myitem ANOVA can be used to derive a ``global hypothesis test" based on an F test
+	\myitem ANOVA can be used to derive a ``global hypothesis test" based on an F test (more on this later)
 \ei
 
 \end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -260,6 +261,17 @@ anova(linmod)
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{R example}
+
+<<linmod7, size='footnotesize'>>=
+anova(linmod)
+(r2 <- 1-7052/(7052+2237))
+@
+
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -322,13 +334,14 @@ summary(centeredLinmod)
 
 \begin{frame}[t]{Properties of $\hat{\beta}_0, \hat{\beta}_1$}
 
-Estimates are unbiased:
+\begin{block}{Estimates are unbiased:}
 
-$E(\hat{\beta_0}) = $
+$E(\hat{\beta_0}) = \beta_0$
 
 \vspace{2cm}
 
-$E(\hat{\beta_1}) = $
+$E(\hat{\beta_1}) = \beta_1$
+\end{block}
 
 \end{frame}
 
@@ -337,13 +350,16 @@ $E(\hat{\beta_1}) = $
 
 \begin{frame}[t]{Properties of $\hat{\beta}_0, \hat{\beta}_1$}
 
-Variances of estimates:
+\begin{block}{Variances of estimates}
 
-$Var(\hat{\beta_0}) = $
+$Var(\hat{\beta_0}) = \frac{\bar x\sigma^2}{\sum x^2}$
 
 \vspace{2cm}
 
-$Var(\hat{\beta_1}) = $
+$Var(\hat{\beta_1}) = \frac{\sigma^2}{S_{xx}}$
+
+where $S_{xx} = \sum (x-\bar x)^2$
+\end{block}
 
 \end{frame}
 
@@ -355,7 +371,7 @@ $Var(\hat{\beta_1}) = $
 Note about the variance of $\beta_1$:
 \bi
 	\myitem Denominator contains $SS_{x} = \sum (x_i - \bar{x})^2$
-	\myitem To decrease variance of $\beta_1$, increase variance of $x$
+	\myitem To decrease variance of $\hat \beta_1$, increase variance of $x$
 \ei
 
 \end{frame}

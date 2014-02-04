@@ -6,7 +6,7 @@ Class Schedules (Spring 2014)
 _Shortcuts to classes_
 
 January   [21](#c1)  [23](#c2)  [28](#c3)  [30](#c4) <br>
-February  [4](#c5)  [6](#c6)  [11](#c7)  [13](#c8) [18](#c9)  [20](#c10)  [25](#c11)  [27](#c12)
+February  [4](#c5)  [6](#c6)  [11](#c7)  [13](#c8) [20](#c9)  [25](#c10)  [27](#c11)
 
 
 <a name="c1"/>
@@ -89,8 +89,8 @@ _Activities_
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
-* Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). 
-* Use this new slr() function to refit the SLR models in your dataset writeup. Compare the results and make sure they are returning the same thing. 
+* Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). Try to write this as a function, but if you have trouble, then just write it as a few lines of R code and create an object as described.
+* Use this new slr() function/code to refit the SLR models in your dataset writeup. Compare the results and make sure they are returning the same thing. 
 
 <a name="c6"/>
 #### Class 6 (Feb 6): 
@@ -117,27 +117,20 @@ _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
 
 <a name="c9"/>
-#### Class 9 (Feb 18): 
+#### Class 9 (Feb 20): 
 _Activities_
-* wits and wagers CI exercise
 
 _Homework_
 
 <a name="c10"/>
-#### Class 10 (Feb 20): 
-_Activities_
-
-_Homework_
-
-<a name="c11"/>
-#### Class 11 (Feb 25): 
+#### Class 10 (Feb 25): 
 _Activities_
 * wits and wagers CI exercise
 
 _Homework_
 
-<a name="c12"/>
-#### Class 12 (Feb 27): 
+<a name="c11"/>
+#### Class 11 (Feb 27): 
 _Activities_
 ~ Mid-semester course evaluations (25 min)
 

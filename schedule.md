@@ -95,9 +95,10 @@ _Homework_
 <a name="c6"/>
 #### Class 6 (Feb 6): 
 _Activities_
-* in small groups: compare functions, come up with a consensus "best" functional method for calculating the betas.
-* lecture: conducting simulation studies on regression
-* lab: implementing a simulation study
+* warm ups (15 min)
+* demo: GitHub and RStudio demo (10 min)
+* small groups: compare slr() functions from homework. summarize similarities and differences in approaches. Was there a consensus "best" approach? (20 min)
+* lecture: interpreting coefficients from MLR.
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
@@ -105,6 +106,8 @@ _Homework_
 <a name="c7"/>
 #### Class 7 (Feb 11): 
 _Activities_
+* lecture: conducting simulation studies on regression
+* lab: implementing a simulation study
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)

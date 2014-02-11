@@ -114,6 +114,7 @@ _Activities_
 
 _Homework_
 * Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
+* Add a fitted MLR to your dataset write-up. State the model, in equation form. Describe it in words. Interpret your fitted coefficients.
 
 <a name="c8"/>
 #### Class 8 (Feb 13): 

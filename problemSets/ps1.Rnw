@@ -3,8 +3,9 @@
 \geometry{letterpaper, top=1.5cm, left=2cm}                % ... or a4paper or a5paper or ... 
 \usepackage{url}
 \renewcommand{\familydefault}{cmss}
+\usepackage{soul}
 
-\title{Problem Set 1: Due Thursday, 2/13/2014 by the beginning of class}
+\title{Problem Set 1: Due \st{Thursday, 2/13/2014} {\bf Tuesday, 2/25/2014} by the beginning of class}
 \author{PUBHLTH 690NR: Statistical Modeling and Data Visualization (UMass-Amherst)\\ 
         Instructor: Nicholas G Reich}
 \date{} 
@@ -13,17 +14,25 @@
 
 \maketitle
 
+Please note: this assignment has been modified as of 2/11/2014. Additions to the assignment are in boldface.
+
+{\bf You must hand in a digital source file that the instructors can compile (using knitr) to create a PDF or HTML file with your problem set. The entire problem set must be handed in as a digitial file. Equations must be typeset in the document itself. The TA will provide instructions about how to hand in assignments.}
+
 \begin{enumerate}
 
-\item Read KNN chapter 1-3, OpenIntro Chapter 7
+\item \st{Read KNN chapter 1-3, OpenIntro Chapter 7}
+
+\item {\bf Read KNN chapters 1, 6.1-6.5, 6.8-6.9, 7.5-7.6, OpenIntro Chapters 7 and 8}
 
 \item Derive the SLR estimators $\hat \beta_0$ and $\hat \beta_1$. 
 
 \item Problems from KNN Chapter 1: 5, 6, 7, 10, 11, 27, 28, 36, 42
 
-\item Problems from KNN Chapter 2: 1, 10, 13, 28, 30, 50, 68
+\item \st{Problems from KNN Chapter 2: 1, 10, 13, 28, 30, 50, 68}
 
-\item Problems from KNN Chapter 3: 8, 19, 24
+\item \st{Problems from KNN Chapter 3: 8, 19, 24}
+
+\item {\bf Problems from KNN Chapter 6: 2, 3, 5(a-d), 9, 10(a,b,d), 15(a-d), 22, 31}
 
 \end{enumerate}
 

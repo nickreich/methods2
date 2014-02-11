@@ -81,7 +81,7 @@ _Homework_
 * Read [this description](http://nicercode.github.io/guides/functions/) of how to write and use functions in R.
 
 <a name="c5"/>
-#### Class 5 (Feb 4): R^2, ANOVA, likelihood
+#### Class 5 (Feb 4): R^2, ANOVA
 _Activities_
 * warm-ups (10 min)
 * lecture: SLR final concepts (40 min)
@@ -106,8 +106,11 @@ _Homework_
 <a name="c7"/>
 #### Class 7 (Feb 11): 
 _Activities_
-* lecture: conducting simulation studies on regression
-* lab: implementing a simulation study
+* warm ups: wits and wagers (15 min)
+* small groups: collecting data on wits and wagers (10 min)
+* homework update
+* MLR coefficient interpretation and matrix notation (20 min)
+* MLR example walk-through (15 min)
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
@@ -115,6 +118,8 @@ _Homework_
 <a name="c8"/>
 #### Class 8 (Feb 13): 
 _Activities_
+* lecture: conducting simulation studies on regression
+* lab: implementing a simulation study
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)

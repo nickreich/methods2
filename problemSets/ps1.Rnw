@@ -34,6 +34,8 @@ Please note: this assignment has been modified as of 2/11/2014. Additions to the
 
 \item {\bf Problems from KNN Chapter 6: 2, 3, 5(a-d), 9, 10(a,b,d), 15(a-d), 22, 31}
 
+\item {\em EXTRA CREDIT: Create a simulation where you show an example of omitted variable bias.}
+
 \end{enumerate}
 
 

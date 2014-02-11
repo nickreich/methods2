@@ -113,7 +113,7 @@ _Activities_
 * MLR example walk-through (15 min)
 
 _Homework_
-* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
 
 <a name="c8"/>
 #### Class 8 (Feb 13): 
@@ -122,13 +122,14 @@ _Activities_
 * lab: implementing a simulation study
 
 _Homework_
-* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
 
 <a name="c9"/>
 #### Class 9 (Feb 20): 
 _Activities_
 
 _Homework_
+* Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
 
 <a name="c10"/>
 #### Class 10 (Feb 25): 
@@ -136,6 +137,8 @@ _Activities_
 * wits and wagers CI exercise
 
 _Homework_
+* Problem Set 1: Due TODAY at beginning of class
+
 
 <a name="c11"/>
 #### Class 11 (Feb 27): 

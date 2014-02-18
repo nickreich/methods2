@@ -26,10 +26,10 @@ tagline: Spring, 2014
 
 <!--**[Resources and further reading](pages/resources.html)** -->
 
-**Required books** 
+**Required books** <br>
 KNN
 
-**Recommended books** 
+**Recommended books** <br>
 &nbsp; &nbsp; Y Xie, _[Dynamic documents with R and knitr](http://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20)_<br>
 ggplot2 by Hadley Wickham
 
@@ -38,5 +38,5 @@ ggplot2 by Hadley Wickham
 ---
 
 Sources on [github](http://github.com):
-- The [source for the website](https://github.com/nickreich/methods2/tree/tree/gh-pages)
+- The [source for the website](https://github.com/nickreich/methods2/tree/gh-pages)
 - The [source for other material](https://github.com/nickreich/methods2/tree/master)

@@ -18,7 +18,7 @@ tagline: Spring, 2014
 
 **Office hours**: Wed 9&ndash;10
 
-**Prerequisite**: Some knowledge of [R](http://www.r-project.org).
+**Prerequisite**: Some knowledge of [R](http://www.r-project.org), basic calculus.
 
 **Lectures**: Tu/Th, 11:15am&ndash;12:30pm, LGRC A203
 

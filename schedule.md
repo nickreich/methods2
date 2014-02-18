@@ -118,16 +118,12 @@ _Homework_
 
 <a name="c8"/>
 #### Class 8 (Feb 13): 
-_Activities_
-* lecture: conducting simulation studies on regression
-* lab: implementing a simulation study
-
-_Homework_
-* Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
+SNOW DAY, CLASS CANCELLED.
 
 <a name="c9"/>
 #### Class 9 (Feb 20): 
 _Activities_
+* lecture: matrix formulation of MLR
 
 _Homework_
 * Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)

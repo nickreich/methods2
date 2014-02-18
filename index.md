@@ -27,11 +27,11 @@ tagline: Spring, 2014
 <!--**[Resources and further reading](pages/resources.html)** -->
 
 **Required books** <br>
-KNN
+&nbsp; &nbsp; KNN
 
 **Recommended books** <br>
 &nbsp; &nbsp; Y Xie, _[Dynamic documents with R and knitr](http://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20)_<br>
-ggplot2 by Hadley Wickham
+&nbsp; &nbsp; ggplot2 by Hadley Wickham
 
 **Project**
 

@@ -81,7 +81,7 @@ _Homework_
 * Read [this description](http://nicercode.github.io/guides/functions/) of how to write and use functions in R.
 
 <a name="c5"/>
-#### Class 5 (Feb 4): R^2, ANOVA, likelihood
+#### Class 5 (Feb 4): R^2, ANOVA
 _Activities_
 * warm-ups (10 min)
 * lecture: SLR final concepts (40 min)
@@ -95,9 +95,10 @@ _Homework_
 <a name="c6"/>
 #### Class 6 (Feb 6): 
 _Activities_
-* in small groups: compare functions, come up with a consensus "best" functional method for calculating the betas.
-* lecture: conducting simulation studies on regression
-* lab: implementing a simulation study
+* warm ups (15 min)
+* demo: GitHub and RStudio demo (10 min)
+* small groups: compare slr() functions from homework. summarize similarities and differences in approaches. Was there a consensus "best" approach? (20 min)
+* lecture: interpreting coefficients from MLR.
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
@@ -105,22 +106,27 @@ _Homework_
 <a name="c7"/>
 #### Class 7 (Feb 11): 
 _Activities_
+* warm ups: wits and wagers (15 min)
+* small groups: collecting data on wits and wagers (10 min)
+* homework update
+* MLR coefficient interpretation and matrix notation (20 min)
+* MLR example walk-through (15 min)
 
 _Homework_
-* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
+* Add a fitted MLR to your dataset write-up. State the model, in equation form. Describe it in words. Interpret your fitted coefficients.
 
 <a name="c8"/>
 #### Class 8 (Feb 13): 
-_Activities_
-
-_Homework_
-* Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+SNOW DAY, CLASS CANCELLED.
 
 <a name="c9"/>
 #### Class 9 (Feb 20): 
 _Activities_
+* lecture: matrix formulation of MLR
 
 _Homework_
+* Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
 
 <a name="c10"/>
 #### Class 10 (Feb 25): 
@@ -128,6 +134,8 @@ _Activities_
 * wits and wagers CI exercise
 
 _Homework_
+* Problem Set 1: Due TODAY at beginning of class
+
 
 <a name="c11"/>
 #### Class 11 (Feb 27): 

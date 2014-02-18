@@ -1,3 +1,8 @@
+---
+layout: page
+title: Course schedule
+---
+
 Class Schedules (Spring 2014)
 -------
 **Statistical Modeling and Data Visualization  (PUBHLTH 690NR)**   

@@ -57,9 +57,8 @@
 \bi
         \myitem Multiple Linear Regression 
 	\bi
-		\myitem Interpretation
 		\myitem Notation
-		%\myitem Estimation
+		\myitem Estimation
 	\ei
 \ei
 
@@ -86,21 +85,12 @@
 \end{frame}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}[t]{Interpretation of $\beta_1$}
-
-
-\end{frame}
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Omitted variable bias}
 
-What happens if we ignore $x_2$ and fit the simple linear regression:
+What happens if the true regression model is
+$$ y_i = \beta_0 + \beta_1 x_{i,1} + \beta_2 x_{i,2} + \epsilon_i$$
+but  we ignore $x_2$ and fit the simple linear regression
 $$ y_i = \beta^{*}_0 + \beta^{*}_1 x_{i,1} + \epsilon^{*}_i$$
 
 Does $\beta^{*}_1 = \beta_{1}$? 
@@ -143,12 +133,14 @@ If both of the following conditions are met, then  $\beta^{*}_1 = \beta_1$:
 \end{frame}
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Matrix notation}
+\begin{frame}{Multiple linear regressoion}
 
 \bi
-	\myitem Let
+        \myitem Let
 	\begin{displaymath}\tiny
 	\by = \left[
 		\begin{array}{c}
@@ -203,6 +195,139 @@ $$\by = \bX\bbeta + \bepsilon$$
 \ei
 
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Mean, variance and covariance of a random vector}
+
+\bi
+	\myitem Let $\by^{T} = [y_1,\ldots,y_n]$ be an $n$-component random vector. Then its mean and variance are defined as
+	\beqa
+		E(\by)^{T} &=& [E(y_1),\ldots,E(y_n)] \\
+		Var(\by) &=& E\left[(\by - E\by)(\by - E\by)^T\right] = E(\by\by^T) - (E\by)(E\by)^T
+    	\eeqa
+	\bigskip
+	\myitem Let $\by$ and $\bz$ be an $n$-component and an $m$-component random vector respectively. Then their covariance is an $n\times m$ matrix defined by
+	\beqa
+		Cov(\by,\bz) = E\big[(\by - E\by)(\bz - \bz)^T\big]
+	\eeqa
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Least squares}
+
+As in simple linear regression, we want to find the $\bbeta$ that minimizes the residual sum of squares.
+$$RSS(\bbeta) = \sum_i \epsilon_i ^2 = \epsilon ^T \epsilon$$
+\vskip2em
+
+After taking the derivative, setting equal to zero, we obtain:
+$$\hat \bbeta = \bX(\bX^{T}\bX)^{-1}\bX \by$$
+
+
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sampling distribution of $\hat{\bbeta}$}
+
+If our usual assumptions are satisfied and $\epsilon \stackrel{iid}{\sim} \N{0}{\sigma^2}$ then 
+$$\hat{\bbeta} \sim \N{\bbeta}{\sigma^2 (\bX^{T}\bX)^{-1}}.$$
+
+\bi
+        \myitem This will be used later for inference.
+	\myitem Even without Normal errors, asymptotic Normality of LSEs is possible under reasonable assumptions.
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Definitions}
+
+\bi
+	\myitem {\it Fitted values}: $\hat{\by} = \bX \hat{\bbeta} = \bX(\bX^{T}\bX)^{-1}\bX \by = \bH \by$
+	\myitem {\it Residuals / estimated errors}: $\hat{\bepsilon} = \by - \hat{\by}$
+	\myitem {\it Residual sum of squares}: $\sum_{i = 1}^{n} \hat{\epsilon_i}^2 = \hat{\bepsilon}^{T}\hat{\bepsilon}$
+	\myitem {\it Residual variance}: $\hat{\sigma^2} = \frac{RSS}{n-p-1}$
+	\myitem {\it Degrees of freedom}: $n - p - 1$
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{$R^2$ and sums of squares}
+
+\bi
+	\myitem Regression sum of squares $SS_{reg} = \sum (\hat{y}_i -\bar{y})^2$
+	\myitem Residual sum of squares $SS_{res} = \sum (y_i - \hat{y}_i)^2$
+	\myitem Total sum of squares $SS_{tot} = \sum (y_i - \bar{y})^2$
+	\myitem Coefficient of determination
+	$$ R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}= \frac{\sum (\hat{y}_i -\bar{y})^2}{\sum (y_i - \bar{y})^2}$$
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Hat matrix}
+
+Some properties of the hat matrix:
+\bi
+	\myitem It is a projection matrix: $\bH \bH = \bH$
+	\myitem It is symmetric: $\bH^{T} = \bH$
+	\myitem The residuals are $\hat{\epsilon} = (\bI - \bH) \by$
+	\myitem The inner product of $(\bI - \bH) \by$ and $\bH \by$ is zero (predicted values and residuals are uncorrelated).
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Projection space interpretation}
+
+The hat matrix projects $\by$ onto the column space of $\bX$. Alternatively, minimizing the $RSS(\bbeta)$ is equivalent to minimizing the Euclidean distance between $\by$ and the column space of $\bX$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Lung Data Example (con't from last clas)}
+
+<<loadData, echo=FALSE>>=
+dat <- read.table("~/Google Drive/teaching/methods2/datasets/lung/lungc.txt", header=TRUE)
+@
+
+
+<<lungMLR, tidy=FALSE>>=
+mlr2 <- lm(disease ~ crowding + education + airqual, 
+           data=dat, x=TRUE, y=TRUE)
+X = mlr2$x
+y = mlr2$y
+(betaHat = solve( t(X) %*% X) %*% t(X) %*% y )
+coef(mlr2)
+@
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

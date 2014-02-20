@@ -47,7 +47,7 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 
 *[Project](pages/project.html)*
 
-*Datasets*
+*Datasets*<br>
  * Some datasets may be found in the datsets folder of the Google Drive folder for this course. 
  * Datasets from the KNN textbook exercises can be downloaded [here](https://netfiles.umn.edu/users/nacht001/www/nachtsheim/index.html).
  * Other datasets are available from the Vanderbilt data website. 

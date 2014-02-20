@@ -129,6 +129,6 @@ _Homework_
 
 #### Class 11 (Feb 27): <a name="c2"/>[&nbsp;](#c2)
 _Activities_
-~ Mid-semester course evaluations (25 min)
+* Mid-semester course evaluations (25 min)
 
 _Homework_

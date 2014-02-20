@@ -1,12 +1,8 @@
 ---
 layout: page
-title: Course schedule
+title: Biostat Methods 2
+tagline: Class schedules
 ---
-
-Class Schedules (Spring 2014)
--------
-**Statistical Modeling and Data Visualization  (PUBHLTH 690NR)**   
-**Taught by [Nicholas Reich](http://people.umass.edu/nick), UMass Biostatistics**
 
 _Shortcuts to classes_
 

@@ -10,8 +10,7 @@ January   [21](#c1)  [23](#c2)  [28](#c3)  [30](#c4) <br>
 February  [4](#c5)  [6](#c6)  [11](#c7)  [13](#c8) [20](#c9)  [25](#c10)  [27](#c11)
 
 
-<a name="c1"/>
-#### Class 1 (Jan 21): Course Introduction
+#### Class 1 (Jan 21): Course Introduction <a name="c1"/>[&nbsp;](#c1)
 _Activities_
 * quiz: wits and wagers
 * syllabus go-through, GitHub introduction
@@ -19,7 +18,7 @@ _Activities_
 * class discussion: look at visualizations 
 * Small group discussions
   * principles of effective data visualization
-  * how to best collect W&W data
+  * how to best collect WnW data
 * Big group discussion/wrap-up
 
 _Homework_
@@ -28,8 +27,7 @@ _Homework_
 * Read through the syllabus
 * Take [CAOS test](https://apps3.cehd.umn.edu/artist/user/scale_select.html)
 
-<a name="c2"/>
-#### Class 2 (Jan 23): Introduction to Regression
+#### Class 2 (Jan 23): Introduction to Regression <a name="c2"/>[&nbsp;](#c2)
 _Activies_
 * introduction to ggplot2 (15 min)
 * small groups: establish 5 specific criteria for creating good data visualizations (10 min)
@@ -47,8 +45,7 @@ _Homework_
   * Is there a pair of variables that might work well for a Simple Linear Regression? (You don't necessarily need to run one, but you could.)
   * Are there any obvious outliers in the data?
 
-<a name="c3"/>
-#### Class 3 (Jan 28): Geometry of regression and least squares
+#### Class 3 (Jan 28): Geometry of regression and least squares <a name="c3"/>[&nbsp;](#c3)
 _Activities_
 * homework discussion/questions (10 min)
 * warm-ups (10 min)
@@ -62,8 +59,7 @@ _Homework_
 * Finish OpenIntro Lab 7.
 * Install the HSAUR2 package, read up on and explore the BtheB dataset (hint: ``?BtheB''). Be prepared to describe the dataset and answer questions about it in next class. 
 
-<a name="c4"/>
-#### Class 4 (Jan 30): Hands-on SLR practice 
+#### Class 4 (Jan 30): Hands-on SLR practice  <a name="c4"/>[&nbsp;](#c4)
 _Activities_
 * warm-ups (10 min)
 * introductions (5 min)
@@ -81,8 +77,7 @@ _Homework_
   * Results, with interpretation, of output from an SLR model. We haven't discussed yet using binary predictors or X variables, but feel free to include them. The interpretation is very similar. "For a one unit change in X, ..."
 * Read [this description](http://nicercode.github.io/guides/functions/) of how to write and use functions in R.
 
-<a name="c5"/>
-#### Class 5 (Feb 4): R^2, ANOVA
+#### Class 5 (Feb 4): R^2, ANOVA <a name="c5"/>[&nbsp;](#c5)
 _Activities_
 * warm-ups (10 min)
 * lecture: SLR final concepts (40 min)
@@ -93,8 +88,7 @@ _Homework_
 * Create a "slr()" R function that takes x and y vectors and outputs a list with two objects: (1) a fitted lm() object and (2) by-hand betas (calculated by likelihood or formulae). Try to write this as a function, but if you have trouble, then just write it as a few lines of R code and create an object as described.
 * Use this new slr() function/code to refit the SLR models in your dataset writeup. Compare the results and make sure they are returning the same thing. 
 
-<a name="c6"/>
-#### Class 6 (Feb 6): 
+#### Class 6 (Feb 6): Version control <a name="c6"/>[&nbsp;](#c6)
 _Activities_
 * warm ups (15 min)
 * demo: GitHub and RStudio demo (10 min)
@@ -103,8 +97,7 @@ _Activities_
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
 
-<a name="c7"/>
-#### Class 7 (Feb 11): 
+#### Class 7 (Feb 11): MLR interpretations <a name="c7"/>[&nbsp;](#c7)
 _Activities_
 * warm ups: wits and wagers (15 min)
 * small groups: collecting data on wits and wagers (10 min)
@@ -116,12 +109,10 @@ _Homework_
 * Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
 * Add a fitted MLR to your dataset write-up. State the model, in equation form. Describe it in words. Interpret your fitted coefficients.
 
-<a name="c8"/>
-#### Class 8 (Feb 13): 
+#### Class 8 (Feb 13): <a name="c8"/>[&nbsp;](#c8)
 SNOW DAY, CLASS CANCELLED.
 
-<a name="c9"/>
-#### Class 9 (Feb 20): 
+#### Class 9 (Feb 20): MLR estimation and notation <a name="c9"/>[&nbsp;](#c9)
 _Activities_
 * lecture: matrix formulation of MLR
 * small groups: visualization crititque
@@ -129,17 +120,14 @@ _Activities_
 _Homework_
 * Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
 
-<a name="c10"/>
-#### Class 10 (Feb 25): 
+#### Class 10 (Feb 25): MLR <a name="c10"/>[&nbsp;](#c10)
 _Activities_
 * wits and wagers CI exercise
 
 _Homework_
 * Problem Set 1: Due TODAY at beginning of class
 
-
-<a name="c11"/>
-#### Class 11 (Feb 27): 
+#### Class 11 (Feb 27): <a name="c2"/>[&nbsp;](#c2)
 _Activities_
 ~ Mid-semester course evaluations (25 min)
 

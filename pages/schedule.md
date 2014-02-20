@@ -99,7 +99,6 @@ _Activities_
 * warm ups (15 min)
 * demo: GitHub and RStudio demo (10 min)
 * small groups: compare slr() functions from homework. summarize similarities and differences in approaches. Was there a consensus "best" approach? (20 min)
-* lecture: interpreting coefficients from MLR.
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
@@ -125,6 +124,7 @@ SNOW DAY, CLASS CANCELLED.
 #### Class 9 (Feb 20): 
 _Activities_
 * lecture: matrix formulation of MLR
+* small groups: visualization crititque
 
 _Homework_
 * Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)

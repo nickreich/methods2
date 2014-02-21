@@ -8,7 +8,7 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Methods 2: Statistical Modeling and Data Visualization
+title : Statistical Modeling and Data Visualization, Methods 2
 author :
   name : Nicholas Reich
   email : nick@umass.edu

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Biostat Methods 2
-tagline: Class schedules
+title: Class schedules
+tagline: Spring, 2014
 ---
 
 <!--_Shortcuts to classes_

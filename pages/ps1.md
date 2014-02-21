@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Biostat Methods 2
-tagline: Problem Set 1
+title: Problem Set 1
+tagline: Spring, 2014
 ---
 
 You must hand in a digital source file that the instructors can compile (using knitr) to create a PDF or HTML file with your problem set. The entire problem set must be handed in as a digitial file. Equations must be typeset in the document itself. The TA will provide instructions about how to hand in assignments.

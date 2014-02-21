@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Biostat Methods 2
-tagline: lecture notes
+title: Lecture notes
+tagline: Spring, 2014
 ---
 
 \[S=Slides | A=Annotated Slides | R=R Code\]

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Biostat Methods 2
-tagline: grading
+title: Grades
+tagline: Spring, 2014
 ---
 
 ####Types of Assignments and Activities, with Grade Contributions

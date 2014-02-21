@@ -41,19 +41,19 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 
 &nbsp; &nbsp; *[Piazza](https://piazza.com/umass/spring2014/pubhlth690nr/home)*
 
-*[Grades](pages/grades.html)*
+&nbsp; &nbsp; *[Grades](pages/grades.html)*
 
-*Problem sets*<br>
-&nbsp; &nbsp; [Problem Set 1](pages/ps1.html) due 2/25/2014<br>
-&nbsp; &nbsp; Problem Set 2<br>
-&nbsp; &nbsp; Problem Set 3
+&nbsp; &nbsp; *Problem sets*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [Problem Set 1](pages/ps1.html) due 2/25/2014<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Problem Set 2<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Problem Set 3
 
-*[Project](pages/project.html)*
+&nbsp; &nbsp; *[Project](pages/project.html)*
 
-*Datasets*<br>
-&nbsp; &nbsp; Some datasets may be found in the datsets folder of the Google Drive folder for this course. <br>
-&nbsp; &nbsp; Datasets from the KNN textbook exercises can be downloaded [here](https://netfiles.umn.edu/users/nacht001/www/nachtsheim/index.html). <br>
-&nbsp; &nbsp; Other datasets are available from the Vanderbilt data website. 
+&nbsp; &nbsp; *Datasets*<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Some datasets may be found in the datsets folder of the Google Drive folder for this course. <br>
+&nbsp; &nbsp; &nbsp; &nbsp; Datasets from the KNN textbook exercises can be downloaded [here](https://netfiles.umn.edu/users/nacht001/www/nachtsheim/index.html). <br>
+&nbsp; &nbsp; &nbsp; &nbsp; Other datasets are available from the Vanderbilt data website. 
 
 
 ---

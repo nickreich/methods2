@@ -18,7 +18,10 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 
 **Office hours**: Wed 9&ndash;10am
 
-**Prerequisite**: Biostatistics Methods 1, or equivalent. Otherwise, permission of instructor required. Working knowledge of basic matrix methods and calculus will be helpful. Familiarity with the [R statistical programming language](http://www.r-project.org) is expected.
+**Prerequisites**: <br> 
+&nbsp; &nbsp; Biostatistics Methods 1, or equivalent. Otherwise, permission of instructor required. <br>
+&nbsp; &nbsp; Working knowledge of basic matrix methods and calculus will be helpful. <br>
+&nbsp; &nbsp; Familiarity with the [R statistical programming language](http://www.r-project.org) is expected.
 
 **Lectures**: Tu/Th, 11:15am&ndash;12:30pm, LGRC A203
 
@@ -32,11 +35,11 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 
 **Links to course resources**
 
-*[Detailed class schedules](pages/schedule.html)*
+&nbsp; &nbsp; *[Detailed class schedules](pages/schedule.html)*
 
-*[Lecture Notes](pages/notes.html)*
+&nbsp; &nbsp; *[Lecture Notes](pages/notes.html)*
 
-*[Piazza](https://piazza.com/umass/spring2014/pubhlth690nr/home)*
+&nbsp; &nbsp; *[Piazza](https://piazza.com/umass/spring2014/pubhlth690nr/home)*
 
 *[Grades](pages/grades.html)*
 
@@ -48,13 +51,13 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 *[Project](pages/project.html)*
 
 *Datasets*<br>
-&nbsp; &nbsp; Some datasets may be found in the datsets folder of the Google Drive folder for this course. 
-&nbsp; &nbsp; Datasets from the KNN textbook exercises can be downloaded [here](https://netfiles.umn.edu/users/nacht001/www/nachtsheim/index.html).
+&nbsp; &nbsp; Some datasets may be found in the datsets folder of the Google Drive folder for this course. <br>
+&nbsp; &nbsp; Datasets from the KNN textbook exercises can be downloaded [here](https://netfiles.umn.edu/users/nacht001/www/nachtsheim/index.html). <br>
 &nbsp; &nbsp; Other datasets are available from the Vanderbilt data website. 
 
 
 ---
 
 Source on [github](http://github.com)<br>
-&nbsp; &nbsp; The [source for the website](https://github.com/nickreich/methods2/tree/gh-pages)
+&nbsp; &nbsp; The [source for the website](https://github.com/nickreich/methods2/tree/gh-pages) <br>
 &nbsp; &nbsp; The [source for other material](https://github.com/nickreich/methods2/tree/master)

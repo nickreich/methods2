@@ -53,7 +53,7 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 &nbsp; &nbsp; *Datasets*<br>
 &nbsp; &nbsp; &nbsp; &nbsp; Some datasets may be found in the datsets folder of the Google Drive folder for this course. <br>
 &nbsp; &nbsp; &nbsp; &nbsp; Datasets from the KNN textbook exercises can be downloaded [here](https://netfiles.umn.edu/users/nacht001/www/nachtsheim/index.html). <br>
-&nbsp; &nbsp; &nbsp; &nbsp; Other datasets are available from the Vanderbilt data website. 
+&nbsp; &nbsp; &nbsp; &nbsp; Other datasets are available from [the Vanderbilt data website](http://biostat.mc.vanderbilt.edu/wiki/Main/DataSets). 
 
 
 ---

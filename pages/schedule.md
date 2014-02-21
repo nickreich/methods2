@@ -57,7 +57,7 @@ _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
 * Add one or two simple linear regressions to your dataset write-up. 
 * Finish OpenIntro Lab 7.
-* Install the HSAUR2 package, read up on and explore the BtheB dataset <!--(hint: ``?BtheB``). Be prepared to describe the dataset and answer questions about it in next class. -->
+* Install the HSAUR2 package, read up on and explore the BtheB dataset (hint: ``?BtheB``). Be prepared to describe the dataset and answer questions about it in next class.
 
 #### Class 4 (Jan 30): Hands-on SLR practice 
 _Activities_

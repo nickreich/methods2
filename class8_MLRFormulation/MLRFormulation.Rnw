@@ -189,9 +189,9 @@ $$\by = \bX\bbeta + \bepsilon$$
 \bi
 	\myitem $\epsilon$ is a random vector rather than a random variable
 	\bigskip
-	\myitem $E(\bepsilon) = 0$ and $Var(\bepsilon) = \sigma^2I$
+	\myitem $E(\bepsilon) = 0$ and $Cov(\bepsilon) = \sigma^2I$
 	\bigskip
-	\myitem Note that $Var$ is an abuse of notation; in the present context it really means the ``variance-covariance matrix''
+	\myitem Note that $Cov$ means the ``variance-covariance matrix''
 \ei
 
 \end{frame}
@@ -227,7 +227,7 @@ $$RSS(\bbeta) = \sum_i \epsilon_i ^2 = \epsilon ^T \epsilon$$
 \vskip2em
 
 After taking the derivative, setting equal to zero, we obtain:
-$$\hat \bbeta = \bX(\bX^{T}\bX)^{-1}\bX \by$$
+$$\hat \bbeta = (\bX^{T}\bX)^{-1}\bX \by$$
 
 
 
@@ -309,7 +309,7 @@ The hat matrix projects $\by$ onto the column space of $\bX$. Alternatively, min
 \begin{frame}[fragile]{Lung Data Example (con't from last clas)}
 
 <<loadData, echo=FALSE>>=
-dat <- read.table("~/Google Drive/teaching/methods2/datasets/lung/lungc.txt", header=TRUE)
+dat <- read.table("~/UMass Google Drive/teaching/methods2/datasets/lung/lungc.txt", header=TRUE)
 @
 
 

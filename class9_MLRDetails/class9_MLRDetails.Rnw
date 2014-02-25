@@ -1,0 +1,408 @@
+%% beamer/knitr slides 
+%% for Statistical Modeling and Data Visualization course @ UMass
+%% Nicholas Reich: nick [at] schoolph.umass.edu
+
+
+\documentclass[table]{beamer}
+
+
+\input{../preambles/standard_knitr_beamer_preamble}
+
+%        The following variables are assumed by the standard preamble:
+%        Global variable containing module name:
+
+\title{Multiple Linear Regression: \\ Collinearity and Categories}
+%	Global variable containing module shortname:
+%		(Currently unused, may be used in future.)
+\newcommand{\ModuleShortname}{multRegression}
+%	Global variable containing author name:
+\author{Nicholas G Reich, Jeff Goldsmith}
+%	Global variable containing text of license terms:
+\newcommand{\LicenseText}{Made available under the Creative Commons Attribution-ShareAlike 3.0 Unported License: http://creativecommons.org/licenses/by-sa/3.0/deed.en\textunderscore US }
+%	Instructor: optional, can leave blank.
+%		Recommended format: {Instructor: Jane Doe}
+\newcommand{\Instructor}{}
+%	Course: optional, can leave blank.
+%		Recommended format: {Course: Biostatistics 101}
+\newcommand{\Course}{}
+
+
+\input{../preambles/shortcuts}
+
+\hypersetup{colorlinks,linkcolor=,urlcolor=MainColor}
+
+
+%	******	Document body begins here	**********************
+
+\begin{document}
+
+%	Title page
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+%	******	Everything through the above line must be placed at
+%		the top of any TeX file using the statsTeachR standard
+%		beamer preamble. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Recap: Least squares for MLR}
+
+As in simple linear regression, we want to find the $\bbeta$ that minimizes the residual sum of squares.
+$$RSS(\bbeta) = \sum_i \epsilon_i ^2 = \epsilon ^T \epsilon$$
+\vskip2em
+
+After taking the derivative, setting equal to zero, we obtain:
+$$\hat \bbeta = (\bX^{T}\bX)^{-1}\bX \by$$
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Hat matrix}
+
+$$ \bH = \bX(\bX^{T}\bX)^{-1}\bX $$
+
+Some properties of the hat matrix:
+\bi
+	\myitem It is a projection matrix: $\bH \bH = \bH$
+	\myitem It is symmetric: $\bH^{T} = \bH$
+	\myitem The residuals are $\hat{\epsilon} = (\bI - \bH) \by$
+	\myitem The inner product of $(\bI - \bH) \by$ and $\bH \by$ is zero (predicted values and residuals are uncorrelated).
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Projection space interpretation}
+
+The hat matrix projects $\by$ onto the column space of $\bX$. Alternatively, minimizing the $RSS(\bbeta)$ is equivalent to minimizing the Euclidean distance between $\by$ and the column space of $\bX$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Lung Data Example (con't from previous clas)}
+
+<<loadData, echo=FALSE>>=
+dat <- read.table("~/UMass Google Drive/teaching/methods2/datasets/lung/lungc.txt", header=TRUE)
+@
+
+
+<<lungMLR, tidy=FALSE>>=
+mlr2 <- lm(disease ~ crowding + education + airqual, 
+           data=dat, x=TRUE, y=TRUE)
+X = mlr2$x
+y = mlr2$y
+(betaHat = solve( t(X) %*% X) %*% t(X) %*% y )
+coef(mlr2)
+@
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Key points so far}
+
+\bi
+        \myitem Our model is $\by = \bX \bbeta + \bepsilon$ with $\epsilon \sim (0, \sigma^2 \bI)$
+	\myitem The design matrix $\bX$ contains the terms included in the model
+	\myitem We've derived least squares solutions under some conditions
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Least squares estimates}
+
+\bi
+	\myitem $\hat{\bbeta} = \left( \bX^{T} \bX \right)^{-1} \bX^{T} \by$
+	\myitem A condition on $\left( \bX^{T} \bX \right)$:
+	\vspace{1cm}
+	\myitem If $\left( \bX^{T} \bX \right)$ is singular, there are infinitely many least squares solutions, making $\hat{\bbeta}$ non-identifiable (can't choose between different solutions)
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Non-identifiability}
+
+\bi
+	\myitem Can happen if $\bX$ is not of full rank, i.e. the columns of $\bX$ are linearly dependent (for example, including weight in Kg and lb as predictors)
+	\myitem Can happen if there are fewer data points than terms in $\bX$: $n < p$ (having 100 predictors and only 50 observations)
+	\vspace{1cm}
+	\myitem Generally, the $p \times p$ matrix $\left( \bX^{T} \bX \right)$ is invertible if and only if it has rank $p$.
+
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Infinite solutions}
+
+Suppose I fit a model $y_i = \beta_0 + \beta_1 x_{i1} + \epsilon_i$.
+\bi
+	\myitem I have estimates $\hat{\beta}_0 = 1, \hat{\beta}_1= 2$
+	\myitem I put in a new variable $x_2 = x_1$
+	\myitem My new model is $y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i$
+	\myitem Possible least squares estimates that are equivalent to my first model:
+	\bi
+		\item $\hat{\beta}_0 = 1, \hat{\beta}_1= 2, \hat{\beta}_2 = 0$
+		\item $\hat{\beta}_0 = 1, \hat{\beta}_1= 0, \hat{\beta}_2 = 2$
+		\item $\hat{\beta}_0 = 1, \hat{\beta}_1= 1002, \hat{\beta}_2 = -1000$
+		\item $\ldots$
+	\ei
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Non-identifiablity}
+
+\bi
+	\myitem Often due to data coding errors (variable duplication, scale changes)
+	\myitem Pretty easy to detect and resolve
+	\myitem Can be addressed using {\it penalties} (might come up much later)
+	\myitem A bigger problem is near-unidentifiability (collinearity)
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Causes of collinearity}
+
+\bi
+	\myitem Arises when variables are highly correlated, but not exact duplicates
+	\myitem Commonly arises in data (perfect correlation is usually there by mistake)
+	\myitem Might exist between several variables, i.e. a linear combination of several variables exists in the data
+	\myitem A variety of tools exist (correlation analyses, multiple $R^2$, eigen decompositions)
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Effects of collinearity}
+
+Suppose I fit a model $y_i = \beta_0 + \beta_1 x_{i1} + \epsilon_i$.
+\bi
+	\myitem I have estimates $\hat{\beta}_0 = 1, \hat{\beta}_1= 2$
+	\myitem I put in a new variable $x_2 = x_1 + error$, where $error$ is pretty small
+	\myitem My new model is $y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i$
+	\myitem Possible least squares estimates that are nearly equivalent to my first model:
+	\bi
+		\item $\hat{\beta}_0 = 1, \hat{\beta}_1= 2, \hat{\beta}_2 = 0$
+		\item $\hat{\beta}_0 = 1, \hat{\beta}_1= 0, \hat{\beta}_2 = 2$
+		\item $\hat{\beta}_0 = 1, \hat{\beta}_1= 1002, \hat{\beta}_2 = -1000$
+		\item $\ldots$
+	\ei
+	\myitem A unique solution exists, but it is hard to find
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Effects of collinearity}
+
+\bi
+	\myitem Collinearity results in a ``flat" RSS
+	\myitem Makes identifying a unique solution difficult
+	\myitem Dramatically inflates the variance of LSEs
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example: lung data heights}
+
+Simple linear regression analysis
+ 
+ TK
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Some take away messages}
+
+\bi
+        \myitem Collinearity can (and does) happen, so be careful
+	\myitem Worst cases tend to be ``pathological examples", so don't lose hope
+	\myitem Often contributes to the problem of variable selection, which we'll touch on later
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Categorical predictors}
+
+\bi
+	\myitem Assume $X$ is a categorical / nominal / factor variable with $k$ levels
+	\myitem With only one categorical $X$, we have classic one-way ANOVA design
+	\myitem Can't use a single predictor with levels $1, 2, \ldots, K$ -- this has the wrong interpretation
+	\myitem Need to create {\it indicator} or {\it dummy} variables
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Indicator variables}
+
+\bi
+	\myitem Choose one group as the baseline
+	\myitem Create 0/1 terms to include in the model $x_1, x_2, \ldots x_{k=1}$
+	\myitem Pose the model 
+	$$ y_i = \beta_0 + \beta_1 x_{i1} + \ldots + \beta_{k-1} x_{i, k-1} + \epsilon_{i}$$
+	and estimate parameters using least squares
+	\myitem Note distinction between {\it predictors} and {\it terms}
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Categorical predictor design matrix}
+
+Which of the following is a ``correct" design matrix for a categorical predictor with 3 levels?
+
+\begin{displaymath}\tiny
+	\bX_1 = \left[
+		\begin{array}{cccc}
+		1 & 1 & 0 & 0 \\
+		\vdots & \vdots & \vdots & \vdots \\
+		1 & 1 & 0 & 0 \\
+		1 & 0 & 1 & 0 \\
+		\vdots & \vdots & \vdots & \vdots \\
+		1 & 0 & 1 & 0 \\
+		1 & 0 & 0 & 1 \\
+		\vdots & \vdots & \vdots & \vdots \\
+		1 & 0 & 0 & 1 \\
+		\end{array}
+		\right] \quad \mbox{or} \quad
+	\bX_2 = \left[
+		\begin{array}{ccc}
+		1 & 0 & 0 \\
+		\vdots  & \vdots & \vdots \\
+		1 & 0 & 0 \\
+		1 & 1 & 0 \\
+		\vdots & \vdots & \vdots \\
+		1 & 1 & 0 \\
+		1 & 0 & 1 \\
+		\vdots & \vdots & \vdots \\
+		1 & 0 & 1 \\
+		\end{array}
+		\right] \quad \mbox{or} \quad
+	\bX_3 = \left[
+		\begin{array}{ccc}
+		1 & 0 & 0 \\
+		\vdots  & \vdots & \vdots \\
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		\vdots & \vdots & \vdots \\
+		0 & 1 & 0 \\
+		0 & 0 & 1 \\
+		\vdots & \vdots & \vdots \\
+		0 & 0 & 1 \\
+		\end{array}
+		\right] \quad
+	\end{displaymath}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{ANOVA model interpretation}
+
+Using the model $ y_i = \beta_0 + \beta_1 x_{i1} + \ldots + \beta_{k-1} x_{i, k-1} + \epsilon_{i}$, interpret
+
+$\beta_0 = $
+
+\vspace{1.5cm}
+
+$\beta_1 = $
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Equivalent model}
+
+Define the model $y_i = \beta_1 x_{i1} + \ldots + \beta_{k} x_{i, k} + \epsilon_{i}$ where there are indicators for each possible group
+
+$\beta_1 = $
+
+\vspace{1.5cm}
+
+$\beta_2 = $
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example for categorical predictor}
+
+Suppose you want to compare the effect of placebo, exercise and a drug on blood pressure. You set up a trail to do this and gather data $y_i, treatment_i$ on $n$ subjects.
+\bi
+	\myitem Analyze results using the model 
+	$$ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i$$
+	where $x_i1$ indicates that subject $i$ exercised and $x_i2$ indicates that subject $i$ received medication.
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{frame}{Today's big ideas}
+
+\bi
+        \myitem Multiple linear regression models, projections, collinearity, categorical variables
+\ei
+
+\end{frame}
+
+
+
+
+\end{document}

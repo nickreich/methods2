@@ -11,7 +11,7 @@
 %        The following variables are assumed by the standard preamble:
 %        Global variable containing module name:
 
-\title{Introduction to Multiple Linear Regression}
+\title{Multiple Linear Regression: \\ Notation and Estimation}
 %	Global variable containing module shortname:
 %		(Currently unused, may be used in future.)
 \newcommand{\ModuleShortname}{multRegression}
@@ -50,19 +50,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}{Today's lecture}
-
-\bi
-        \myitem Multiple Linear Regression 
-	\bi
-		\myitem Notation
-		\myitem Estimation
-	\ei
-\ei
-
-\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

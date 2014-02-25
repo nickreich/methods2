@@ -57,7 +57,7 @@ $$RSS(\bbeta) = \sum_i \epsilon_i ^2 = \epsilon ^T \epsilon$$
 \vskip2em
 
 After taking the derivative, setting equal to zero, we obtain:
-$$\hat \bbeta = (\bX^{T}\bX)^{-1}\bX \by$$
+$$\hat \bbeta = (\bX^{T}\bX)^{-1}\bX^T \by$$
 
 
 \end{frame}
@@ -66,7 +66,7 @@ $$\hat \bbeta = (\bX^{T}\bX)^{-1}\bX \by$$
 
 \begin{frame}{Hat matrix}
 
-$$ \bH = \bX(\bX^{T}\bX)^{-1}\bX $$
+$$ \bH = \bX(\bX^{T}\bX)^{-1}\bX^T $$
 
 Some properties of the hat matrix:
 \bi
@@ -92,17 +92,17 @@ The hat matrix projects $\by$ onto the column space of $\bX$. Alternatively, min
 \begin{frame}[fragile]{Lung Data Example (con't from previous clas)}
 
 <<loadData, echo=FALSE>>=
-dat <- read.table("~/UMass Google Drive/teaching/methods2/datasets/lung/lungc.txt", header=TRUE)
+dat <- read.table("lungc.txt", header=TRUE)
 @
 
 
 <<lungMLR, tidy=FALSE>>=
 mlr2 <- lm(disease ~ crowding + education + airqual, 
            data=dat, x=TRUE, y=TRUE)
+coef(mlr2)
 X = mlr2$x
 y = mlr2$y
 (betaHat = solve( t(X) %*% X) %*% t(X) %*% y )
-coef(mlr2)
 @
 
 
@@ -119,7 +119,7 @@ coef(mlr2)
 \bi
         \myitem Our model is $\by = \bX \bbeta + \bepsilon$ with $\epsilon \sim (0, \sigma^2 \bI)$
 	\myitem The design matrix $\bX$ contains the terms included in the model
-	\myitem We've derived least squares solutions under some conditions
+	\myitem We have least squares solutions under some conditions
 \ei
 
 \end{frame}
@@ -129,12 +129,13 @@ coef(mlr2)
 
 \begin{frame}{Least squares estimates}
 
+$$\hat{\bbeta} = \left( \bX^{T} \bX \right)^{-1} \bX^{T} \by$$
+
+\begin{block}{A condition on $\left( \bX^{T} \bX \right)$}
 \bi
-	\myitem $\hat{\bbeta} = \left( \bX^{T} \bX \right)^{-1} \bX^{T} \by$
-	\myitem A condition on $\left( \bX^{T} \bX \right)$:
-	\vspace{1cm}
 	\myitem If $\left( \bX^{T} \bX \right)$ is singular, there are infinitely many least squares solutions, making $\hat{\bbeta}$ non-identifiable (can't choose between different solutions)
 \ei
+\end{block}
 
 \end{frame}
 
@@ -146,7 +147,6 @@ coef(mlr2)
 \bi
 	\myitem Can happen if $\bX$ is not of full rank, i.e. the columns of $\bX$ are linearly dependent (for example, including weight in Kg and lb as predictors)
 	\myitem Can happen if there are fewer data points than terms in $\bX$: $n < p$ (having 100 predictors and only 50 observations)
-	\vspace{1cm}
 	\myitem Generally, the $p \times p$ matrix $\left( \bX^{T} \bX \right)$ is invertible if and only if it has rank $p$.
 
 \ei
@@ -239,17 +239,35 @@ Suppose I fit a model $y_i = \beta_0 + \beta_1 x_{i1} + \epsilon_i$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile]{Example: lung data heights}
+\begin{frame}[fragile]{Non-identifiability example: lung data}
 
-Simple linear regression analysis
+<<lungMLRNonIdent, tidy=FALSE>>=
+mlr3 <- lm(disease ~ airqual, data=dat)
+coef(mlr3)
+dat$x2 <- dat$airqual/100
+mlr4 <- lm(disease ~ airqual + x2, data=dat, x=TRUE)
+coef(mlr4)
+X = mlr4$x
+solve( t(X) %*% X)
+@
  
- TK
-
+ 
 \end{frame}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Collinearity example: lung data}
+
+<<lungMLRCollinearity, tidy=FALSE>>=
+dat$crowd2 <- dat$crowding + rnorm(nrow(dat), sd=.1)
+mlr5 <- lm(disease ~ crowding, data=dat)
+summary(mlr5)$coef
+mlr6 <- lm(disease ~ crowding + crowd2, data=dat)
+summary(mlr6)$coef
+@
+ 
+ 
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -257,12 +275,10 @@ Simple linear regression analysis
 
 \bi
         \myitem Collinearity can (and does) happen, so be careful
-	\myitem Worst cases tend to be ``pathological examples", so don't lose hope
 	\myitem Often contributes to the problem of variable selection, which we'll touch on later
 \ei
 
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -375,20 +391,43 @@ $\beta_2 = $
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Categorical predictor example: lung data}
+
+<<lungMLREducCat, tidy=FALSE, message=FALSE, fig.height=4>>=
+require(ggplot2)
+qplot(factor(education), disease, geom="boxplot", data=dat) + theme_bw()
+@ 
+ 
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Example for categorical predictor}
+\begin{frame}[fragile]{Categorical predictor example: lung data}
 
-Suppose you want to compare the effect of placebo, exercise and a drug on blood pressure. You set up a trail to do this and gather data $y_i, treatment_i$ on $n$ subjects.
-\bi
-	\myitem Analyze results using the model 
-	$$ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i$$
-	where $x_i1$ indicates that subject $i$ exercised and $x_i2$ indicates that subject $i$ received medication.
-\ei
-
+\small
+<<lungMLRCategorical, tidy=FALSE>>=
+mlr7 <- lm(disease ~ factor(education), data=dat)
+summary(mlr7)$coef
+@
+ 
+ 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Categorical predictor example: lung data}
+
+\small
+<<lungMLRCategorical2, tidy=FALSE>>=
+mlr8 <- lm(disease ~ factor(education) - 1, data=dat)
+summary(mlr8)$coef
+@
+ 
+ 
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -123,9 +123,11 @@ _Homework_
 #### Class 10 (Feb 25): MLR 
 _Activities_
 * wits and wagers CI exercise
+* lecture: hat matrix, collinearity, categorical predictors
 
 _Homework_
 * Problem Set 1: Due TODAY at beginning of class
+* lab 8
 
 #### Class 11 (Feb 27):
 _Activities_

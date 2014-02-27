@@ -214,7 +214,7 @@ $$RSS(\bbeta) = \sum_i \epsilon_i ^2 = \epsilon ^T \epsilon$$
 \vskip2em
 
 After taking the derivative, setting equal to zero, we obtain:
-$$\hat \bbeta = (\bX^{T}\bX)^{-1}\bX \by$$
+$$\hat \bbeta = (\bX^{T}\bX)^{-1}\bX ^T \by$$
 
 
 
@@ -243,7 +243,7 @@ $$\hat{\bbeta} \sim \N{\bbeta}{\sigma^2 (\bX^{T}\bX)^{-1}}.$$
 \begin{frame}{Definitions}
 
 \bi
-	\myitem {\it Fitted values}: $\hat{\by} = \bX \hat{\bbeta} = \bX(\bX^{T}\bX)^{-1}\bX \by = \bH \by$
+	\myitem {\it Fitted values}: $\hat{\by} = \bX \hat{\bbeta} = \bX(\bX^{T}\bX)^{-1}\bX^T \by = \bH \by$
 	\myitem {\it Residuals / estimated errors}: $\hat{\bepsilon} = \by - \hat{\by}$
 	\myitem {\it Residual sum of squares}: $\sum_{i = 1}^{n} \hat{\epsilon_i}^2 = \hat{\bepsilon}^{T}\hat{\bepsilon}$
 	\myitem {\it Residual variance}: $\hat{\sigma^2} = \frac{RSS}{n-p-1}$
@@ -296,7 +296,7 @@ The hat matrix projects $\by$ onto the column space of $\bX$. Alternatively, min
 \begin{frame}[fragile]{Lung Data Example (con't from last clas)}
 
 <<loadData, echo=FALSE>>=
-dat <- read.table("~/UMass Google Drive/teaching/methods2/datasets/lung/lungc.txt", header=TRUE)
+dat <- read.table("../class10_MLRDetails/lungc.txt", header=TRUE)
 @
 
 

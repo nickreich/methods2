@@ -14,4 +14,6 @@ tagline: Spring, 2014
  * Class 6: Version Control \[  [S](../assets/lectures/class6_versionControl.pdf) \]
  * Class 7: Introduction to Multiple Linear Regression \[  [S](../assets/lectures/class7_MLRintro.pdf) | [A](../assets/lectures/class7_MLRintro_annotated.pdf) | [R](../assets/lectures/lungDataModeling.R) \]
  * Class 8: \[cancelled, snow day\]
- * Class 9: MLR Notation and Estimation \[  [S](../assets/lectures/class8_MLRFormulation.pdf) \]
+ * Class 9: MLR: Notation and Estimation \[  [S](../assets/lectures/class8_MLRFormulation.pdf) \]
+ * Class 10: MLR: Hat Matrix, Identifiability, Collinearity \[  [S](../assets/lectures/class10_MLRDetails.pdf) | [A](../assets/lectures/class10_MLRDetails_Annotated.pdf) \]
+ * Class 11: MLR: Categorical variables \[  [S](../assets/lectures/class11_MLRCategorical.pdf) | [A](../assets/lectures/class11_MLRCategorical_Annotated.pdf) \]

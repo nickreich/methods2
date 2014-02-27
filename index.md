@@ -45,7 +45,7 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 
 &nbsp; &nbsp; *Problem sets*<br>
 &nbsp; &nbsp; &nbsp; &nbsp; [Problem Set 1](pages/ps1.html) due 2/25/2014<br>
-&nbsp; &nbsp; &nbsp; &nbsp; Problem Set 2<br>
+&nbsp; &nbsp; &nbsp; &nbsp; [Problem Set 2](pages/ps2.html) due 3/6/2014<br>
 &nbsp; &nbsp; &nbsp; &nbsp; Problem Set 3
 
 &nbsp; &nbsp; *[Project](pages/project.html)*

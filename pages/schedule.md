@@ -96,6 +96,7 @@ _Activities_
 
 _Homework_
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
+* &nbsp;
 
 #### Class 7 (Feb 11): MLR interpretations
 _Activities_
@@ -119,6 +120,7 @@ _Activities_
 
 _Homework_
 * Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
+* &nbsp;
 
 #### Class 10 (Feb 25): MLR 
 _Activities_
@@ -127,10 +129,11 @@ _Activities_
 
 _Homework_
 * Problem Set 1: Due TODAY at beginning of class
-* lab 8
 
 #### Class 11 (Feb 27):
 _Activities_
 * Mid-semester course evaluations (25 min)
+* lecture: MLR Categorical variables
 
 _Homework_
+* [Problem Set 2](pages/ps2.html), Due Friday 3/6, 5pm.

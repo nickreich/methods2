@@ -141,7 +141,7 @@ _Homework_
 
 #### Class 12 (Mar 4): MLR inference and testing
 _Activities_
-* warm-ups (15 min)
+* warm-ups: [vizualization critique](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0004726) (15 min)
 * lecture: MLR inference and testing (45 min)
 
 _Homework_

@@ -30,3 +30,7 @@ Choose a dataset from [these datasets](http://biostat.mc.vanderbilt.edu/wiki/Mai
 * Fit a few reasonable MLR models.  Write down the model equations for each model you fit.
 * Include at least one MLR model with a categorical predictor (if you only have continuous variables, you can use the `cut()` function to factorize your variable). 
 * Interpret key coefficients from each MLR model that you fit. 
+
+#### From Class 12
+* Add one global F test (with interpretation) to your data analysis.
+* 

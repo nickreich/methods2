@@ -136,7 +136,7 @@ _Activities_
 * lecture: MLR Categorical variables
 
 _Homework_
-* [Problem Set 2](pages/ps2.html), Due Friday 3/6, 5pm. 
+* [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm. 
 * 
 
 #### Class 12 (Mar 4): MLR inference and testing
@@ -145,4 +145,4 @@ _Activities_
 * lecture: MLR inference and testing (45 min)
 
 _Homework_
-* [Problem Set 2](pages/ps2.html), Due Friday 3/6, 5pm.
+* [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm.

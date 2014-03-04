@@ -1,0 +1,21 @@
+Global F tests and Family-Wise Error Rates
+========================================================
+
+Illustration of Global F tests being preferred over individual t-tests for $\hat\beta$s.
+
+```{r}
+nObs <- 1000
+p <- 100
+x <- matrix(rnorm(nObs*p), nrow=nObs)
+x <- data.frame(1, x)
+y <- rnorm(nObs)
+colNames <- paste0("x", 1:(p+1))
+colnames(x) <- colNames
+fmla <- formula(paste0("y ~ 0 +", paste(colNames, collapse="+")))
+mlr0 <- lm(y ~ x1, data=x)
+mlr1 <- lm(fmla, data=x)
+coefs <- summary(mlr1)$coef
+sum(coefs[,"Pr(>|t|)"]<.05)
+anova(mlr0, mlr1)
+```
+

@@ -146,3 +146,4 @@ _Activities_
 
 _Homework_
 * [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm.
+* Include one global F test (with written interpretation) in your problem set 2 write-up.

@@ -122,18 +122,28 @@ _Homework_
 * Problem Set 1: Due __Tuesday, 2/25/2014__ (by the beginning of class)
 * &nbsp;
 
-#### Class 10 (Feb 25): MLR 
+#### Class 10 (Feb 25): MLR collinearity
 _Activities_
 * wits and wagers CI exercise
-* lecture: hat matrix, collinearity, categorical predictors
+* lecture: hat matrix, collinearity
 
 _Homework_
 * Problem Set 1: Due TODAY at beginning of class
 
-#### Class 11 (Feb 27):
+#### Class 11 (Feb 27): MLR categorical variables
 _Activities_
 * Mid-semester course evaluations (25 min)
 * lecture: MLR Categorical variables
 
 _Homework_
-* [Problem Set 2](pages/ps2.html), Due Friday 3/6, 5pm.
+* [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm. 
+* 
+
+#### Class 12 (Mar 4): MLR inference and testing
+_Activities_
+* warm-ups: [vizualization critique](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0004726) (15 min)
+* lecture: MLR inference and testing (45 min)
+
+_Homework_
+* [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm.
+* Include one global F test (with written interpretation) in your problem set 2 write-up.

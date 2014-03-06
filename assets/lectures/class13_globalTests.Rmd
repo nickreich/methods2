@@ -15,12 +15,12 @@ colNames <- paste0("x", 1:p)
 colnames(x) <- colNames
 ```
 
-Now we will generate our $y$s completely independently of all of our covariates. None of our $x$ variables are associated with our outcome!
+Now we will generate our $y$ s completely independently of all of our covariates. None of our $x$ variables are associated with our outcome!
 ```{r}
 y <- rnorm(nObs)
 ```
 
-But if we fit a linear model that assumes that there ARE relationships bewteen our outcome and all of our $x$ variables, do we see any individually significant $\betas$? If so, how many are significant and are these indiciative of real associations?
+But if we fit a linear model that assumes that there ARE relationships bewteen our outcome and all of our $x$ variables, do we see any individually significant $\beta$ s? If so, how many are significant and are these indiciative of real associations?
 ```{r}
 fmla <- formula(paste0("y ~ 0 +", paste(colNames, collapse="+")))
 mlr1 <- lm(fmla, data=x)

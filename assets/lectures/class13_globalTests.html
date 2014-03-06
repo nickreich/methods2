@@ -187,6 +187,8 @@ hljs.initHighlightingOnLoad();
 
 <h3>Code for Biostatistics Methods 2, UMass-Amherst, Spring 2014</h3>
 
+<h3>by <a href="http://nickreich.github.io">Nicholas Reich</a></h3>
+
 <p>If you have a lot of predictor variables, you should consider using global F tests. Here is a toy example that shows why. </p>
 
 <p>We start by picking a number of observations and the number of parameters in our model, \( p \). We then generate \( p-1 \) independent covariates, plus a column of 1s for the design matrix.</p>
@@ -235,8 +237,8 @@ anova(mlr0, mlr1)
 ##     x82 + x83 + x84 + x85 + x86 + x87 + x88 + x89 + x90 + x91 + 
 ##     x92 + x93 + x94 + x95 + x96 + x97 + x98 + x99 + x100
 ##   Res.Df RSS Df Sum of Sq    F Pr(&gt;F)
-## 1    999 939                         
-## 2    900 855 99      83.9 0.89   0.76
+## 1    999 998                         
+## 2    900 894 99       104 1.06   0.34
 </code></pre>
 
 <p>Do the results from the Global \( F \)-test and the individual \( \beta \) \( t \)-tests agree? Why?</p>

@@ -17,3 +17,5 @@ tagline: Spring, 2014
  * Class 9: MLR: Notation and Estimation \[  [S](../assets/lectures/class8_MLRFormulation.pdf) \]
  * Class 10: MLR: Hat Matrix, Identifiability, Collinearity \[  [S](../assets/lectures/class10_MLRDetails.pdf) | [A](../assets/lectures/class10_MLRDetails_Annotated.pdf) \]
  * Class 11: MLR: Categorical variables \[  [S](../assets/lectures/class11_MLRCategorical.pdf) | [A](../assets/lectures/class11_MLRCategorical_Annotated.pdf) \]
+ * Class 12: MLR: Inference \[  [S](../assets/lectures/class12_MLRInference.pdf) | [A](../assets/lectures/class12_MLRInference_Annotated.pdf) \]
+ * Class 13: MLR: Inference \[  [S](../assets/lectures/class13_GlobalTests.pdf) | [A](../assets/lectures/class13_GlobalTests_Annotated.pdf) \] | [R](../assets/lectures/class13_globalTests.html) \] 

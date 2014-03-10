@@ -141,9 +141,30 @@ _Homework_
 
 #### Class 12 (Mar 4): MLR inference and testing
 _Activities_
-* warm-ups: [vizualization critique](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0004726) (15 min)
+* warm-ups
 * lecture: MLR inference and testing (45 min)
 
 _Homework_
 * [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm.
 * Include one global F test (with written interpretation) in your problem set 2 write-up.
+
+#### Class 13 (Mar 6): MLR GLobal F Tests
+_Activities_
+* warm-ups: [vizualization critique](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0004726) (15 min)
+* lecture: MLR Global F Tests (15 min)
+* [F-test lab](../assets/lectures/class13_globalTests.html)
+* GitHub demo: forking and pull requests
+
+_Homework_
+* [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm.
+* Visualization assignment: Please dig through the scientific literature (no limit on the discipline, but I'd encourage you to look in the literature for your field) and find a paper that uses some form of multiple linear regression models. The paper should be about modeling a continuous outcome (no logistic/log-linear/etc.. models) and could incorporate some more fancy modeling things than we've talked about (e.g. spline terms, polynomials, random effects). The paper should have a figure/graphic in it that attempts to visualize features of the regression. Post a link to the paper on Piazza (either a URL or a PDF file), with a note about which graphic you think is most relevant to the discussion, and describe what tool(s) you used to find the paper (e.g. Google Scholar, PubMed, Scopus, ...). Feel free to comment/start discussion on papers that other students post, but everyone is expected to find their own paper. I'll choose one that we'll talk about in more detail on Tuesday.
+
+#### Class 14 (Mar 11): MLR 
+_Activities_
+* warm-ups (visualization critique)
+* lecture: simulation and inference from resampling 
+* permutation test lab ( [html](../assets/lectures/class14_permutationLab.html) | [source](../assets/lectures/class14_permutationLab.Rmd) )
+
+_Homework_
+* Start a new data analysis write-up, include a brief summary from the first round. 
+* Add bootstrapped inference to the new write-up.

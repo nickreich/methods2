@@ -136,7 +136,7 @@ _Activities_
 * lecture: MLR Categorical variables
 
 _Homework_
-* [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm. 
+* [Problem Set 2](ps2.html), Due Friday 3/7, 5pm. 
 * 
 
 #### Class 12 (Mar 4): MLR inference and testing
@@ -145,7 +145,7 @@ _Activities_
 * lecture: MLR inference and testing (45 min)
 
 _Homework_
-* [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm.
+* [Problem Set 2](ps2.html), Due Friday 3/7, 5pm.
 * Include one global F test (with written interpretation) in your problem set 2 write-up.
 
 #### Class 13 (Mar 6): MLR GLobal F Tests

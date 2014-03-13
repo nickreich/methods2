@@ -172,10 +172,10 @@ _Homework_
 #### Class 15 (Mar 15): MLR diagnostics
 _Activities_
 * Data Fest promo with Andrew
-* wits and wagers?
+* wits and wagers
 * review of course expectations 
-* demo/lecture: regression diagnostics 
+* demo and lecture: regression diagnostics 
 * 
 _Homework_
 * Dataset for final project chosen by Wednesday, March 26
-*
+* 

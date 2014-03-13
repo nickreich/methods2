@@ -159,7 +159,7 @@ _Homework_
 * [Problem Set 2](pages/ps2.html), Due Friday 3/7, 5pm.
 * Visualization assignment: Please dig through the scientific literature (no limit on the discipline, but I'd encourage you to look in the literature for your field) and find a paper that uses some form of multiple linear regression models. The paper should be about modeling a continuous outcome (no logistic/log-linear/etc.. models) and could incorporate some more fancy modeling things than we've talked about (e.g. spline terms, polynomials, random effects). The paper should have a figure/graphic in it that attempts to visualize features of the regression. Post a link to the paper on Piazza (either a URL or a PDF file), with a note about which graphic you think is most relevant to the discussion, and describe what tool(s) you used to find the paper (e.g. Google Scholar, PubMed, Scopus, ...). Feel free to comment/start discussion on papers that other students post, but everyone is expected to find their own paper. I'll choose one that we'll talk about in more detail on Tuesday.
 
-#### Class 14 (Mar 11): MLR 
+#### Class 14 (Mar 11): MLR non-parametric inference
 _Activities_
 * warm-ups (visualization critique)
 * lecture: simulation and inference from resampling 
@@ -168,3 +168,14 @@ _Activities_
 _Homework_
 * Start a new data analysis write-up, include a brief summary from the first round. 
 * Add bootstrapped inference to the new write-up.
+
+#### Class 15 (Mar 15): MLR diagnostics
+_Activities_
+* Data Fest promo with Andrew
+* wits and wagers?
+* review of course expectations 
+* demo/lecture: regression diagnostics 
+* 
+_Homework_
+* Dataset for final project chosen by Wednesday, March 26
+*

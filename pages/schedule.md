@@ -175,7 +175,7 @@ _Activities_
 * wits and wagers
 * review of course expectations 
 * demo and lecture: regression diagnostics 
-* 
+
 _Homework_
 * Dataset for final project chosen by Wednesday, March 26
 * 

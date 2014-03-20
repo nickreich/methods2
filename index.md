@@ -6,7 +6,7 @@ tagline: Spring, 2014
 
 
 #### Course summary
-The aim of this course is to provide fundamental statistical concepts and tools relevant to the practice of summarizing, analyzing, and visualizing data. This course will build your knowledge of the fundamental principles of biostatistical inference. The course will focus on linear regression and generalized linear regression models. We will use a variety of examples and exercises from medical and public health research.
+The aim of this course is to provide fundamental statistical concepts and tools relevant to the practice of summarizing, analyzing, and visualizing data. This course will build your knowledge of the fundamental principles of biostatistical inference. The course will focus on linear regression and generalized linear regression models. We will use a variety of examples and exercises from scientific, medical, and public health research.
 
 ---
 
@@ -26,12 +26,12 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 **Lectures**: Tu/Th, 11:15am&ndash;12:30pm, LGRC A203
 
 **Required books** <br>
-&nbsp; &nbsp; Kutner, M., Nachtsheim, C., Neter, J., and Li, W. (2004). Applied Linear Regression Models, 4th Edition.
+&nbsp; &nbsp; M Kutner, C Nachtsheim, J Neter. (2004). _[Applied Linear Regression Models](http://www.amazon.com/Applied-Linear-Regression-Models--Student/dp/0073014664/)_ 4th Edition.
 
 **Recommended books** <br>
 &nbsp; &nbsp; D Diez, C Barr, and M Cetinkaya-Rundel. (2012). _[OpenIntro Statistics](http://www.openintro.org/stat/index.php)_ 2nd Edition. <br>
 &nbsp; &nbsp; Y Xie, _[Dynamic documents with R and knitr](http://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20)_<br>
-&nbsp; &nbsp; H Wickham, ggplot2
+&nbsp; &nbsp; H Wickham, _[ggplot2: Elegant Graphics for Data Analysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403/)_
 
 **Links to course resources**
 
@@ -53,7 +53,7 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 &nbsp; &nbsp; *Datasets*<br>
 &nbsp; &nbsp; &nbsp; &nbsp; Some datasets may be found in the datsets folder of the Google Drive folder for this course. <br>
 &nbsp; &nbsp; &nbsp; &nbsp; Datasets from the KNN textbook exercises can be downloaded [here](https://netfiles.umn.edu/users/nacht001/www/nachtsheim/index.html). <br>
-&nbsp; &nbsp; &nbsp; &nbsp; Other datasets are available from [the Vanderbilt data website](http://biostat.mc.vanderbilt.edu/wiki/Main/DataSets). 
+&nbsp; &nbsp; &nbsp; &nbsp; Other datasets are available from [the Vanderbilt data website](http://biostat.mc.vanderbilt.edu/wiki/Main/DataSets) or [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/). 
 
 
 ---

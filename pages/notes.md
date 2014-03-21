@@ -24,11 +24,11 @@ tagline: Spring, 2014
  * [spring break]
  * Class 16: MLR: More on diagnostics, confidence intervals (L10)
  * Class 17: MLR: Model selection (L11)
- * Class 18: Interactions *
+ * Class 18: Interactions 
  * Class 19: Splines (L16)
  * Class 20: Longitudinal Data Analysis (L18-20)
  * Class 21: Longitudinal Data Analysis (continued)
- * Class 22: Generalized Linear Models and Logistic Regression *
+ * Class 22: Generalized Linear Models and Logistic Regression 
  * Class 23: Poisson/Negative Binomial Regression
  * Class 24: Project prep
  * Classes 25-26: Project presentations

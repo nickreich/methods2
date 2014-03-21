@@ -21,3 +21,14 @@ tagline: Spring, 2014
  * Class 13: MLR: Inference \[  [S](../assets/lectures/class13_GlobalTests.pdf) | [A](../assets/lectures/class13_GlobalTests_Annotated.pdf)  | [R](../assets/lectures/class13_globalTests.Rmd) | [lab](../assets/lectures/class13_globalTests.html) \] 
  * Class 14: MLR: Simulation and Resampling Inference \[  [S](../assets/lectures/class14_MLRbootstrap.pdf) | [A](../assets/lectures/class14_MLRbootstrap_Annotated.pdf)  | [R](../assets/lectures/class14_permutationLab.Rmd) | [lab](../assets/lectures/class14_permutationLab.html) \] 
  * Class 15: MLR: Regression Diagnostics and Residual Plots \[ [R](../assets/lectures/class15_residualPlots.R) \] 
+ * [spring break]
+ * Class 16: MLR: More on diagnostics, confidence intervals (L10)
+ * Class 17: MLR: Model selection (L11)
+ * Class 18: Interactions *
+ * Class 19: Splines (L16)
+ * Class 20: Longitudinal Data Analysis (L18-20)
+ * Class 21: Longitudinal Data Analysis (continued)
+ * Class 22: Generalized Linear Models and Logistic Regression *
+ * Class 23: Poisson/Negative Binomial Regression
+ * Class 24: Project prep
+ * Classes 25-26: Project presentations

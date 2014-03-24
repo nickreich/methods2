@@ -177,5 +177,17 @@ _Activities_
 * demo and lecture: regression diagnostics 
 
 _Homework_
-* Dataset for final project chosen by Wednesday, March 26
+* Dataset for final project proposed by Wednesday, March 26
 * 
+
+#### Class 16 (Mar 25): MLR diagnostics (continued)
+_Activities_
+* wits and wagers
+* lecture: regression diagnostics 
+* project and class schedule check-in
+* in groups: dataset discussions
+
+_Homework_
+* Dataset for final project proposed by Wednesday, March 26
+* Individual project topics proposed by Wednesday, April 2
+

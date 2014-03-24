@@ -29,9 +29,9 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 &nbsp; &nbsp; M Kutner, C Nachtsheim, J Neter. (2004). _[Applied Linear Regression Models](http://www.amazon.com/Applied-Linear-Regression-Models--Student/dp/0073014664/)_ 4th Edition.
 
 **Recommended books** <br>
-&nbsp; &nbsp; D Diez, C Barr, and M Cetinkaya-Rundel. (2012). _[OpenIntro Statistics](http://www.openintro.org/stat/index.php)_ 2nd Edition. <br>
-&nbsp; &nbsp; Y Xie, _[Dynamic documents with R and knitr](http://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20)_<br>
-&nbsp; &nbsp; H Wickham, _[ggplot2: Elegant Graphics for Data Analysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403/)_
+&nbsp; &nbsp; D Diez, C Barr, and M Cetinkaya-Rundel. (2012) _[OpenIntro Statistics](http://www.openintro.org/stat/index.php)_ 2nd Edition. <br>
+&nbsp; &nbsp; Y Xie. (2013) _[Dynamic documents with R and knitr](http://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20)_<br>
+&nbsp; &nbsp; H Wickham. (2009) _[ggplot2: Elegant Graphics for Data Analysis](http://www.amazon.com/ggplot2-Elegant-Graphics-Data-Analysis/dp/0387981403/)_
 
 **Links to course resources**
 

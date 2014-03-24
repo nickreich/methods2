@@ -190,4 +190,5 @@ _Activities_
 _Homework_
 * Dataset for final project proposed by Wednesday, March 26
 * Individual project topics proposed by Wednesday, April 2
+* Problem set 3 due Friday, April 4 at 5pm.
 

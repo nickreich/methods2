@@ -22,7 +22,7 @@ tagline: Spring, 2014
  * Class 14: MLR: Simulation and Resampling Inference \[  [S](../assets/lectures/class14_MLRbootstrap.pdf) | [A](../assets/lectures/class14_MLRbootstrap_Annotated.pdf)  | [R](../assets/lectures/class14_permutationLab.Rmd) | [lab](../assets/lectures/class14_permutationLab.html) \] 
  * Class 15: MLR: Regression Diagnostics and Residual Plots \[ [R](../assets/lectures/class15_residualPlots.R) \] 
  * [spring break]
- * Class 16: MLR: More on diagnostics, confidence intervals (L10)
+ * Class 16: MLR: More on diagnostics, confidence intervals \[  [S](../assets/lectures/class16_MLRDiagnostics.pdf) | [A](../assets/lectures/class16_MLRDiagnostics_Annotated.pdf)  \] 
  * Class 17: MLR: Model selection (L11)
  * Class 18: Interactions 
  * Class 19: Splines (L16)

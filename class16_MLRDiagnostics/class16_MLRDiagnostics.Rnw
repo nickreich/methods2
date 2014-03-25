@@ -283,7 +283,7 @@ $$ \bH = \bX(\bX^{T}\bX)^{-1}\bX^T $$
 
 Note that 
 $$\sum_{i} h_{ii} \stackrel{def}{=} tr(\bH) = p$$
-where $p$ is the total number of independent predictors (i.e. $\beta$s) in your model.
+where $p$ is the total number of independent predictors (i.e. $\beta$s) in your model (including a $\beta_0$ if you have one).
 
 
 \begin{block}{What counts as ``big" leverage?}
@@ -298,21 +298,18 @@ where $p$ is the total number of independent predictors (i.e. $\beta$s) in your 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Example Leverage plot with lung data}
+\begin{frame}[fragile]{Example Leverage plot with lung data}
 
 \scriptsize
 <<lungData, echo=FALSE>>=
 data <- read.table("~/Google Drive/teaching/methods2/datasets/lung/lungc.txt",header=TRUE)
 @
 
-<<levPlots1, fig.height=3>>=
-mlr <- lm(disease~crowding, data=data)
+\scriptsize
+<<levPlots1, fig.height=3, tidy=FALSE>>=
+mlr <- lm(disease ~ nutrition+ airqual + crowding + smoking, 
+          data=data)
 hii <- hatvalues(mlr)
-@
-
-
-<<levPlots, fig.height=3, tidy=FALSE>>=
-hii <- 1:10 
 x <- 1:length(hii)
 qplot(x, hii, geom="point")
 @
@@ -326,7 +323,7 @@ qplot(x, hii, geom="point")
 \bi
         \myitem When we refer to ``outliers" we typically mean ``points that don't have the same mean structure as the rest of the data"
 	\myitem Residuals give an idea of ``outlying-ness", but we need to standardize somehow
-	\myitem Remember (from last lecture) $Var(\hat{\epsilon}_{i}) = \sigma^2(1 - h_{ii})$ ...
+	\myitem We can use the fact that $Var(\hat{\epsilon}_{i}) = \sigma^2(1 - h_{ii})$ ...
 \ei
 
 \end{frame}
@@ -340,8 +337,8 @@ The {\it standardized} residual is given by
 $$\hat{\epsilon}^{*}_{i} = \frac{\hat{\epsilon}_{i}}{\sqrt{ Var(\hat{\epsilon}_{i})   }} = \frac{\hat{\epsilon}_{i}}{\hat{\sigma}\sqrt{(1 - h_{ii})}} $$
 
 The {\it Studentized} residual is given by
-$$t_{i} = \frac{\hat{\epsilon}_{(-i)}}{\hat{\sigma}_{(-i)}\sqrt{(1 - h_{ii})}} = \hat{\epsilon}^{*}_{i}\left(\frac{n-(p+1)}{n-(p+1)-\hat{\epsilon}^{*2}_{i}} \right)^{1/2}  $$
-Studentized residuals follow a $t_{n-(p+1)-1}$ distribution.
+$$t_{i} = \frac{\hat{\epsilon}_{(-i)}}{\hat{\sigma}_{(-i)}\sqrt{(1 - h_{ii})}} = \hat{\epsilon}^{*}_{i}\left(\frac{n-p}{n-p-\hat{\epsilon}^{*2}_{i}} \right)^{1/2}  $$
+Studentized residuals follow a $t_{n-p-1}$ distribution.
 \end{frame}
 
 
@@ -349,14 +346,14 @@ Studentized residuals follow a $t_{n-(p+1)-1}$ distribution.
 
 \begin{frame}{Influence}
 
-Specifically, deletion influence
+Intuitively, ``influence'' is a combination of outlying-ness and leverage. More specifically, we can measure the ``deletion influence'' of each observation: quantify how much $\hat\bbeta$ changes if an observation is left out.
 \bi
 	\myitem $|\hat{\bbeta}- \hat{\bbeta}_{(-i)}|$
 	\myitem Cook's distance is
 	\beqa
-		D_i &=& \frac{(\hat\bbeta - \hat\bbeta_{(i)})^T(\bX^T\bX)(\hat\bbeta - \hat\bbeta_{(i)})}{(p+1)\hat\sigma^2} \\
-			&=& \frac{(\hat \by - \hat \by_{(-i)})^T(\hat \by - \hat \by_{(-i)})}{(p+1)\hat\sigma^2} \\
-			&=& \frac{1}{p+1}\hat{\epsilon}_i^2\frac{h_{ii}}{1-h_{ii}}
+		D_i &=& \frac{(\hat\bbeta - \hat\bbeta_{(i)})^T(\bX^T\bX)(\hat\bbeta - \hat\bbeta_{(i)})}{p\hat\sigma^2} \\
+			&=& \frac{(\hat \by - \hat \by_{(-i)})^T(\hat \by - \hat \by_{(-i)})}{p\hat\sigma^2} \\
+			&=& \frac{1}{p}\hat{\epsilon}_i^2\frac{h_{ii}}{1-h_{ii}}
 	\eeqa
 \ei
 
@@ -375,46 +372,6 @@ Suppose you fit a linear model in \texttt{R};
 \ei
 
 \end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Non-constant variance}
-
-\begin{block}{What to do ...}
-\bi
-        \myitem Nothing; just use least squares and bootstrap
-        \myitem Use weighted LS, GLS (later)
-	\myitem Use a variance stabilizing transformation
-\ei
-\end{block}
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}{Data Transformations}
-
-If some of your 
-
-<<logTransform>>=
-n <- 500 
-x <- exp(runif(n, 0, 10))
-ey <- 10 + 2*log(x) 
-y <- ey + rnorm(n, sd=ey)
-qplot(x)
-qplot(x,y)
-qplot(log(x),y)
-qplot(x, resid(lm(y~x)))
-@
-
-
-\end{frame}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

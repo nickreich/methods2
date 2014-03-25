@@ -376,6 +376,18 @@ Suppose you fit a linear model in \texttt{R};
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Built-in R plots for {\tt lm} objects}
+
+You can also use the {\tt plot.lm()} function to look at leverage, outlying-ness, and influence all together. Recall that
+$$D_i = \frac{1}{p}\hat{\epsilon}_i^2\frac{h_{ii}}{1-h_{ii}}$$
+<<plotlm, fig.height=3.5>>=
+plot(mlr, which=5)
+@
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Today's big ideas}
 
 \bi

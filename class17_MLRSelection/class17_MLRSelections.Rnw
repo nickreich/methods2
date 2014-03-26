@@ -53,10 +53,12 @@ theme_set(theme_bw())
 
 \bi
         \myitem Model selection vs. model checking
-	\myitem Continue with model checking (regression diagnostics)
+	\myitem Stepwise model selection
+	\myitem Criterion-based approaches
 \ei
 
 \end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,6 +75,153 @@ theme_set(theme_bw())
 \end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Model selection: considerations}
+
+\begin{block}{Things to keep in mind...}
+\bi
+        \myitem {\bf Why am I building a model?} Some common answers
+	\bi
+		\item Estimate an association
+		\item Test a particular hypothesis
+		\item Predict new values
+	\ei
+	\myitem What predictors will I allow?
+        \myitem What predictors are needed?
+	\myitem What forms for $f(x)$ should I consider?
+\ei
+
+Different answers to these questions will yield different final models.
+
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Model selection: realities}
+
+\centering {\em All models are wrong. Some are more useful than others.} \\ - George Box
+
+
+\bi
+        \myitem If we are asking which is the ``true" model, we will have a bad time
+	\myitem In practice, issues with sample size, collinearity, and available predictors are real problems
+	\myitem It is often possible to differentiate between better models and less-good models, though
+\ei
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Basic idea for model selection}
+
+\bi
+        \myitem Specify a class of models
+	\myitem Define a criterion to summarize the fit of each model in the class
+	\myitem Select the model that optimizes the criterion you're using
+\ei
+
+Again, we're focusing on $f(x)$ in the model specification. Once you've selected a model, you should subject it to regression diagnostics -- which might chance or augment the class of models you specify or alter your criterion.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Classes of models}
+
+Some examples of classes of models:
+\bi
+        \myitem Linear models including all subsets of $x_1, ..., x_p$
+	\myitem Linear models including all subsets of $x_1, ..., x_p$ and their first order interactions
+	\myitem All functions $f(x_1)$ such that $f''(x_1)$ is continuous
+	\myitem Additive models of the form $f(\bx) = f_1(x_1)+ f_2(x_2)+ f_3(x_3) ...$ where $f_{k}''(x_{k})$ is continuous
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Popular criteria}
+
+\bi
+	\myitem Adjusted $R^2$
+        \myitem Residual mean square error
+        \myitem Akaike Information Criterion
+	\myitem Bayes Information Criterion
+	\myitem $F$- or $t$-tests
+	\myitem Prediction RSS (PRESS)
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Adjusted $R^2$}
+\bi
+        \myitem Recall:
+	$$R^2 = 1 - \frac{RSS}{TSS}$$
+	\myitem Definition of adjusted $R^2$:
+	\beqa
+		R_a^2 &=& 1 - \frac{RSS/(n-p-1)}{TSS/(n-1)} = 1 - \frac{\hat\sigma^2_{model}}{\hat\sigma^2_{null}} \\
+			&=& 1 - \frac{n-1}{n-p-1}(1-R^2)
+	\eeqa
+	\myitem Minimizing the standard error of prediction means minimizing $\hat\sigma^2_{model}$ which in turn means maximizing $R_a^2$
+	\myitem Adding a predictor will not necessarily increase $R_a^2$ unless it has some predictive value
+\ei
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{AIC}
+
+AIC (``An Information Criterion") measures goodness-of-fit through RSS (equivalently, log likelihood) and penalizes model size:
+$$ AIC = n log(RSS/n) + 2p $$
+\bi
+        \myitem Small AIC's are better, but scores are not directly interpretable
+	\myitem Penalty on model size tries to induce {\it parsimony}
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{BIC}
+
+BIC (``Bayes Information Criterion") similarly measures goodness-of-fit through RSS (equivalently, log likelihood) and penalizes model size:
+$$ BIC = n \log(RSS/n) + p \log(n) $$
+\bi
+	\myitem Small BIC's are better, but scores are not directly interpretable
+	\myitem AIC and BIC measure goodness-of-fit through RSS, but use different penalties for model size. They won't always give the same answer
+\ei
+
+
+\end{frame}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{PRESS}
+
+Prediction residual sum of squares is the most clearly focused on prediction
+$$ PRESS = \sum (y_i - \bx^{T}_i \hat{\bbeta}_{(-i)})^{2} $$
+
+Looks computationally intensive, but for linear regression models this is equivalent to
+$$ PRESS = \sum \left( \frac{r_i}{1-h_{ii}} \right)^{2} $$
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}

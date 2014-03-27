@@ -57,6 +57,10 @@ theme_set(theme_bw())
 	\myitem Criterion-based approaches
 \ei
 
+\vskip2em
+
+Model checking and selection: KNN, Chapters 9 and 10.
+
 \end{frame}
 
 

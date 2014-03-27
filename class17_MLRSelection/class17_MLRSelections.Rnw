@@ -74,7 +74,6 @@ theme_set(theme_bw())
 
 \end{frame}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Model selection: considerations}
@@ -82,8 +81,8 @@ theme_set(theme_bw())
 \begin{block}{Things to keep in mind...}
 \bi
         \myitem {\bf Why am I building a model?} Some common answers
-	\bi
-		\item Estimate an association
+        \bi
+        	\item Estimate an association
 		\item Test a particular hypothesis
 		\item Predict new values
 	\ei
@@ -111,8 +110,6 @@ Different answers to these questions will yield different final models.
 	\myitem In practice, issues with sample size, collinearity, and available predictors are real problems
 	\myitem It is often possible to differentiate between better models and less-good models, though
 \ei
-
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,12 +117,12 @@ Different answers to these questions will yield different final models.
 \begin{frame}{Basic idea for model selection}
 
 \bi
-        \myitem Specify a class of models
-	\myitem Define a criterion to summarize the fit of each model in the class
-	\myitem Select the model that optimizes the criterion you're using
+        \myitem Specify a ``class'' of models
+        \myitem Define a criterion to quantify the fit of each model in the class
+        \myitem Select the model that optimizes the criterion you're using
 \ei
 
-Again, we're focusing on $f(x)$ in the model specification. Once you've selected a model, you should subject it to regression diagnostics -- which might chance or augment the class of models you specify or alter your criterion.
+Again, we're focusing on $f(x)$ in the model specification. Once you've selected a model, you should subject it to regression diagnostics -- which might change or augment the class of models you specify or alter your criterion.
 
 \end{frame}
 
@@ -136,23 +133,22 @@ Again, we're focusing on $f(x)$ in the model specification. Once you've selected
 Some examples of classes of models:
 \bi
         \myitem Linear models including all subsets of $x_1, ..., x_p$
-	\myitem Linear models including all subsets of $x_1, ..., x_p$ and their first order interactions
-	\myitem All functions $f(x_1)$ such that $f''(x_1)$ is continuous
-	\myitem Additive models of the form $f(\bx) = f_1(x_1)+ f_2(x_2)+ f_3(x_3) ...$ where $f_{k}''(x_{k})$ is continuous
+        \myitem Linear models including all subsets of $x_1, ..., x_p$ and their first order interactions
+        \myitem All functions $f(x_1)$ such that $f^{\prime\prime}(x_1)$ is continuous
+        \myitem Additive models of the form $f(\bx) = f_1(x_1)+ f_2(x_2)+ f_3(x_3) ...$ where $f_{k}^{\prime\prime}(x_{k})$ is continuous
 \ei
 
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Popular criteria}
 
 \bi
-	\myitem Adjusted $R^2$
+        \myitem Adjusted $R^2$
         \myitem Residual mean square error
         \myitem Akaike Information Criterion
-	\myitem Bayes Information Criterion
+        \myitem Bayes Information Criterion
 	\myitem $F$- or $t$-tests
 	\myitem Prediction RSS (PRESS)
 \ei
@@ -178,14 +174,61 @@ Some examples of classes of models:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Residual Mean Square Error}
+
+\begin{block}{Equivalent to Adjusted $R^2$...}
+
+$$ RMSE = \frac{RSS}{n-p-1} $$
+
+Can choose either based on 
+\bi
+        \myitem the model with minimum RMSE, or
+        \myitem the model that has RMSE approximately equal to the MSE from the full model
+\ei
+\end{block}
+
+\centering Note: minimizing RMSE is equivalent to maximizing Adjusted $R^2$
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sidebar: Confusing notation about $p$}
+
+\begin{block}{$p$ can mean different things}
+\bi
+        \myitem $p$ can be the number of covariates you have in your model (not including your column of 1s and the intercept
+        \myitem $p$ can be the number of betas you estimate. 
+\ei
+
+In these slides, $p$ is the former: the number of covariates.
+
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{AIC}
 
 AIC (``An Information Criterion") measures goodness-of-fit through RSS (equivalently, log likelihood) and penalizes model size:
-$$ AIC = n log(RSS/n) + 2p $$
+$$ AIC = n \log(RSS/n) + 2(p+1) $$
 \bi
         \myitem Small AIC's are better, but scores are not directly interpretable
-	\myitem Penalty on model size tries to induce {\it parsimony}
+        \myitem Penalty on model size tries to induce {\it parsimony}
 \ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example of AIC in practice}
+
+\includegraphics[width=.8\linewidth]{AICExample.pdf}
+
+\tiny Reich et al. (2013) {\em Journal of the Royal Society Interface}
 
 \end{frame}
 
@@ -201,6 +244,8 @@ $$ BIC = n \log(RSS/n) + p \log(n) $$
 	\myitem AIC and BIC measure goodness-of-fit through RSS, but use different penalties for model size. They won't always give the same answer
 \ei
 
+
+Bonus link! \href{http://emdbolker.wikidot.com/blog:aic-vs-bic}{Bolker on AIC vs. BIC}
 
 \end{frame}
 
@@ -223,5 +268,115 @@ $$ PRESS = \sum \left( \frac{r_i}{1-h_{ii}} \right)^{2} $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Model building is an art}
+
+\begin{block}{Putting this all together requires}
+
+\bi
+        \myitem knowledge of the process generating the data
+        \myitem detailed data exploration 
+        \myitem checking assumptions 
+        \myitem careful model building
+        \myitem patience patience patience
+\ei
+
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Sequential methods: PROCEED WITH CAUTION}
+
+\begin{block}{Stepwise selection methods are dangerous if you want accurate inferences}
+\bi
+        \myitem There are many potential models -- usually exhausting the model space is difficult or infeasible
+	\myitem Stepwise methods don't consider all possibilities
+	\myitem Can try various approaches to explore more of the model space
+	\myitem Stepwise methods work well for $F$- and $t$-tests, which require nested models
+	\myitem Other criteria don't require nested models (which can be nice) but don't ascertain significance (which can be a downer)
+\ei
+\end{block}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sequential methods: ``forward selection''}
+
+\bi
+        \myitem Start with ``baseline" (usually intercept-only) model
+	\myitem For every possible model that adds one term, evaluate the criterion you've settled on
+	\myitem Choose the one with the best ``score" (lowest AIC, smallest p-value)
+	\myitem For every possible model that adds one term to the current model, evaluate your criterion
+	\myitem Repeat until either adding a new term doesn't improve the model or all variables are included
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sequential methods: ``backward selection''}
+
+\bi
+	\myitem Start with every term in the model
+	\myitem Consider all models with one predictor removed
+	\myitem Remove the term that leads to the biggest score improvement
+	\myitem Repeat until removing additional terms doesn't improve your model
+\ei
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{More concerns with sequential methods}
+
+\bi
+        \myitem It's common to treat the final model as if it were the only model ever considered -- to base all interpretation on this model and to assume the inference is accurate
+	\myitem This doesn't really reflect the true model building procedure, and can misrepresent what actually happened
+	\myitem Inference is difficult in this case; it's hard to write down a statistical framework for the entire procedure
+	\myitem Predictions can be made from the final model, but uncertainty around predictions will be understated
+	\myitem P-values, CIs, etc will be incorrect 
+\ei
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Variable selection in polynomial models}
+
+A quick note about polynomials. If you fit a model of the form
+$$ y_i = \beta_0 + \beta_1 x + \beta_2 x^2 + \epsilon_i$$
+and find the quadratic term is significant but the linear term is not...
+\bi
+        \myitem You should still keep the linear term in the model
+	\myitem Otherwise, your model is sensitive to centering -- shifting $x$ will change your model
+	\myitem Using orthogonal polynomials helps with this
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{A more modern approach: shrinkage/penalization}
+
+\begin{block}{Penalized regression} 
+
+\bi
+        \myitem adds an explicit penalty to the least squares criterion
+	\myitem keeps regression coefficients from being too large, or can shrink coefficients to zero
+        \myitem Keywords for methods: LASSO, Ridge Regression
+        \myitem More in Methods 3!
+\ei
+\end{block}
+
+\end{frame}
 
 \end{document}

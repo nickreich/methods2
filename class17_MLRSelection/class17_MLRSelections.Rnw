@@ -74,6 +74,14 @@ theme_set(theme_bw())
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Why are you building a model in the first place?}
+
+
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Model selection: considerations}
@@ -116,11 +124,13 @@ Different answers to these questions will yield different final models.
 
 \begin{frame}{Basic idea for model selection}
 
+\begin{block}{A very general algorithm}
 \bi
         \myitem Specify a ``class'' of models
         \myitem Define a criterion to quantify the fit of each model in the class
         \myitem Select the model that optimizes the criterion you're using
 \ei
+\end{block}
 
 Again, we're focusing on $f(x)$ in the model specification. Once you've selected a model, you should subject it to regression diagnostics -- which might change or augment the class of models you specify or alter your criterion.
 
@@ -130,13 +140,14 @@ Again, we're focusing on $f(x)$ in the model specification. Once you've selected
 
 \begin{frame}{Classes of models}
 
-Some examples of classes of models:
+\begin{block}{Some examples of classes of models}
 \bi
         \myitem Linear models including all subsets of $x_1, ..., x_p$
         \myitem Linear models including all subsets of $x_1, ..., x_p$ and their first order interactions
         \myitem All functions $f(x_1)$ such that $f^{\prime\prime}(x_1)$ is continuous
         \myitem Additive models of the form $f(\bx) = f_1(x_1)+ f_2(x_2)+ f_3(x_3) ...$ where $f_{k}^{\prime\prime}(x_{k})$ is continuous
 \ei
+\end{block}
 
 \end{frame}
 
@@ -147,10 +158,10 @@ Some examples of classes of models:
 \bi
         \myitem Adjusted $R^2$
         \myitem Residual mean square error
-        \myitem Akaike Information Criterion
-        \myitem Bayes Information Criterion
-	\myitem $F$- or $t$-tests
+        \myitem Akaike Information Criterion (AIC)
+        \myitem Bayes Information Criterion (BIC)
 	\myitem Prediction RSS (PRESS)
+        \myitem $F$- or $t$-tests (stepwise selection)
 \ei
 
 \end{frame}
@@ -238,9 +249,9 @@ $$ AIC = n \log(RSS/n) + 2(p+1) $$
 \begin{frame}{BIC}
 
 BIC (``Bayes Information Criterion") similarly measures goodness-of-fit through RSS (equivalently, log likelihood) and penalizes model size:
-$$ BIC = n \log(RSS/n) + p \log(n) $$
+$$ BIC = n \log(RSS/n) + (p+1) \log(n) $$
 \bi
-	\myitem Small BIC's are better, but scores are not directly interpretable
+        \myitem Small BIC's are better, but scores are not directly interpretable
 	\myitem AIC and BIC measure goodness-of-fit through RSS, but use different penalties for model size. They won't always give the same answer
 \ei
 
@@ -248,6 +259,17 @@ $$ BIC = n \log(RSS/n) + p \log(n) $$
 Bonus link! \href{http://emdbolker.wikidot.com/blog:aic-vs-bic}{Bolker on AIC vs. BIC}
 
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example of BIC in practice}
+
+\includegraphics[width=\linewidth]{modelSelectionExample.png}
+
+\tiny  Vasantha and Venkatesan (2014) {\em PLoS ONE}
+
+\end{frame}
+
 
 
 
@@ -261,7 +283,19 @@ Prediction residual sum of squares is the most clearly focused on prediction
 $$ PRESS = \sum (y_i - \bx^{T}_i \hat{\bbeta}_{(-i)})^{2} $$
 
 Looks computationally intensive, but for linear regression models this is equivalent to
-$$ PRESS = \sum \left( \frac{r_i}{1-h_{ii}} \right)^{2} $$
+$$ PRESS = \sum \left( \frac{\hat\epsilon_i}{1-h_{ii}} \right)^{2} $$
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example of model selection in practice}
+
+\includegraphics[width=.8\linewidth]{modelSelectionExample2.png}
+
+\tiny  Croudace et al (2003) {\em Amer J Epidemiology}
 
 \end{frame}
 
@@ -294,11 +328,16 @@ $$ PRESS = \sum \left( \frac{r_i}{1-h_{ii}} \right)^{2} $$
 \bi
         \myitem There are many potential models -- usually exhausting the model space is difficult or infeasible
 	\myitem Stepwise methods don't consider all possibilities
-	\myitem Can try various approaches to explore more of the model space
-	\myitem Stepwise methods work well for $F$- and $t$-tests, which require nested models
-	\myitem Other criteria don't require nested models (which can be nice) but don't ascertain significance (which can be a downer)
+        \myitem One paper$^*$ showed that stepwise analyses produced models that...
+        \bi
+                \myitem represented noise 20-75\% of the time
+                \myitem contained $<$50\% of actual predictors
+                \myitem correlation btw predictors $\longrightarrow$ including more predictors
+                \myitem number of predictors correlated with number of noise predictors included
+        \ei
 \ei
 \end{block}
+\tiny $^*$ Derksen and Keselman (1992) {\em British J Math Stat Psych}
 
 \end{frame}
 
@@ -321,7 +360,7 @@ $$ PRESS = \sum \left( \frac{r_i}{1-h_{ii}} \right)^{2} $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Sequential methods: ``backward selection''}
+\begin{frame}{Sequential methods: ``backward selection/elimination''}
 
 \bi
 	\myitem Start with every term in the model
@@ -336,7 +375,7 @@ $$ PRESS = \sum \left( \frac{r_i}{1-h_{ii}} \right)^{2} $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{More concerns with sequential methods}
+\begin{frame}{MORE concerns with sequential methods}
 
 \bi
         \myitem It's common to treat the final model as if it were the only model ever considered -- to base all interpretation on this model and to assume the inference is accurate
@@ -347,6 +386,9 @@ $$ PRESS = \sum \left( \frac{r_i}{1-h_{ii}} \right)^{2} $$
 \ei
 
 \end{frame}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Variable selection in polynomial models}
@@ -363,6 +405,37 @@ and find the quadratic term is significant but the linear term is not...
 \end{frame}
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Sample size can limit the number of predictors}
+
+\begin{block}{$p$ (total number of $\beta$s) should be $<\frac{m}{15}$, where }
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{ll}
+Type of Response Variable & Limiting sample size $m$\\
+\hline
+Continuous & $n$ (total sample size)\\
+Binary & $min(n_1, n_2)$\\
+Ordinal ($k$ categories) & $n-\frac{1}{n^2}\sum_{i=1}^k n_i^3$\\
+Failure (survival) time & number of failures
+\end{tabular}
+\end{center}
+\end{table}%
+
+\tiny Table adapted from Harrel (2012) notes from ``Regression Modeling Strategies'' workshop.
+
+\end{block}
+
+
+\end{frame}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{A more modern approach: shrinkage/penalization}
@@ -376,6 +449,8 @@ and find the quadratic term is significant but the linear term is not...
         \myitem More in Methods 3!
 \ei
 \end{block}
+
+Much of modern statistics is devoted to figuring out what to do when $p\geq n$. 
 
 \end{frame}
 

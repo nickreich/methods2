@@ -192,3 +192,14 @@ _Homework_
 * Individual project topics proposed by Wednesday, April 2
 * Problem set 3 due Friday, April 4 at 5pm.
 
+#### Class 17 (Mar 27): MLR model selection
+_Activities_
+* lecture: model selection
+* group work on projects
+* simulation exercise with kinesiology data?
+
+_Homework_
+* Individual project topics proposed by Wednesday, April 2
+* Problem set 3 due Friday, April 4 at 5pm.
+
+

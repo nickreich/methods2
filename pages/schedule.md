@@ -195,8 +195,8 @@ _Homework_
 #### Class 17 (Mar 27): MLR model selection
 _Activities_
 * lecture: model selection
+* FEV dataset walk-through analysis in class
 * group work on projects
-* simulation exercise with kinesiology data?
 
 _Homework_
 * Individual project topics proposed by Wednesday, April 2

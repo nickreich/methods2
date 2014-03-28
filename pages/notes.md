@@ -23,7 +23,7 @@ tagline: Spring, 2014
  * Class 15: MLR: Regression Diagnostics and Residual Plots \[ [R](../assets/lectures/class15_residualPlots.R) \] 
  * [spring break]
  * Class 16: MLR: More on diagnostics, confidence intervals \[  [S](../assets/lectures/class16_MLRDiagnostics.pdf) | [A](../assets/lectures/class16_MLRDiagnostics_Annotated.pdf)  \] 
- * Class 17: MLR: Model selection \[  [S](../assets/lectures/class17_MLRSelections.pdf) | [A](../assets/lectures/class17_MLRSelections_Annotated.pdf)  \] 
+ * Class 17: MLR: Model selection \[  [S](../assets/lectures/class17_MLRSelections.pdf) | [A](../assets/lectures/class17_MLRSelections_Annotated.pdf) | [R](../assets/lectures/fev_analysis.R) \] 
  * Class 18: Interactions 
  * Class 19: Splines (L16)
  * Class 20: Longitudinal Data Analysis (L18-20)

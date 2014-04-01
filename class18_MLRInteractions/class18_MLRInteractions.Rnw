@@ -10,10 +10,10 @@
 
 %        The following variables are assumed by the standard preamble:
 %	Global variable containing module name:
-\title{MLR Model Checking}
+\title{MLR Interactions and variable transformations}
 %	Global variable containing module shortname:
 %		(Currently unused, may be used in future.)
-\newcommand{\ModuleShortname}{simPar}
+\newcommand{\ModuleShortname}{MLR}
 %	Global variable containing author name:
 \author{Nicholas G Reich, Jeff Goldsmith}
 %	Global variable containing text of license terms:
@@ -52,9 +52,133 @@ theme_set(theme_bw())
 \begin{frame}{Today's Lecture}
 
 \bi
-        \myitem Model selection vs. model checking
-	\myitem Continue with model checking (regression diagnostics)
+        \myitem Interaction models
+        \myitem Transformations of predictors
 \ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{What is interaction?}
+
+\begin{block}{Definition of interaction}
+Interaction occurs when the relationship between two variables depends on the value of a third variable.
+
+\end{block}
+
+<<intModel, echo=FALSE, fig.height=3>>=
+x1 <- runif(100)
+x2 <- rep(0:1, each=50)
+y <- 3 + 2*x1 + 4*x1*x2 + rnorm(50)
+qplot(x1, y, color=factor(x2), geom=c("point", "smooth"), method="lm", sd=FALSE)
+@
+
+
+[Good overview: KNN pp. 306--313]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Some real world examples?}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{How to include interaction in a MLR}
+
+
+Model A: $ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i$
+
+
+Model B: $ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1}\cdot x_{i2} + \epsilon_i$
+
+\vspace{4em}
+
+\begin{block}{Key points}
+\bi
+        \myitem easily conceptualized with 1 continuous, 1 binary variable
+        \myitem models possible with other variable combinations, but interpretation/visualization harder 
+        \myitem two variable interactions are considered ``first-order'' interactions (often used to define a class of models)
+        \myitem still a {\bf linear} model, but no longer a strictly {\bf additive} model
+\ei
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{How to interpret an interaction model}
+
+For now, assume $x_1$ is continuous, $x_2$ is 0/1 binary.
+
+Model A: $ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i$
+
+Model B: $ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1}\cdot x_{i2} + \epsilon_i$
+
+\vspace{12em}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example interaction model with FEV data}
+
+<<fevData, echo=FALSE>>=
+dat <- read.table("~/Google Drive/teaching/methods2/datasets/FEV/fev.dat.txt")
+colnames(dat) <- c("age", "fev", "ht", "sex", "smoke")
+
+dat$sex <- factor(dat$sex, levels=0:1, labels=c("female", "male"))
+dat$smoke <- factor(dat$smoke, levels=0:1, labels=c("nonsmoker", "smoker"))
+
+@
+
+
+$$ fev_i = \beta_0 + \beta_1 age_{i} + \beta_2 ht_{i} + \beta_3 sex_{i2} + \beta_4 smoke_{i} + \beta_5 ht\cdot smoke_{i} + \epsilon_i$$
+
+<<intModels>>=
+mi1 <- lm(fev ~ age + ht + sex + smoke, data=dat)
+mi3 <- lm(fev ~ age + ht*smoke + sex, data=dat)
+c(AIC(mi1), AIC(mi3))
+summary(mi3)$coef
+@
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example interaction model with FEV data}
+
+<<fevPlot1, fig.height=4, tidy=FALSE>>=
+qplot(ht, fev, data=dat, color=smoke, 
+      geom=c("point", "smooth"), method="lm")
+@
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example interaction model with FEV data}
+The {\tt visreg} package plots not the data but the partial residuals (a.k.a. the adjusted variable) plot.
+
+<<fevPlot2, fig.height=4, message=FALSE>>=
+require(visreg)
+visreg(mi3, "ht", by="smoke")
+@
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example interaction model with FEV data}
+
+<<fevPlot3, fig.height=4>>=
+visreg(mi3, "ht", by="smoke", overlay=TRUE)
+@
 
 \end{frame}
 
@@ -77,11 +201,11 @@ theme_set(theme_bw())
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}{Data Transformations}
+\begin{frame}[fragile]{Data Transformations}
 
 If some of your 
 
-<<logTransform>>=
+<<logTransform, message=FALSE>>=
 n <- 500 
 x <- exp(runif(n, 0, 10))
 ey <- 10 + 2*log(x) 

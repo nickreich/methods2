@@ -51,10 +51,12 @@ theme_set(theme_bw())
 
 \begin{frame}{Today's Lecture}
 
+\begin{block}{A few important building blocks for regression}
 \bi
         \myitem Interaction models
         \myitem Transformations of predictors
 \ei
+\end{block}
 
 \end{frame}
 
@@ -98,7 +100,7 @@ Model B: $ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1}\cdot
 
 \begin{block}{Key points}
 \bi
-        \myitem easily conceptualized with 1 continuous, 1 binary variable
+        \myitem ``easily'' conceptualized with 1 continuous, 1 categorical variable
         \myitem models possible with other variable combinations, but interpretation/visualization harder 
         \myitem two variable interactions are considered ``first-order'' interactions (often used to define a class of models)
         \myitem still a {\bf linear} model, but no longer a strictly {\bf additive} model
@@ -127,7 +129,8 @@ Model B: $ y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \beta_3 x_{i1}\cdot
 \begin{frame}[fragile]{Example interaction model with FEV data}
 
 <<fevData, echo=FALSE>>=
-dat <- read.table("~/Google Drive/teaching/methods2/datasets/FEV/fev.dat.txt")
+#dat <- read.table("~/Google Drive/teaching/methods2/datasets/FEV/fev.dat.txt")
+dat <- read.table("~/UMass Google Drive/teaching/methods2/datasets/FEV/fev.dat.txt")
 colnames(dat) <- c("age", "fev", "ht", "sex", "smoke")
 
 dat$sex <- factor(dat$sex, levels=0:1, labels=c("female", "male"))
@@ -142,7 +145,7 @@ $$ fev_i = \beta_0 + \beta_1 age_{i} + \beta_2 ht_{i} + \beta_3 sex_{i2} + \beta
 mi1 <- lm(fev ~ age + ht + sex + smoke, data=dat)
 mi3 <- lm(fev ~ age + ht*smoke + sex, data=dat)
 c(AIC(mi1), AIC(mi3))
-summary(mi3)$coef
+round(summary(mi3)$coef,2)
 @
 
 
@@ -185,13 +188,90 @@ visreg(mi3, "ht", by="smoke", overlay=TRUE)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Non-constant variance}
+\begin{frame}{Overview of variable transformations}
+
+
+\begin{block}{The problems}
+\bi
+        \myitem Non-linearity between $X$ and $Y$  $\longrightarrow$ transform $X$
+        \myitem Skewed distribution of $X$s/points with high leverage $\longrightarrow$ transform $X$
+        \myitem Non-constant variance $\longrightarrow$ transform $Y$
+\ei
+\end{block}
+
+[More info: KNN Ch 3.9, pp. 129--137]
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Transforming your $X$ variables}
+
+Transforming predictor variables can help with constant-variance non-linear relationships.
+
+<<xtrans, echo=FALSE, fig.height=4, message=FALSE>>=
+x <- c(runif(100, 0, 5), runif(100, 0, 400), runif(100, .03, .5))
+grp <- rep(1:3, each=100)
+y <- x^2*(grp==1) + sqrt(x)*(grp==2) + 1/x*(grp==3) + rnorm(300, sd=2)
+dd <- data.frame(x=x, y=y, grp1=grp)
+ggplot(dd) + geom_point(aes(x=x, y=y)) + facet_grid(.~grp1, scales="free") + geom_smooth(aes(x, y), span=.9)
+@
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Transforming your $X$ variables}
+
+
+<<xtrans2, echo=FALSE, fig.height=4, message=FALSE>>=
+dd$newx <- x^2*(grp==1) + sqrt(x)*(grp==2) + 1/x*(grp==3)
+ggplot(dd) + geom_point(aes(x=newx, y=y)) + 
+        facet_grid(.~grp1, scales="free") + 
+        geom_smooth(aes(newx, y), span=.9)
+@
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{$\beta$ interpretations with transformed $X$s}
+
+Transforming predictor variables can help with non-linearities, but can make coefficient interpretations hard.
+
+\begin{block}{Possible solutions}
+\bi
+        \myitem Interpret $\beta$s qualitatively across a region of interest: ``We found strong evidence for a inverse association, where values of $Y$ decreased inversely proportional to $X$ across the observed range $(a, b)$.
+        \myitem Occasionally, a ``one unit change in $X$'' can be meaningful: e.g. $\log_a X$. A one unit change in $\log_a X$ indicates a $a$-fold increase in $X$.
+\ei
+\end{block}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{$\beta$ interpretations with transformed $X$s}
+
+Transforming predictor variables can help with non-linearities, but can make coefficient interpretations hard.
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Transforming $Y$s for non-constant variance}
 
 \begin{block}{What to do ...}
 \bi
         \myitem Nothing; just use least squares and bootstrap
-        \myitem Use weighted LS, GLS (later)
+        \myitem Use weighted LS, GLS (Methods 3?)
         \myitem Use a variance stabilizing transformation
+        \myitem Consider a generalized linear model (more soon)
 \ei
 \end{block}
 
@@ -201,26 +281,37 @@ visreg(mi3, "ht", by="smoke", overlay=TRUE)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{frame}[fragile]{Data Transformations}
+\begin{frame}[fragile]{Box-Cox Transformations}
 
-If some of your 
+Outcome is raised to the $\lambda$ power: 
+$$ y^\lambda_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i$$
 
-<<logTransform, message=FALSE>>=
-n <- 500 
-x <- exp(runif(n, 0, 10))
-ey <- 10 + 2*log(x) 
-y <- ey + rnorm(n, sd=ey)
-qplot(x)
-qplot(x,y)
-qplot(log(x),y)
-qplot(x, resid(lm(y~x)))
-@
+\bi
+        \myitem Estimate $\lambda$, a new parameter, by maximum likelihood.
+        \myitem Some well-known choices of $\lambda$: 2, -1, 1/2
+        \myitem By definition, when $\lambda=0$, we specify $y^\lambda_i= \log_e y_i$
+\ei
 
+[More detailed info: KNN Ch 3.9, pp. 134--137]
 
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]{Wrap-up}
+
+\begin{block}{New instruments for your regression tool-kit}
+\bi
+        \myitem Interactions and data transformations are common extensions/additions to regression models in practice. 
+        \myitem Both are simple to implement, challenging to interpret correctly!
+        \myitem But, you may not always need a interpretation, e.g. you might just want a good prediction.
+\ei
+\end{block}
+
+\end{frame}
 
 
 \end{document}

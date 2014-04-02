@@ -268,9 +268,9 @@ matlines(x, bb, ylim = c(0,1), lty = 1)
 
 <<modelSpl, fig.height=4, message=FALSE>>=
 require(splines)
-lm.ns3 = lm(y ~ ns(range, df=3))
+lm.bs3 = lm(y ~ bs(range, df=3))
 plot(range, y, xlab = "Range", ylab = "log ratio", pch = 18)
-points(range, lm.ns3$fitted.values, type = 'l', col = "red", lwd = 2)
+points(range, lm.bs3$fitted.values, type = 'l', col = "red", lwd = 2)
 @
 
 \end{frame}
@@ -280,9 +280,9 @@ points(range, lm.ns3$fitted.values, type = 'l', col = "red", lwd = 2)
 \begin{frame}[fragile]{Example: lidar data}
 
 <<modelSpl5, fig.height=4, message=FALSE>>=
-lm.ns5 = lm(y ~ ns(range, df=5))
+lm.bs5 = lm(y ~ bs(range, df=5))
 plot(range, y, xlab = "Range", ylab = "log ratio", pch = 18)
-points(range, lm.ns5$fitted.values, type = 'l', col = "red", lwd = 2)
+points(range, lm.bs5$fitted.values, type = 'l', col = "red", lwd = 2)
 @
 
 \end{frame}

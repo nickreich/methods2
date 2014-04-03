@@ -30,7 +30,7 @@ _Homework_
 * Take [CAOS test](https://apps3.cehd.umn.edu/artist/user/scale_select.html)
 
 #### Class 2 (Jan 23): Introduction to Regression
-_Activies_
+_Activites_
 
 * introduction to ggplot2 (15 min)
 * small groups: establish 5 specific criteria for creating good data visualizations (10 min)
@@ -108,7 +108,6 @@ _Activities_
 _Homework_
 
 * Problem Set 1: Due Thursday, 2/13/2014 (by the beginning of class)
-* &nbsp;
 
 #### Class 7 (Feb 11): MLR interpretations
 _Activities_
@@ -157,7 +156,6 @@ _Activities_
 _Homework_
 
 * [Problem Set 2](ps2.html), Due Friday 3/7, 5pm. 
-* 
 
 #### Class 12 (Mar 4): MLR inference and testing
 _Activities_
@@ -206,7 +204,6 @@ _Activities_
 _Homework_
 
 * Dataset for final project proposed by Wednesday, March 26
-* 
 
 #### Class 16 (Mar 25): MLR diagnostics (continued)
 _Activities_
@@ -255,4 +252,3 @@ _Activities_
 _Homework_
 
 * Problem set 3 due Friday, April 4 at 5pm.
-* 

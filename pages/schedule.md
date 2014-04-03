@@ -213,10 +213,10 @@ _Homework_
 
 #### Class 18 (April 1): MLR interactions, variable transformations
 _Activities_
+
 * lecture: finish interaction and variable transformations
 * quiz
 * lecture: spline models
-^
 
 _Homework_
 * Problem set 3 due Friday, April 4 at 5pm.

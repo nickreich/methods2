@@ -24,8 +24,8 @@ tagline: Spring, 2014
  * [spring break]
  * Class 16: MLR: More on diagnostics, confidence intervals \[  [S](../assets/lectures/class16_MLRDiagnostics.pdf) | [A](../assets/lectures/class16_MLRDiagnostics_Annotated.pdf)  \] 
  * Class 17: MLR: Model selection \[  [S](../assets/lectures/class17_MLRSelections.pdf) | [A](../assets/lectures/class17_MLRSelections_Annotated.pdf) | [R](../assets/lectures/fev_analysis.R) \] 
- * Class 18: Interactions 
- * Class 19: Splines (L16)
+ * Class 18: Interaction models and variable transformation  \[  [S](../assets/lectures/class18_MLRInteractions.pdf) | [A](../assets/lectures/class18_MLRInteractions_Annotated.pdf)  \] 
+ * Class 19: Spline models \[  [S](../assets/lectures/class19_Splines.pdf) | [A](../assets/lectures/class19_Splines_Annotated.pdf)  \] 
  * Class 20: Longitudinal Data Analysis (L18-20)
  * Class 21: Longitudinal Data Analysis (continued)
  * Class 22: Generalized Linear Models and Logistic Regression 

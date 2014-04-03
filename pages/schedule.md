@@ -210,3 +210,12 @@ _Activities_
 _Homework_
 * Individual project topics proposed by Wednesday, April 2
 * Problem set 3 due Friday, April 4 at 5pm.
+
+#### Class 18 (April 1): MLR interactions, variable transformations
+_Activities_
+* lecture: finish interaction and variable transformations
+* quiz
+* lecture: spline models
+
+_Homework_
+* Problem set 3 due Friday, April 4 at 5pm.

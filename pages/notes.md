@@ -4,7 +4,7 @@ title: Lecture notes
 tagline: Spring, 2014
 ---
 
-\[S=Slides \\| A=Annotated Slides \| R=R Code\]
+\[S=Slides \| A=Annotated Slides \| R=R Code\]
 
  * Class 1: Course Introduction
  * Class 2: Introduction to Regression \[  [S](../assets/lectures/class2_IntroRegression.pdf) \| [A](../assets/lectures/class2_IntroRegression_annotated.pdf) \]

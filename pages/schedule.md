@@ -216,6 +216,7 @@ _Activities_
 * lecture: finish interaction and variable transformations
 * quiz
 * lecture: spline models
+^
 
 _Homework_
 * Problem set 3 due Friday, April 4 at 5pm.

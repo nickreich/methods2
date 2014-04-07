@@ -1,0 +1,295 @@
+%% Module 2 beamer/knitr slides
+%% Biostatistics in Practice workshop, January 2014
+%% Nicholas Reich: nick [at] schoolph.umass.edu
+
+
+\documentclass[table]{beamer}
+
+
+\input{../preambles/standard_knitr_beamer_preamble}
+
+%        The following variables are assumed by the standard preamble:
+%	Global variable containing module name:
+\title{Using splines in regression}
+%	Global variable containing module shortname:
+%		(Currently unused, may be used in future.)
+\newcommand{\ModuleShortname}{MLR}
+%	Global variable containing author name:
+\author{Nicholas G Reich, Jeff Goldsmith}
+%	Global variable containing text of license terms:
+\newcommand{\LicenseText}{Made available under the Creative Commons Attribution-ShareAlike 3.0 Unported License: http://creativecommons.org/licenses/by-sa/3.0/deed.en\_US }
+%	Instructor: optional, can leave blank.
+%		Recommended format: {Instructor: Jane Doe}
+\newcommand{\Instructor}{}
+%	Course: optional, can leave blank.
+%		Recommended format: {Course: Biostatistics 101}
+\newcommand{\Course}{}
+
+\input{../preambles/shortcuts}
+\usepackage{bbm}
+\hypersetup{colorlinks=TRUE, urlcolor=blue}
+
+%%%%%%%% IMPORTANT -- MUST HAVE [fragile] for some/all frames chunks to have output work correctly. 
+
+\begin{document}
+
+<<setup, include=FALSE>>=
+library(knitr)
+opts_chunk$set(fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
+@
+
+
+\begin{frame}[plain]
+        \titlepage
+\end{frame}
+
+<<ggplot2, echo=FALSE, message=FALSE>>=
+require(ggplot2)
+theme_set(theme_bw())
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Today's Lecture}
+
+\bi
+        \myitem Spline models
+	\myitem Penalized spline regression
+\ei
+
+[More info: Harrel, {\em Regression Modeling Strategies}, Chapter 2, PDF handout]
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Piecewise linear models}
+
+A piecewise linear model (also called a change point model or broken stick model) contains a few linear components
+\bi
+        \myitem Outcome is linear over full domain, but with a different slope at different points
+	\myitem Points where relationship changes are referred to as ``change points" or ``knots"
+	\myitem Often there's one (or a few) potential change points
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Piecewise linear models}
+
+Suppose we want to estimate $\ev(y | x) = f(x)$ using a piecewise linear model.
+\bi
+	\myitem For one knot we can write this as
+	\beqa
+	\ev(y | x) = \beta_0 + \beta_1 x + \beta_2 (x - \kappa)_{+}
+	\eeqa
+	where $\kappa$ is the location of the change point and 
+        
+        $$ (x - \kappa)_{+} = $$
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Interpretation of regression coefficients}
+
+$$\ev(y | x) = \beta_0 + \beta_1 x + \beta_2 (x - \kappa)_{+}$$
+
+\bi
+
+\myitem $\beta_0 =$
+
+\vspace{2em}
+
+\myitem $\beta_1$ = 
+\vspace{2em}
+\myitem $\beta_2$ = 
+\vspace{2em}
+\myitem $\beta_1+\beta_2$ = 
+
+\ei
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Estimation}
+
+\bi
+	\myitem Piecewise linear models are low-dimensional (no need for penalization)
+	\myitem Parameters are estimated via OLS
+	\myitem The design matrix is ...
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Multiple knots}
+
+Suppose we want to estimate $\ev(y | x) = f(x)$ using a piecewise linear model.
+\bi
+	\myitem For multiple knots we can write this as
+	\beqa
+	\ev(y | x) = \beta_0 + \beta_1 x + \sum_{k = 1}^{K}\beta_{k+1} (x - \kappa_{k})_{+}
+	\eeqa
+	where $\{\kappa_{k}\}_{k = 1}^{K}$ are the locations of the change points
+	\myitem Note that knot locations are defined before estimating regression coefficients
+	\myitem Also, regression coefficients are interpreted conditional on the knots.
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example: lidar data}
+
+<<datasetup, fig.height=3, message=FALSE>>=
+library(MASS)
+library(SemiPar)
+data(lidar)
+y = lidar$logratio
+range = lidar$range
+qplot(range, y)
+@
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example: lidar data}
+
+<<model1, fig.height=4, message=FALSE>>=
+knots <- c(550, 625)
+mkSpline <- function(k, x) (x - k > 0) * (x - k)
+X.des = cbind(1, range, sapply(knots, FUN=mkSpline, x=range))
+colnames(X.des) <- c("intercept", "range", "range1", "range2")
+lm.lin = lm(y ~ X.des - 1)
+plot(range, y, xlab = "Range", ylab = "log ratio", pch = 18)
+points(range, lm.lin$fitted.values, type = 'l', col = "red", lwd = 2)
+@
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example: lidar data}
+
+<<mode1Sum, fig.height=3, message=FALSE>>=
+summary(lm.lin)$coef
+@
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Piecewise quadratic and cubic models}
+
+Suppose we want to estimate $\ev(y | x) = f(x)$ using a piecewise quadratic model.
+\bi
+	\myitem For multiple knots we can write this as
+	\beqa
+	\ev(y | x) = \beta_0 + \beta_1 x + \beta_1 x^2 + \sum_{k = 1}^{K}\beta_{k+2} (x - \kappa_{k})^{2}_{+}
+	\eeqa
+	where $\{\kappa_{k}\}_{k = 1}^{K}$ are the locations of the change points
+	\myitem Similar extension for cubics
+	\myitem Piecewise quadratic models are smooth and have continuous first derivatives
+        \myitem Often, knots taken as quintiles of the data.
+\ei
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Advantages of piecewise models}
+
+Piecewise (linear, quadratic, etc) models have several advantages
+\bi
+        \myitem Easy construction of basis functions
+        \myitem Flexible, and don't rely on determining an appropriate form for $f(x)$ using standard functions
+	\myitem Allow for significance testing on change point slopes
+	\myitem Fairly direct interpretations
+\ei
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{B-splines and natural splines}
+
+\begin{block}{Characteristics}
+\bi
+        \myitem Both B-splines and natural splines similarly define a basis over the domain of $x$
+        \myitem Can be constrained to have seasonal patterns
+        \myitem They are made up of piecewise polynomials of a given degree, and have defined derivatives similarly to the piecewise defined functions
+        \myitem Big advantage over linear splines: parameter estimation is often fairly robust to your choice of knots 
+        \myitem Big disadvantage over linear splines: harder to interpret specific coefficients
+\ei
+\end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{B-splines basis functions}
+
+        $$\ev(y | x) = \beta_0 + \sum_{j=1}^6 \beta_j B_j(x) $$
+
+<<bspl, echo=FALSE, fig.height=4.5, message=FALSE>>=
+require(splines)
+knots <- c(1,1.8,3:5,6.5,7,8.1,9.2,10)  # 10 => 10-4 = 6 Basis splines
+x <- seq(min(knots)-1, max(knots)+1, length.out = 501)
+bb <- splineDesign(knots, x = x, outer.ok = TRUE)
+
+plot(range(x), c(0,1), type = "n", xlab = "x", ylab = "",
+     main =  "B-splines - sum to 1 inside inner knots")
+mtext(expression(B[j](x) *"  and "* sum(B[j](x), j == 1, 6)), adj = 0)
+abline(v = knots, lty = 3, col = "light gray")
+abline(v = knots[c(4,length(knots)-3)], lty = 3, col = "gray10")
+lines(x, rowSums(bb), col = "gray", lwd = 2)
+matlines(x, bb, ylim = c(0,1), lty = 1)
+@
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example: lidar data}
+
+<<modelSpl, fig.height=4, message=FALSE>>=
+require(splines)
+lm.bs3 = lm(y ~ bs(range, df=3))
+plot(range, y, xlab = "Range", ylab = "log ratio", pch = 18)
+points(range, lm.bs3$fitted.values, type = 'l', col = "red", lwd = 2)
+@
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example: lidar data}
+
+<<modelSpl5, fig.height=4, message=FALSE>>=
+lm.bs5 = lm(y ~ bs(range, df=5))
+plot(range, y, xlab = "Range", ylab = "log ratio", pch = 18)
+points(range, lm.bs5$fitted.values, type = 'l', col = "red", lwd = 2)
+@
+
+\end{frame}
+
+
+
+
+
+
+\end{document}

@@ -20,4 +20,4 @@ You are expected to attend class every day, to participate actively in group wor
 
 **Independent Final Project (35%)**
 
-A large component of the course will be an independent project which will be presented to and evaluated (in part) by your classmates. Check out the [project page](pages/project.html) for more info.
+A large component of the course will be an independent project which will be presented to and evaluated (in part) by your classmates. Check out the [project page](project.html) for more info.

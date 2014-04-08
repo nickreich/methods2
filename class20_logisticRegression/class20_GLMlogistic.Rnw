@@ -101,22 +101,24 @@ A 1972 - 1981 health survey in The Hague, Netherlands, discovered an association
 
 \vfill
 
-{\tiny From \textit{Ramsey, F.L. and Schafer, D.W. (2002). The Statistical Sleuth: A Course in Methods of Data Analysis (2nd ed)}}
+{\tiny \textit{Ramsey, F.L. and Schafer, D.W. (2002). The Statistical Sleuth: A Course in Methods of Data Analysis (2nd ed)}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]{Example - Birdkeeping and Lung Cancer - Data}
 
+{\small
 <<donnerData>>=
 library(Sleuth3)
 birds = case2002
 head(birds)
 @
+}
 
-~\\
+%~\\
 
-{\small
+{\tiny
 \begin{center}
 \begin{tabular}{ll}
 LC & Whether subject has lung cancer \\
@@ -130,7 +132,7 @@ CD & Average rate of smoking (cigarettes per day)
 \end{center}
 }
 
-\small{NoCancer is the reference response (0 or failure), LungCancer is the non-reference response (1 or success) - this matters for interpretation.}
+\tiny{NoCancer is the reference response (0 or failure), LungCancer is the non-reference response (1 or success) - this matters for interpretation.}
 
 \end{frame}
 
@@ -173,7 +175,7 @@ p
 \frametitle{Generalized linear models}
 
 $$\mathbb E[Y|x] = \beta_0+\beta_1 X_1 + \cdots + \beta_p X_p$$
-\begin{block}{Why not just use MLR and least-squares when outcomes not continuous?}
+\begin{block}{Why not just use MLR when outcomes not continuous?}
 \bi
         \myitem Equal variance assumption often violated ($Var[Y|x]=\sigma^2$).
 \ei
@@ -192,7 +194,7 @@ p
 
 $$\mathbb E[Y|x] = \beta_0+\beta_1 X_1 + \cdots + \beta_p X_p$$
 
-\begin{block}{Why not just use MLR and least-squares when outcomes not continuous?}
+\begin{block}{Why not just use MLR when outcomes not continuous?}
 \bi
         \myitem Assumption of normal errors explicitly violated.
 \ei
@@ -212,13 +214,13 @@ p
 
 All generalized linear models have the following three characteristics:
 \begin{enumerate}
-\item A probability distribution describing the outcome variable \\
+\item {\bf A probability distribution} describing the outcome variable \\
 e.g. $Y \sim \text{Bernoulli}(p) \longrightarrow \mathbb E[Y|p] = p$. 
-\item A linear model
+\item {\bf A linear model}
 \begin{itemize}
 \item $\eta = \beta_0+\beta_1 X_1 + \cdots + \beta_p X_p$
 \end{itemize}
-\item A link function that relates the linear model to the parameter of the outcome distribution
+\item {\bf A link function} that relates the linear model to the parameter of the outcome distribution
 \begin{itemize}
 \item $g(\mathbb E[Y]) = g(p) = \eta$ or $\mathbb E[Y] = p = g^{-1}(\eta)$
 \end{itemize}
@@ -254,20 +256,43 @@ which implies
 
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Logistic regression has log(odds) as the link}
+
+A logistic regression model can be defined as follows:
+
+$$Y_i | \mathbf x_i \sim \text{Bernoulli}(p_i)$$
+$$\mathbb E[Y_i|\mathbf x_i] = Pr(Y_i=1|\mathbf x_i) = p_i$$
+$$g(p_i) = logit (p_i) = \log \frac{p_i}{1-p_i} $$
+$$logit(\mathbb E[Y_i|\mathbf x_i]) = logit (p_i)  = \eta =  \beta_0+\beta_1 X_{i1} + \cdots + \beta_p X_{ip}$$
+
+<<logisticGraph, echo=FALSE, fig.height=3>>=
+x <- seq(-6, 6, by=.1)
+y <- exp(x)/(1+exp(x))
+qplot(x, y, geom="line") + ggtitle("Logistic function") + xlab("x") + ylab("p") + annotate("text", x=-4, y=.75, label="p == frac(e^eta,1+e^eta)", parse=TRUE)
+@
+
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
 \frametitle{Example - Birdkeeping and Lung Cancer - Model}
 
-%\vspace{-5mm}
+$$logit Pr(LC=1|\mathbf x)  =  \beta_0 + \beta_1 BK + \beta_2 FM + \beta_3 SS + \beta_4 AG + \beta_5 YR + \beta_6 CD$$
+\vspace{-5mm}
 \tiny
 <<birdModel, tidy=FALSE>>=
 birds$LCnum <- as.numeric(birds$LC=="LungCancer")
 birds$BK <- relevel(birds$BK, ref="NoBird")
-lm1 <- glm(LCnum ~ FM + SS + BK + AG + YR + CD, 
+lm1 <- glm(LCnum ~ BK + FM + SS +  AG + YR + CD, 
            data=birds, family=binomial)
 @
 
+\vspace{20em}
 
 \end{frame}
 
@@ -320,7 +345,27 @@ This is the difference between relative risk and an odds ratio.
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]
+\frametitle{Important notes about GLMs}
+
+\begin{block}{On logistic regression in particular...}
+\bi
+        \myitem There are other link functions for binary data (e.g. probit, cloglog).
+        \myitem Other, less parameteric methods may be appropriate here too -- e.g. CART, random forests, classification algorithms.
+\ei
+\end{block}
+
+\begin{block}{Beyond the scope of this course, but interesting topics...}
+\bi
+        \myitem How are logistic models (and other GLMS) fitted?
+        \myitem Can we perform the same kind of model diagnostics to determine whether a model provides a good fit to data?
+        \myitem ROC curves and classification rules
+        \ei
+\end{block}
+
+\end{frame}
 
 
 

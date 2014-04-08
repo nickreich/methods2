@@ -92,6 +92,64 @@ What we haven't covered is what to do when the response is not continuous (i.e. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\begin{frame}
+\frametitle{Example - Birdkeeping and Lung Cancer}
+
+A 1972 - 1981 health survey in The Hague, Netherlands, discovered an association between keeping pet birds and increased risk of lung cancer. To investigate birdkeeping as a risk factor, researchers conducted a case-control study of patients in 1985 at four hospitals in The Hague (population 450,000). They identified 49 cases of lung cancer among the patients who were registered with a general practice, who were age 65 or younger and who had resided in the city since 1965. They also selected 98 controls from a population of residents having the same general age structure.
+
+
+\vfill
+
+{\tiny From \textit{Ramsey, F.L. and Schafer, D.W. (2002). The Statistical Sleuth: A Course in Methods of Data Analysis (2nd ed)}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Example - Birdkeeping and Lung Cancer - Data}
+
+<<donnerData>>=
+library(Sleuth3)
+birds = case2002
+head(birds)
+@
+
+~\\
+
+{\small
+\begin{center}
+\begin{tabular}{ll}
+LC & Whether subject has lung cancer \\
+FM & Sex of subject \\
+SS & Socioeconomic status \\
+BK & Indicator for birdkeeping \\
+AG & Age of subject (years) \\
+YR & Years of smoking prior to diagnosis or examination \\
+CD & Average rate of smoking (cigarettes per day)
+\end{tabular}
+\end{center}
+}
+
+\small{NoCancer is the reference response (0 or failure), LungCancer is the non-reference response (1 or success) - this matters for interpretation.}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}[fragile]{Lung cancer as a function of cigarettes per day}
+
+
+<<donnerPlot, echo=FALSE, fig.height=4>>=
+p <- qplot(CD, as.numeric(LC=="LungCancer")*1, data=birds, geom=c("point", "smooth"), position=position_jitter(w=.7, h=0), method="lm", se=FALSE) + ylab("Lung Cancer") + scale_y_continuous(breaks=c(0,1))
+p
+@
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
 \frametitle{Generalized linear models}
 
@@ -103,7 +161,9 @@ $$\mathbb E[Y|x] = \beta_0+\beta_1 X_1 + \cdots + \beta_p X_p$$
 \ei
 \end{block}
 
-\vspace{15em}
+<<fig.height=3, echo=FALSE>>=
+p
+@
 
 \end{frame}
 
@@ -119,7 +179,9 @@ $$\mathbb E[Y|x] = \beta_0+\beta_1 X_1 + \cdots + \beta_p X_p$$
 \ei
 
 \end{block}
-\vspace{15em}
+<<fig.height=3, echo=FALSE>>=
+p
+@
 
 \end{frame}
 
@@ -136,7 +198,9 @@ $$\mathbb E[Y|x] = \beta_0+\beta_1 X_1 + \cdots + \beta_p X_p$$
 \ei
 
 \end{block}
-\vspace{15em}
+<<fig.height=3, echo=FALSE>>=
+p
+@
 
 \end{frame}
 
@@ -190,6 +254,69 @@ which implies
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Example - Birdkeeping and Lung Cancer - Model}
+
+%\vspace{-5mm}
+\tiny
+<<birdModel, tidy=FALSE>>=
+birds$LCnum <- as.numeric(birds$LC=="LungCancer")
+birds$BK <- relevel(birds$BK, ref="NoBird")
+lm1 <- glm(LCnum ~ FM + SS + BK + AG + YR + CD, 
+           data=birds, family=binomial)
+@
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Example - Birdkeeping and Lung Cancer - Interpretation}
+
+\vspace{-5mm}
+
+{\scriptsize
+<<>>=
+summary(lm1)$coef
+@
+}
+
+
+Keeping all other predictors constant then,
+\begin{itemize}
+
+\item The odds ratio of getting lung cancer for bird keepers vs non-bird keepers is $\exp(1.3626) = 3.91$.
+
+\item The odds ratio of getting lung cancer for an additional year of smoking is $\exp(0.0729) = 1.08$.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{What do the numbers not mean ...}
+
+The most common mistake made when interpreting logistic regression is to treat an odds ratio as a ratio of probabilities.\\
+
+~\\ 
+
+Bird keepers are \emph{not} 4x more likely to develop lung cancer than non-bird keepers.
+
+~\\ 
+
+This is the difference between relative risk and an odds ratio.
+
+
+\[RR = \frac{P(\text{disease} | \text{exposed})}{P(\text{disease} | \text{unexposed})} \]
+
+\[OR = \frac{P(\text{disease} | \text{exposed}) / [1-P(\text{disease} | \text{exposed})]}{P(\text{disease} | \text{unexposed})/[1-P(\text{disease} | \text{unexposed})]} \]
+
+
+\end{frame}
 
 
 

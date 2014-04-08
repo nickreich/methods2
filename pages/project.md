@@ -53,6 +53,6 @@ As an example: Your group receives 40/50 points for the "final product produced 
 * Mon Apr 14: Draft of individual data analysis due
 * Mon Apr 21: Draft of individual lab exercise due
 * Tue Apr 22: Group-based project critiques
-* Thu Apr 24: Projects presented
-* Tue Apr 29 : Projects presented
+* Thu Apr 24: Group 1 and Group 2 present
+* Tue Apr 29: Group 3 and Group 4 present
 

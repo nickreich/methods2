@@ -242,7 +242,7 @@ _Homework_
 * Individual project topics proposed by Wednesday, April 2
 * Problem set 3 due Friday, April 4 at 5pm.
 
-#### Class 19 (April 1): Spline models
+#### Class 19 (April 3): Spline models
 _Activities_
 
 * lecture: finish interaction and variable transformations
@@ -253,7 +253,7 @@ _Homework_
 
 * Problem set 3 due Friday, April 4 at 5pm.
 
-#### Class 20 (April 1): GLMs and linear regression
+#### Class 20 (April 8): GLMs and linear regression
 _Activities_
 
 * project update: comments on group drafts and data summaries, timeline review, Google Drive system 

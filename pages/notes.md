@@ -26,9 +26,9 @@ tagline: Spring, 2014
  * Class 17: MLR: Model selection \[  [S](../assets/lectures/class17_MLRSelections.pdf) \| [A](../assets/lectures/class17_MLRSelections_Annotated.pdf) \| [R](../assets/lectures/fev_analysis.R) \] 
  * Class 18: Interaction models and variable transformation  \[  [S](../assets/lectures/class18_MLRInteractions.pdf) \| [A](../assets/lectures/class18_MLRInteractions_Annotated.pdf)  \] 
  * Class 19: Spline models \[  [S](../assets/lectures/class19_Splines.pdf) \| [A](../assets/lectures/class19_Splines_Annotated.pdf)  \] 
- * Class 22: Generalized Linear Models and Logistic Regression \[  [S](../assets/lectures/class20_GLMlogistic.pdf) \| [A](../assets/lectures/class20_GLMlogistic_Annotated.pdf)  \] 
- * Class 23: Poisson/Negative Binomial Regression
- * Class 20: Longitudinal Data Analysis (L18-20)
- * Class 21: Longitudinal Data Analysis (continued)
+ * Class 20: Generalized Linear Models and Logistic Regression \[  [S](../assets/lectures/class20_GLMlogistic.pdf) \| [A](../assets/lectures/class20_GLMlogistic_Annotated.pdf)  \] 
+ * Class 21: Poisson/Negative Binomial Regression
+ * Class 22: Longitudinal Data Analysis (L18-20)
+ * Class 23: Longitudinal Data Analysis (continued)
  * Class 24: Project prep
  * Classes 25-26: Project presentations

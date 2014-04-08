@@ -6,6 +6,8 @@ tagline: Spring, 2014
 
 \[S=Slides \| A=Annotated Slides \| R=R Code\]
 
+Source files for all notes are available from the (master branch of the GitHub repository for this course)[https://github.com/nickreich/methods2].
+
  * Class 1: Course Introduction
  * Class 2: Introduction to Regression \[  [S](../assets/lectures/class2_IntroRegression.pdf) \| [A](../assets/lectures/class2_IntroRegression_annotated.pdf) \]
  * Class 3: Geometry of regression and least squares \[  [S](../assets/lectures/class3_SLRBasics.pdf) \| [A](../assets/lectures/class3_SLRBasics_annotated.pdf) \]

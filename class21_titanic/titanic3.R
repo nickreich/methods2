@@ -22,3 +22,15 @@ t1$preds <- fitted(m1, type="response")
 qplot(age, preds, data=t1, color=pclass, geom=c("point")) +
         facet_grid(facets=.~sex) + 
         ylim(0,1)
+
+### example deviance
+pm1 <- glm(survived ~ pclass, data=titanic3, family=binomial)
+titanic3$p <- fitted(pm1, type="response")
+idx <- c(2, 10, 79, 821, 829, 365, 388, 343, 626, 726)
+ps <- titanic3[idx, "p"]
+
+pbd <- function(p) {
+        idx <- c(2, 10, 79, 821, 829, 365, 388, 343, 626, 726)
+        y <- titanic3[idx, "survived"]
+        -sum(y*log(p) + (1-y)*log(1-p))/10 
+}

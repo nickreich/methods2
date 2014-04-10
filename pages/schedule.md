@@ -253,7 +253,7 @@ _Homework_
 
 * Problem set 3 due Friday, April 4 at 5pm.
 
-#### Class 20 (April 8): GLMs and linear regression
+#### Class 20 (April 8): GLMs and logistic regression
 _Activities_
 
 * project update: comments on group drafts and data summaries, timeline review, Google Drive system 
@@ -263,5 +263,15 @@ _Activities_
 _Homework_
 
 * Mon Apr 14: Draft of individual data analysis due (hand in PDF in your group's project folder on Google Drive)
+
+#### Class 21 (April 10): Logistic regression competition
+_Activities_
+
+* logistic regression competition
+
+_Homework_
+
+* Mon Apr 14: Draft of individual data analysis due (hand in PDF in your group's project folder on Google Drive)
+
 
 

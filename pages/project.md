@@ -31,10 +31,12 @@ _Individual Data analyses_
 Additionally, each member of the group will lead a particular thread of analysis and/or dataset exploration that expands on a topic that we have covered in class. The write-up for each individual data analysis should not exceed three pages, including tables and figures. 
 
 For this independent data analysis portion of the project, the two major paths that you can take are 
+
 1. to fit a specialized model to the data (i.e. not just MLR with vanilla covariates) and interpret the output from the methods that you have used. Examples here include regression trees, incorporating natural splines into an MLR model, or a mixed-effects model.
 2. to fit a more standard model (or set of models) to the data but compare different ways of analyzing or interpreting the model fit. For example, you could do a very detailed model diagnosis or model selection by comparing different model diagnostic or selection metrics.
 
 Examples of topics (for either of the categories above...)
+
 * regression trees
 * natural or B-splines
 * non-linear regression
@@ -58,6 +60,7 @@ It is expected that each group will craft their analysis collaboratively on GitH
 
 #### Project grading
 Your project grade makes up 35% of your final grade for the class and will be calculated as follows:
+
 * The final product produced by the group 50 points
  * 20 points: group data summary (clarity of data summary, quality of graphics/tables, adequate and accurate explanations of data, specific hypotheses defined, results summarized in conclusion/discussion section)
  * 10 points: project details (page limits adhered to, appropriate sectioning, etc...)

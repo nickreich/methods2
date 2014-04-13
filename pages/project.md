@@ -62,17 +62,17 @@ It is expected that each group will craft their analysis collaboratively on GitH
 Your project grade makes up 35% of your final grade for the class and will be calculated as follows:
 
 * The final product produced by the group 50 points
- * 20 points: group data summary (clarity of data summary, quality of graphics/tables, adequate and accurate explanations of data, specific hypotheses defined, results summarized in conclusion/discussion section)
- * 10 points: project details (page limits adhered to, appropriate sectioning, etc...)
- * 10 points: uniformity of presentation (individual write-ups have same look and feel, the project feels like a single work, not too disjointed)
- * 10 points: group presentation (time limits adhered to, project clearly summarized and defined, key findings highlighted, polished presentation)
+  * 20 points: group data summary (clarity of data summary, quality of graphics/tables, adequate and accurate explanations of data, specific hypotheses defined, results summarized in conclusion/discussion section)
+  * 10 points: project details (page limits adhered to, appropriate sectioning, etc...)
+  * 10 points: uniformity of presentation (individual write-ups have same look and feel, the project feels like a single work, not too disjointed)
+  * 10 points: group presentation (time limits adhered to, project clearly summarized and defined, key findings highlighted, polished presentation)
 * Individually prepared data analysis 25 points
- * 15 points: overall quality (clear and accurate description of methods/models used, appropriate use of equations to show what methods/models have been used, appropriate use of graphics/tables to support central results, summary of key results)
- * 10 points: individual presentation (time limit adhered to, individual project clearly summarized)
+  * 15 points: overall quality (clear and accurate description of methods/models used, appropriate use of equations to show what methods/models have been used, appropriate use of graphics/tables to support central results, summary of key results)
+  * 10 points: individual presentation (time limit adhered to, individual project clearly summarized)
 * Individually prepared lab exercise 25 points
- * 10 points: overall quality (clear descriptions of the goals of the lab, adequate explanations of each step taken, clearly linked to the data analysis presented)
- * 10 points: reproducibility (the lab code can be run without errors)
- * 5 points: appropriate length (not too simple/short, not too detailed/long)
+  * 10 points: overall quality (clear descriptions of the goals of the lab, adequate explanations of each step taken, clearly linked to the data analysis presented)
+  * 10 points: reproducibility (the lab code can be run without errors)
+  * 5 points: appropriate length (not too simple/short, not too detailed/long)
 
 To evaluate group participation and contributions, I will be using the following approach to evaluate each of your contributions to the project. Each student will be given 100 points to allocate among your teammates (excluding yourself). The more points you give to a teammate, the more you are indicating they contributed to the project. You cannot allocate the same number of points for any two team members. I reserve the right to intervene to correct gross imbalances in allocations if necessary. The number of points that you receive from your teammates will be summed, divided by 100, and then used as a multiplier on the final grade for the group project. 
 

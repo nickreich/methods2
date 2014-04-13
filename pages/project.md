@@ -50,6 +50,7 @@ Examples of topics (for either of the categories above...)
 The data analysis write-up will contain a section for each group member's analysis and a conclusion that summarizes the results. 
 
 _Group presentation_
+
 Each group will present their project to the class in a ~30-minute presentation. In this presentation, each group member will have 5 minutes to present the  his/her topic 
 
 #### Lab exercises

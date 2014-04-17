@@ -30,7 +30,7 @@ Source files for all notes are available from the [master branch of the GitHub r
  * Class 19: Spline models \[  [S](../assets/lectures/class19_Splines.pdf) \| [A](../assets/lectures/class19_Splines_Annotated.pdf)  \] 
  * Class 20: Generalized Linear Models and Logistic Regression \[  [S](../assets/lectures/class20_GLMlogistic.pdf) \| [A](../assets/lectures/class20_GLMlogistic_Annotated.pdf)  \] 
  * Class 21: Logistic Regression competition \[ [lab](../assets/lectures/titanic.html) \]
- * Class 22: Longitudinal Data Analysis (L18-20)
+ * Class 22: Longitudinal Data Analysis \[  [S](../assets/lectures/class22_LDA.pdf) \| [A](../assets/lectures/class22_LDA_Annotated.pdf)  \] 
  * Class 23: Longitudinal Data Analysis (continued)
  * Class 24: Project prep
  * Classes 25-26: Project presentations

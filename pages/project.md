@@ -51,7 +51,7 @@ The data analysis write-up will contain a section for each group member's analys
 
 _Group presentation_
 
-Each group will present their project to the class in a ~30-minute presentation. In this presentation, each group member will have 5 minutes to present the  his/her topic 
+Each group will present their project to the class in a ~30-minute presentation. In this presentation, each group member will have 5 minutes to present his/her topic 
 
 #### Lab exercises
 The lab exercises should mirror in structure some of the exercises that we have done in class (e.g. Global F-tests, permutation tests). They could even be an "annotated script" of the analysis that you ran for the write-up. The key here is that you should imagine trying to teach this to someone who has a working knowledge of regression, but may not be familiar with the tool/model/technique that you are demonstrating. Explain what your code is doing and why you are running things in the way that you are. Things that make the exercises you develop interactive at the small-group or whole-class level (e.g. the lab where we tallied the number of "significant" p-values that each person had from running the code in the global F-test lab) are a plus.

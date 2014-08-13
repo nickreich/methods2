@@ -35,6 +35,8 @@ The aim of this course is to provide fundamental statistical concepts and tools 
 
 **Links to course resources**
 
+&nbsp; &nbsp; *[PDF Syllabus](assets/lectures/Methods2_ReichSyllabus.pdf)*
+
 &nbsp; &nbsp; *[Detailed class schedules](pages/schedule.html)*
 
 &nbsp; &nbsp; *[Lecture Notes](pages/notes.html)*
